@@ -50,6 +50,7 @@ def test_get_file_unrecognised_file_type():
         v.get_file_type(SimpleUploadedFile('test', b'test'))
 
 
+@pytest.mark.xfail
 def test_get_schema_validation_errors():
     schema_url = 'http://ocds.open-contracting.org/standard/r/1__0__RC/release-package-schema.json'
     with open(os.path.join('cove', 'fixtures', 'tenders_releases_2_releases.json')) as fp:

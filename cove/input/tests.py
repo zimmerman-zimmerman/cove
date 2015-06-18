@@ -1,4 +1,5 @@
 import pytest
+import os
 import cove.input.views as v
 from cove.input.models import SuppliedData
 from django.conf import settings
@@ -18,9 +19,13 @@ def test_input(rf):
 
 
 @pytest.mark.django_db
-def test_input_post(rf):
+def test_input_post(rf, httpserver):
+    source_filename = 'tenders_releases_2_releases.json'
+    with open(os.path.join('cove', 'fixtures', source_filename), 'rb') as fp:
+        httpserver.serve_content(fp.read())
+    source_url = httpserver.url + '/' + source_filename
     resp = v.input(fake_cove_middleware(rf.post('/', {
-        'source_url': 'https://raw.githubusercontent.com/OpenDataServices/flatten-tool/master/flattentool/tests/fixtures/tenders_releases_2_releases.json'
+        'source_url': source_url
     })))
     assert resp.status_code == 302
     assert SuppliedData.objects.count() == 1
