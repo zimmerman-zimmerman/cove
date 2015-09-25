@@ -142,7 +142,6 @@ def test_accordion(server_url, browser, prefix):
     assert buttons() == [False, False, True]
 
 
-@pytest.mark.xfail
 @pytest.mark.parametrize(('prefix', 'source_filename', 'expected_text', 'conversion_successful'), [
     ('/ocds/', 'tenders_releases_2_releases.json', 'Download Files', True),
     ('/ocds/', 'tenders_releases_2_releases.json', 'Save or Share these results', True),
@@ -153,14 +152,14 @@ def test_accordion(server_url, browser, prefix):
     # But we expect to see an error message if a file is not well formed JSON at all
     ('/ocds/', 'tenders_releases_2_releases_not_json.json', 'not well formed JSON', False),
     ('/ocds/', 'tenders_releases_2_releases.xlsx', 'Download Files', True),
-    ('/360/', 'WellcomeTrust-grants_fixed_2_grants.json', 'Download Files', True),
-    ('/360/', 'WellcomeTrust-grants_fixed_2_grants.json', 'Save or Share these results', True),
+    pytest.mark.xfail(('/360/', 'WellcomeTrust-grants_fixed_2_grants.json', 'Download Files', True)),
+    pytest.mark.xfail(('/360/', 'WellcomeTrust-grants_fixed_2_grants.json', 'Save or Share these results', True)),
     # Test a 360 spreadsheet with titles, rather than fields
-    ('/360/', 'WellcomeTrust-grants_2_grants.xlsx', 'Download Files', True),
+    pytest.mark.xfail(('/360/', 'WellcomeTrust-grants_2_grants.xlsx', 'Download Files', True)),
     # Test a non-valid file.
-    ('/360/', 'paul-hamlyn-foundation-grants_dc.txt', 'We can only process json, csv and xlsx files', False),
+    pytest.mark.xfail(('/360/', 'paul-hamlyn-foundation-grants_dc.txt', 'We can only process json, csv and xlsx files', False)),
     # Test a unconvertable spreadsheet (main sheet "grants" is missing)
-    ('/360/', 'basic.xlsx', 'We think you tried to supply a spreadsheet, but we failed to convert it to JSON.', False),
+    pytest.mark.xfail(('/360/', 'basic.xlsx', 'We think you tried to supply a spreadsheet, but we failed to convert it to JSON.', False)),
     # Test a unconvertable spreadsheet (main sheet "releases" is missing)
     ('/ocds/', 'WellcomeTrust-grants_2_grants.xlsx', 'We think you tried to supply a spreadsheet, but we failed to convert it to JSON.', False),
     # Test unconvertable JSON (main sheet "releases" is missing)
