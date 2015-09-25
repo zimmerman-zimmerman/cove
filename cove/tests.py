@@ -61,13 +61,11 @@ def test_get_schema_validation_errors():
         assert len(error_list) > 0
 
 
-@pytest.mark.xfail
 @pytest.mark.django_db
-@pytest.mark.parametrize('current_app', ['cove-ocds', 'cove-360'])
+@pytest.mark.parametrize('current_app', ['cove-ocds', pytest.mark.xfail('cove-360')])
 def test_explore_page(client, current_app):
-    data = SuppliedData.objects.create()
+    data = SuppliedData.objects.create(current_app=current_app)
     data.original_file.save('test.json', ContentFile('{}'))
-    data.current_app = current_app
     resp = client.get(data.get_absolute_url())
     assert resp.status_code == 200
     assert resp.context['conversion'] == 'flatten'
@@ -78,21 +76,21 @@ def test_explore_page(client, current_app):
         assert 'converted_file_size_titles' not in resp.context
 
 
-@pytest.mark.xfail
 @pytest.mark.django_db
-def test_explore_page_csv(client):
-    data = SuppliedData.objects.create()
+@pytest.mark.parametrize('current_app', ['cove-ocds', pytest.mark.xfail('cove-360')])
+def test_explore_page_csv(client, current_app):
+    data = SuppliedData.objects.create(current_app=current_app)
     data.original_file.save('test.csv', ContentFile('a,b'))
     resp = client.get(data.get_absolute_url())
     assert resp.status_code == 200
     assert resp.context['conversion'] == 'unflatten'
-    assert resp.context['converted_file_size'] == 20
+    assert resp.context['converted_file_size'] == 22 if current_app == 'cove-ocds' else 20
 
 
-@pytest.mark.xfail
 @pytest.mark.django_db
-def test_explore_not_json(client):
-    data = SuppliedData.objects.create()
+@pytest.mark.parametrize('current_app', ['cove-ocds', pytest.mark.xfail('cove-360')])
+def test_explore_not_json(client, current_app):
+    data = SuppliedData.objects.create(current_app=current_app)
     with open(os.path.join('cove', 'fixtures', 'tenders_releases_2_releases_not_json.json')) as fp:
         data.original_file.save('test.json', UploadedFile(fp))
     resp = client.get(data.get_absolute_url())
@@ -101,8 +99,9 @@ def test_explore_not_json(client):
 
 
 @pytest.mark.django_db
-def test_explore_unconvertable_spreadsheet(client):
-    data = SuppliedData.objects.create()
+@pytest.mark.parametrize('current_app', ['cove-ocds', pytest.mark.xfail('cove-360')])
+def test_explore_unconvertable_spreadsheet(client, current_app):
+    data = SuppliedData.objects.create(current_app=current_app)
     with open(os.path.join('cove', 'fixtures', 'basic.xlsx'), 'rb') as fp:
         data.original_file.save('basic.xlsx', UploadedFile(fp))
     resp = client.get(data.get_absolute_url())
@@ -111,8 +110,9 @@ def test_explore_unconvertable_spreadsheet(client):
 
 
 @pytest.mark.django_db
-def test_explore_unconvertable_json(client):
-    data = SuppliedData.objects.create()
+@pytest.mark.parametrize('current_app', ['cove-ocds', pytest.mark.xfail('cove-360')])
+def test_explore_unconvertable_json(client, current_app):
+    data = SuppliedData.objects.create(current_app=current_app)
     with open(os.path.join('cove', 'fixtures', 'unconvertable_json.json')) as fp:
         data.original_file.save('unconvertable_json.json', UploadedFile(fp))
     resp = client.get(data.get_absolute_url())
