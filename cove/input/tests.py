@@ -17,6 +17,7 @@ def test_input(rf):
     assert resp.status_code == 200
 
 
+@pytest.mark.xfail
 @pytest.mark.django_db
 def test_input_post(rf):
     resp = v.input(fake_cove_middleware(rf.post('/', {
