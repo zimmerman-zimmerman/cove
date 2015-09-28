@@ -28,6 +28,12 @@ def test_get_releases_aggregates():
     }
 
 
+def test_fields_present():
+    assert list(v.fields_present({})) == []
+    assert list(v.fields_present({'a': 1, 'b': 2})) == ['/a', '/b']
+    assert list(v.fields_present({'a': {}, 'b': 2})) == ['/a', '/b']
+
+
 def test_get_file_type_xlsx():
     with open(os.path.join('cove', 'fixtures', 'basic.xlsx')) as fp:
         assert v.get_file_type(UploadedFile(fp, 'basic.xlsx')) == 'xlsx'

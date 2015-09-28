@@ -75,6 +75,15 @@ def get_grants_aggregates(json_data):
     }
 
 
+# TODO look up JSON ref definition
+# Actually don't want this gnerator because we want a set with far fewer duplicates !!!
+def fields_present(json_data, prefix=''):
+    if hasattr(json_data, 'items'):
+        for key, value in json_data.items():
+            yield from fields_present(value)
+            yield prefix + '/' + key
+
+
 def get_schema_validation_errors(json_data, schema_url):
     schema = requests.get(schema_url).json()
     validation_error_list = []
@@ -265,6 +274,7 @@ def explore(request, pk):
             'file_type': file_type,
             'schema_url': schema_url,
             'validation_error_list': get_schema_validation_errors(json_data, schema_url) if schema_url else None,
+            'fields_present': list(fields_present(json_data)),
             'json_data': json_data  # Pass the JSON data to the template so we can display values that need little processing
         })
 
