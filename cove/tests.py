@@ -2,9 +2,13 @@ import pytest
 import cove.views as v
 import os
 import json
+import vcr
 from cove.input.models import SuppliedData
 from django.core.files.base import ContentFile
 from django.core.files.uploadedfile import SimpleUploadedFile, UploadedFile
+
+
+my_vcr = vcr.VCR(record_mode='new_episodes')
 
 
 def test_get_releases_aggregates():
@@ -50,6 +54,7 @@ def test_get_file_unrecognised_file_type():
         v.get_file_type(SimpleUploadedFile('test', b'test'))
 
 
+@my_vcr.use_cassette('vcrpy.yaml')
 def test_get_schema_validation_errors():
     schema_url = 'http://ocds.open-contracting.org/standard/r/1__0__RC/release-package-schema.json'
     with open(os.path.join('cove', 'fixtures', 'tenders_releases_2_releases.json')) as fp:
@@ -60,6 +65,7 @@ def test_get_schema_validation_errors():
         assert len(error_list) > 0
 
 
+@my_vcr.use_cassette('vcrpy.yaml')
 @pytest.mark.django_db
 @pytest.mark.parametrize('current_app', ['cove-ocds', 'cove-360'])
 def test_explore_page(client, current_app):
@@ -76,6 +82,7 @@ def test_explore_page(client, current_app):
         assert 'converted_file_size_titles' not in resp.context
 
 
+@my_vcr.use_cassette('vcrpy.yaml')
 @pytest.mark.django_db
 def test_explore_page_csv(client):
     data = SuppliedData.objects.create()
@@ -86,6 +93,7 @@ def test_explore_page_csv(client):
     assert resp.context['converted_file_size'] == 20
 
 
+@my_vcr.use_cassette('vcrpy.yaml')
 @pytest.mark.django_db
 def test_explore_not_json(client):
     data = SuppliedData.objects.create()
@@ -96,6 +104,7 @@ def test_explore_not_json(client):
     assert b'not well formed JSON' in resp.content
 
 
+@my_vcr.use_cassette('vcrpy.yaml')
 @pytest.mark.django_db
 def test_explore_unconvertable_spreadsheet(client):
     data = SuppliedData.objects.create()
@@ -106,6 +115,7 @@ def test_explore_unconvertable_spreadsheet(client):
     assert b'We think you tried to supply a spreadsheet, but we failed to convert it to JSON.' in resp.content
 
 
+@my_vcr.use_cassette('vcrpy.yaml')
 @pytest.mark.django_db
 def test_explore_unconvertable_json(client):
     data = SuppliedData.objects.create()

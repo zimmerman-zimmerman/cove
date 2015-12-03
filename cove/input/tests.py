@@ -2,6 +2,7 @@ import pytest
 import cove.input.views as v
 from cove.input.models import SuppliedData
 from django.conf import settings
+from cove.tests import my_vcr
 
 
 def fake_cove_middleware(request):
@@ -17,6 +18,7 @@ def test_input(rf):
     assert resp.status_code == 200
 
 
+@my_vcr.use_cassette('vcrpy.yaml')
 @pytest.mark.django_db
 def test_input_post(rf):
     resp = v.input(fake_cove_middleware(rf.post('/', {
