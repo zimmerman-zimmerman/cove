@@ -3,6 +3,7 @@ import requests
 from selenium import webdriver
 import time
 import os
+from cove.tests import my_vcr
 
 
 @pytest.fixture(scope="module")
@@ -21,11 +22,13 @@ def server_url(request, live_server):
         return live_server.url
     
 
+@my_vcr.use_cassette('vcrpy.yaml')
 def test_index_page_banner(server_url, browser):
     browser.get(server_url)
     assert 'This tool is alpha. Please report any problems on GitHub issues.' in browser.find_element_by_tag_name('body').text
     
 
+@my_vcr.use_cassette('vcrpy.yaml')
 def test_index_page(server_url, browser):
     browser.get(server_url)
     assert 'CoVE' in browser.find_element_by_tag_name('body').text
@@ -34,6 +37,7 @@ def test_index_page(server_url, browser):
     assert 'Creating and using Open Data is made easier when there are good tools to help.' in browser.find_element_by_tag_name('body').text
 
 
+@my_vcr.use_cassette('vcrpy.yaml')
 @pytest.mark.parametrize(('link_text', 'expected_text', 'css_selector', 'url'), [
     ('Open Contracting', 'What is Open Contracting?', 'div#page-what h1', 'http://www.open-contracting.org/'),
     ('Open Contracting Data Standard', 'OPEN CONTRACTING DATA STANDARD (OCDS) PROJECT SITE', 'h1.site-title', 'http://standard.open-contracting.org/'),
@@ -48,6 +52,7 @@ def test_footer_ocds(server_url, browser, link_text, expected_text, css_selector
     assert expected_text in browser.find_element_by_css_selector(css_selector).text
 
 
+@my_vcr.use_cassette('vcrpy.yaml')
 @pytest.mark.parametrize(('link_text', 'expected_text', 'css_selector', 'url'), [
     ('360Giving', 'We believe that with better information, grantmakers can be more effective and strategic decision-makers.', 'body.home', 'http://www.threesixtygiving.org/'),
     ('360Giving Data Standard', 'Standard', 'h1.entry-title', 'http://www.threesixtygiving.org/standard/'),
@@ -62,12 +67,14 @@ def test_footer_360(server_url, browser, link_text, expected_text, css_selector,
     assert expected_text in browser.find_element_by_css_selector(css_selector).text
 
 
+@my_vcr.use_cassette('vcrpy.yaml')
 def test_index_page_ocds(server_url, browser):
     browser.get(server_url + '/ocds/')
     assert 'Open Contracting Data Tool' in browser.find_element_by_tag_name('body').text
     assert 'How to use the Open Contracting Data Tool' in browser.find_element_by_tag_name('body').text
     
     
+@my_vcr.use_cassette('vcrpy.yaml')
 def test_index_page_360(server_url, browser):
     browser.get(server_url + '/360/')
     assert '360Giving Data Tool' in browser.find_element_by_tag_name('body').text
@@ -78,6 +85,7 @@ def test_index_page_360(server_url, browser):
     assert '360 Giving' not in browser.find_element_by_tag_name('body').text
   
   
+@my_vcr.use_cassette('vcrpy.yaml')
 @pytest.mark.parametrize(('link_text', 'url'), [
     ('360Giving Data Standard guidence', 'http://www.threesixtygiving.org/standard/'),
     ('Excel', 'https://github.com/ThreeSixtyGiving/standard/raw/master/schema/summary-table/360-giving-schema-titles.xlsx'),
@@ -91,6 +99,7 @@ def test_index_page_360_links(server_url, browser, link_text, url):
     assert url in href
 
 
+@my_vcr.use_cassette('vcrpy.yaml')
 @pytest.mark.parametrize('prefix', ['/ocds/', '/360/'])
 def test_common_index_elements(server_url, browser, prefix):
     assert 'What happens to the data I provide to this site?' in browser.find_element_by_tag_name('body').text
@@ -102,6 +111,7 @@ def test_common_index_elements(server_url, browser, prefix):
     assert '360 Giving' not in browser.find_element_by_tag_name('body').text
 
 
+@my_vcr.use_cassette('vcrpy.yaml')
 @pytest.mark.parametrize('prefix', ['/ocds/', '/360/'])
 def test_terms_page(server_url, browser, prefix):
     browser.get(server_url + prefix + 'terms/')
@@ -110,6 +120,7 @@ def test_terms_page(server_url, browser, prefix):
     assert '360 Giving' not in browser.find_element_by_tag_name('body').text
     
 
+@my_vcr.use_cassette('vcrpy.yaml')
 @pytest.mark.parametrize('prefix', ['/ocds/', '/360/'])
 def test_accordion(server_url, browser, prefix):
     browser.get(server_url + prefix)
@@ -138,6 +149,7 @@ def test_accordion(server_url, browser, prefix):
     assert buttons() == [False, False, True]
 
 
+@my_vcr.use_cassette('vcrpy.yaml')
 @pytest.mark.parametrize(('prefix', 'source_filename', 'expected_text', 'conversion_successful'), [
     ('/ocds/', 'tenders_releases_2_releases.json', ['Download Files', 'Save or Share these results'], True),
     # Conversion should still work for files that don't validate against the schema
@@ -181,6 +193,7 @@ def test_URL_input(server_url, browser, httpserver, source_filename, prefix, exp
     check_url_input_result_page(server_url, browser, httpserver, source_filename, prefix, expected_text, conversion_successful)
 
 
+@my_vcr.use_cassette('vcrpy.yaml')
 def check_url_input_result_page(server_url, browser, httpserver, source_filename, prefix, expected_text, conversion_successful):
     # We should still be in the correct app
     body_text = browser.find_element_by_tag_name('body').text
@@ -227,6 +240,7 @@ def check_url_input_result_page(server_url, browser, httpserver, source_filename
         assert int(converted_file_response.headers['content-length']) != 0
 
 
+@my_vcr.use_cassette('vcrpy.yaml')
 @pytest.mark.parametrize(('prefix'), [
     ('/ocds/'),
     ('/360/'),

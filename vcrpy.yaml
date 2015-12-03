@@ -2879,4 +2879,2065 @@ interactions:
       X-Served-By: [cache-lhr6333-LHR]
       X-XSS-Protection: [1; mode=block]
     status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.8.1]
+    method: GET
+    uri: http://127.0.0.1:44588/tenders_releases_2_releases.json
+  response:
+    body: {string: "{\n    \"publisher\": {\n        \"scheme\": null, \n        \"\
+        name\": \"Buyandsell.gc.ca\", \n        \"uri\": \"https://buyandsell.gc.ca\"\
+        , \n        \"uid\": null\n    }, \n    \"releases\": [\n        {\n     \
+        \       \"date\": \"2014-03-25\", \n            \"language\": \"English\"\
+        , \n            \"id\": \"Buyandsell.gc.ca-2014-11-07-89f689cd-e784-4374-bb17-94144679d46f\"\
+        , \n            \"ocid\": \"PW-14-00627094\", \n            \"initiationType\"\
+        : \"tender\", \n            \"tender\": {\n                \"documents\":\
+        \ [\n                    {\n                        \"url\": \"https://buyandsell.gc.ca/cds/public/2014/03/25/3a76d19e61825db7939e14afaa2002e3/14-2015_itt.pdf\"\
+        , \n                        \"id\": \"https://buyandsell.gc.ca/cds/public/2014/03/25/3a76d19e61825db7939e14afaa2002e3/14-2015_itt.pdf\"\
+        \n                    }, \n                    {\n                       \
+        \ \"url\": \"https://buyandsell.gc.ca/cds/public/2014/03/25/a5d07c1166142b8b2f4183d7a5363fec/14-2015_itt_-_f.pdf\"\
+        , \n                        \"id\": \"https://buyandsell.gc.ca/cds/public/2014/03/25/a5d07c1166142b8b2f4183d7a5363fec/14-2015_itt_-_f.pdf\"\
+        \n                    }, \n                    {\n                       \
+        \ \"url\": \"https://buyandsell.gc.ca/cds/public/2014/04/04/ea5d0f03cfc6ea201b5b6df8794dbb3c/14-2015_itt_amd1.pdf\"\
+        , \n                        \"id\": \"https://buyandsell.gc.ca/cds/public/2014/04/04/ea5d0f03cfc6ea201b5b6df8794dbb3c/14-2015_itt_amd1.pdf\"\
+        \n                    }, \n                    {\n                       \
+        \ \"url\": \"https://buyandsell.gc.ca/cds/public/2014/04/04/ac9afb3b664a28d519062f2b2a4cbceb/14-2015_itt_amd1-f.pdf\"\
+        , \n                        \"id\": \"https://buyandsell.gc.ca/cds/public/2014/04/04/ac9afb3b664a28d519062f2b2a4cbceb/14-2015_itt_amd1-f.pdf\"\
+        \n                    }, \n                    {\n                       \
+        \ \"url\": \"https://buyandsell.gc.ca/cds/public/2014/04/11/f3f3993b4f6f260e057d0cb95f43741d/14-2015_itt_amd2.pdf\"\
+        , \n                        \"id\": \"https://buyandsell.gc.ca/cds/public/2014/04/11/f3f3993b4f6f260e057d0cb95f43741d/14-2015_itt_amd2.pdf\"\
+        \n                    }, \n                    {\n                       \
+        \ \"url\": \"https://buyandsell.gc.ca/cds/public/2014/04/11/69359ba194d3f01f4f13cb9673b85071/14-2015_itt_amd2-f.pdf\"\
+        , \n                        \"id\": \"https://buyandsell.gc.ca/cds/public/2014/04/11/69359ba194d3f01f4f13cb9673b85071/14-2015_itt_amd2-f.pdf\"\
+        \n                    }\n                ], \n                \"tenderPeriod\"\
+        : {\n                    \"endDate\": \"2014-04-15 14:00 Eastern Daylight\
+        \ Time (EDT)\"\n                }, \n                \"items\": [\n      \
+        \              {\n                        \"id\": \"1\", \n              \
+        \          \"classification\": {\n                            \"scheme\":\
+        \ \"GSIN\", \n                            \"description\": \"F029: Other Animal\
+        \ Care and Control Services\"\n                        }, \n             \
+        \           \"description\": \"Canine Control of the Canada Geese (14-2015)\"\
+        \n                    }\n                ], \n                \"awardCriteriaDetails\"\
+        : null, \n                \"procuringEntity\": {\n                    \"name\"\
+        : \"Agriculture & Agrifood Canada\"\n                }, \n               \
+        \ \"id\": \"PW-14-00627094\", \n                \"methodRationale\": \"Open\"\
+        \n            }, \n            \"tag\": [\"tender\"], \n            \"buyer\"\
+        : {\n                \"name\": \"Agriculture & Agrifood Canada\"\n       \
+        \     }\n        }, \n        {\n            \"date\": \"2014-04-04\", \n\
+        \            \"language\": \"English\", \n            \"id\": \"Buyandsell.gc.ca-2014-11-07-a76b0dd2-3dc8-4c52-bc36-cd0e42530602\"\
+        , \n            \"ocid\": \"PW-14-00629344\", \n            \"initiationType\"\
+        : \"tender\", \n            \"tender\": {\n                \"documents\":\
+        \ [\n                    {\n                        \"url\": \"https://buyandsell.gc.ca/cds/public/2014/04/04/cb21d6397174fbba48c92edb694de76f/tender_document_5p404-13181.pdf\"\
+        , \n                        \"id\": \"https://buyandsell.gc.ca/cds/public/2014/04/04/cb21d6397174fbba48c92edb694de76f/tender_document_5p404-13181.pdf\"\
+        \n                    }, \n                    {\n                       \
+        \ \"url\": \"https://buyandsell.gc.ca/cds/public/2014/04/04/370b7a9ab2bdd35086e6caed9b5226f9/fr_tender_document_5p404-13181.pdf\"\
+        , \n                        \"id\": \"https://buyandsell.gc.ca/cds/public/2014/04/04/370b7a9ab2bdd35086e6caed9b5226f9/fr_tender_document_5p404-13181.pdf\"\
+        \n                    }\n                ], \n                \"tenderPeriod\"\
+        : {\n                    \"endDate\": \"2014-04-22 14:00 Central Daylight\
+        \ Time (CDT)\"\n                }, \n                \"items\": [\n      \
+        \              {\n                        \"id\": \"1\", \n              \
+        \          \"classification\": {\n                            \"scheme\":\
+        \ \"GSIN\", \n                            \"description\": \"5131BI: Asphalt\
+        \ and Joint Sealing Services, 5131C: Highways, Roads, Railways,  Airfield\
+        \ Runways\"\n                        }, \n                        \"description\"\
+        : \"Clear Lake Campground Asphalt Paving - Riding Mountain National Park of\
+        \ Canada (5P404-13181)\"\n                    }\n                ], \n   \
+        \             \"awardCriteriaDetails\": null, \n                \"procuringEntity\"\
+        : {\n                    \"name\": \"Parks Canada\"\n                }, \n\
+        \                \"id\": \"PW-14-00629344\", \n                \"methodRationale\"\
+        : \"Open\"\n            }, \n            \"tag\": [\"tender\"], \n       \
+        \     \"buyer\": {\n                \"name\": \"Parks Canada\"\n         \
+        \   }\n        }\n    ], \n    \"uri\": \"https://github.com/open-contracting/sample-data/blob/master/buyandsell/ocds_data/tender_releases.json.zip\"\
+        , \n    \"license\": \"http://data.gc.ca/eng/open-government-licence-canada\"\
+        , \n    \"publishedDate\": \"2014-11-07\"\n}\n"}
+    headers:
+      Content-Length: ['5589']
+      Date: ['Thu, 03 Dec 2015 06:20:57 GMT']
+      Server: [Werkzeug/0.11.2 Python/3.4.3+]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.8.1]
+    method: GET
+    uri: http://ocds.open-contracting.org/standard/r/1__0__0/release-schema.json
+  response:
+    body: {string: "{\n    \"id\": \"http://ocds.open-contracting.org/standard/r/1__0__0/release-schema.json\"\
+        ,\n    \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n    \"title\"\
+        : \"Schema for an Open Contracting Release\",\n    \"type\": \"object\",\n\
+        \    \"properties\": {\n        \"ocid\": {\n            \"title\": \"Open\
+        \ Contracting ID\",\n            \"description\": \"A globally unique identifier\
+        \ for this Open Contracting Process. Composed of a publisher prefix and an\
+        \ identifier for the contracting process. For more information see the [Open\
+        \ Contracting Identifier guidance](http://ocds.open-contracting.org/standard/r/1__0__0/en/key_concepts/identifiers/#ocid)\"\
+        ,\n            \"type\": \"string\",\n            \"mergeStrategy\": \"ocdsOmit\"\
+        \n        },\n        \"id\": {\n            \"title\": \"Release ID\",\n\
+        \            \"description\": \"A unique identifier that identifies this release.\
+        \ A releaseID must be unique within a release-package and must not contain\
+        \ the # character.\",\n            \"type\": \"string\",\n            \"mergeStrategy\"\
+        : \"ocdsOmit\"\n        },\n        \"date\": {\n            \"title\": \"\
+        Release Date\",\n            \"description\": \"The date this information\
+        \ is released, it may well be the same as the parent publishedDate, it must\
+        \ not be later than the publishedDate from the parent package. It is used\
+        \ to determine merge order.\",\n            \"type\": \"string\",\n      \
+        \      \"format\": \"date-time\",\n            \"mergeStrategy\": \"ocdsOmit\"\
+        \n        },\n        \"tag\": {\n            \"title\": \"Release Tag\",\n\
+        \            \"description\": \"A value from the [releaseTag codelist](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists#release-tag)\
+        \ that identifies the nature of the release being made. Tags may be used to\
+        \ filter release, or, in future, for for advanced validation when certain\
+        \ kinds of releases should contain certain fields.\",\n            \"type\"\
+        : \"array\",\n            \"items\": {\n                \"type\": \"string\"\
+        ,\n                \"enum\": [\"planning\", \"tender\", \"tenderAmendment\"\
+        , \"tenderUpdate\", \"tenderCancellation\", \"award\", \"awardUpdate\", \"\
+        awardCancellation\", \"contract\", \"contractUpdate\", \"contractAmendment\"\
+        , \"implementation\", \"implementationUpdate\", \"contractTermination\", \"\
+        compiled\"]\n            },\n            \"mergeStrategy\": \"ocdsOmit\"\n\
+        \        },\n        \"initiationType\": {\n            \"title\": \"Initiation\
+        \ type\",\n            \"description\": \"String specifying the type of initiation\
+        \ process used for this contract, taken from the [initiationType](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists#initiation-type)\
+        \ codelist. Currently only tender is supported.\",\n            \"type\":\
+        \ \"string\",\n            \"enum\": [\"tender\"],\n            \"mergeStrategy\"\
+        : \"ocdsVersion\"\n        },\n        \"planning\": { \n            \"title\"\
+        : \"Planning\",\n            \"description\": \"Information from the planning\
+        \ phase of the contracting process. This includes information related to the\
+        \ process of deciding what to contract for, when and how.\",\n           \
+        \ \"$ref\": \"#/definitions/Planning\"\n        },\n        \"tender\": {\n\
+        \            \"title\": \"Tender\",\n            \"description\": \"The activities\
+        \ undertaken in order to enter into a contract.\",\n            \"$ref\":\
+        \ \"#/definitions/Tender\"\n        },\n        \"buyer\": {\n           \
+        \ \"title\": \"Buyer\",\n            \"description\": \"The buyer is the entity\
+        \ whose budget will be used to purchase the goods. This may be different from\
+        \ the procuring agency who may be specified in the tender data.\",\n     \
+        \       \"$ref\": \"#/definitions/Organization\"\n        },\n        \"awards\"\
+        : { \n            \"title\": \"Awards\",\n            \"description\": \"\
+        Information from the award phase of the contracting process. There may be\
+        \ more than one award per contracting process e.g. because the contract is\
+        \ split amongst different providers, or because it is a standing offer.\"\
+        ,\n            \"type\": \"array\",\n            \"mergeStrategy\": \"arrayMergeById\"\
+        ,\n            \"mergeOptions\": {\"idRef\": \"id\"},\n            \"items\"\
+        : { \"$ref\": \"#/definitions/Award\" },\n            \"uniqueItems\": true\n\
+        \        },\n        \"contracts\": { \n            \"title\": \"Contracts\"\
+        ,\n            \"description\": \"Information from the contract creation phase\
+        \ of the procurement process.\",\n            \"type\": \"array\",\n     \
+        \       \"mergeStrategy\": \"arrayMergeById\",\n            \"mergeOptions\"\
+        : {\"idRef\": \"id\"},\n            \"items\": {\"$ref\": \"#/definitions/Contract\"\
+        \ },\n            \"uniqueItems\": true\n        },\n        \"language\"\
+        : {\n            \"title\": \"Release language\",\n            \"description\"\
+        : \"Specifies the default language of the data using either two-digit ISO\
+        \ 639-1, or extended BCP47 language tags. The use of two-letter codes from\
+        \ ISO 639-1 is strongly recommended.\",\n            \"type\": [\"string\"\
+        , \"null\"],\n            \"default\": \"en\",\n            \"mergeStrategy\"\
+        : \"ocdsVersion\"\n        }\n    },\n    \"required\": [\"ocid\", \"id\"\
+        , \"date\", \"tag\", \"initiationType\"],\n    \"definitions\": {\n      \
+        \  \"Planning\": {\n            \"title\": \"Planning\",\n            \"description\"\
+        : \"Information from the planning phase of the contracting process. Note that\
+        \ many other fields may be filled in a planning release, in the appropriate\
+        \ fields in other schema sections, these would likely be estimates at this\
+        \ stage e.g. totalValue in tender\",\n            \"type\": \"object\",\n\
+        \            \"properties\": {\n                \"budget\": { \"$ref\": \"\
+        #/definitions/Budget\" },\n                \"rationale\": {\n            \
+        \        \"description\": \"The rationale for the procurement provided in\
+        \ free text. More detail can be provided in an attached document.\",\n   \
+        \                 \"type\": [\"string\", \"null\"],\n                    \"\
+        mergeStrategy\": \"ocdsVersion\"\n                },\n                \"documents\"\
+        : {\n                    \"description\": \"A list of documents related to\
+        \ the planning process.\",\n                    \"type\": \"array\",\n   \
+        \                 \"mergeStrategy\": \"arrayMergeById\",\n               \
+        \     \"mergeOptions\": { \"idRef\": \"id\" },\n                    \"items\"\
+        : { \"$ref\": \"#/definitions/Document\" }\n                }\n          \
+        \  },\n            \"patternProperties\": {\n                \"^(rationale_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Tender\": {\n            \"title\"\
+        : \"Tender\",\n            \"description\": \"Data regarding tender process\
+        \ - publicly inviting prospective contractors to submit bids for evaluation\
+        \ and selecting a winner or winners.\",\n            \"type\": \"object\"\
+        ,\n            \"required\": [\"id\"],\n            \"properties\": {\n  \
+        \              \"id\": {\n                    \"title\": \"Tender ID\",\n\
+        \                    \"description\": \"An identifier for this tender process.\
+        \ This may be the same as the ocid, or may be drawn from an internally held\
+        \ identifier for this tender.\",\n                    \"type\": [\"string\"\
+        , \"integer\"],\n                    \"mergeStrategy\": \"ocdsVersion\"\n\
+        \                },\n                \"title\": {\n                    \"\
+        description\": \"Tender title\",\n                    \"type\": [\"string\"\
+        , \"null\"],\n                    \"mergeStrategy\": \"ocdsVersion\"\n   \
+        \             },\n                \"description\": {\n                   \
+        \ \"description\": \"Tender description\",\n                    \"type\":\
+        \ [\"string\", \"null\"],\n                    \"mergeStrategy\": \"ocdsVersion\"\
+        \n                },\n                \"status\": {\n                    \"\
+        title\": \"Tender Status\",\n                    \"description\": \"The current\
+        \ status of the tender based on the [tenderStatus codelist](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists#tender-status)\"\
+        ,\n                    \"type\": [\"string\", \"null\"],\n               \
+        \     \"enum\": [\"planned\", \"active\", \"cancelled\", \"unsuccessful\"\
+        , \"complete\", null],\n                    \"mergeStrategy\": \"ocdsVersion\"\
+        \n                },\n                \"items\": {\n                    \"\
+        title\": \"Items to be procured\",\n                    \"description\": \"\
+        The goods and services to be purchased, broken into line items wherever possible.\
+        \ Items should not be duplicated, but a quantity of 2 specified instead.\"\
+        ,\n                    \"type\": \"array\",\n                    \"mergeStrategy\"\
+        : \"arrayMergeById\",\n                    \"mergeOptions\": { \"idRef\":\
+        \ \"id\" },\n                    \"items\": { \"$ref\": \"#/definitions/Item\"\
+        \ },\n                    \"uniqueItems\": true\n                },\n    \
+        \            \"minValue\": {\n                    \"description\": \"The minimum\
+        \ estimated value of the procurement.\",\n                    \"$ref\": \"\
+        #/definitions/Value\"\n                },\n                \"value\": {\n\
+        \                    \"description\": \"The total upper estimated value of\
+        \ the procurement.\",\n                    \"$ref\": \"#/definitions/Value\"\
+        \n                },\n                \"procurementMethod\": {\n         \
+        \           \"description\": \"Specify tendering method against the [method\
+        \ codelist](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists#method)\
+        \ as per [GPA definitions](http://www.wto.org/english/docs_e/legal_e/rev-gpr-94_01_e.htm)\
+        \ of Open, Selective, Limited\",\n                    \"type\": [\"string\"\
+        , \"null\"],\n                    \"enum\": [\"open\", \"selective\", \"limited\"\
+        , null],\n                    \"mergeStrategy\": \"ocdsVersion\"\n       \
+        \         },\n                \"procurementMethodRationale\": {\n        \
+        \            \"description\": \"Rationale of procurement method, especially\
+        \ in the case of Limited tendering.\",\n                    \"type\": [\"\
+        string\", \"null\"],\n                    \"mergeStrategy\": \"ocdsVersion\"\
+        \n                },\n                \"awardCriteria\": {\n             \
+        \       \"description\": \"Specify the award criteria for the procurement,\
+        \ using the [award criteria codelist](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists#award-criteria)\"\
+        ,\n                    \"type\": [\"string\", \"null\"],\n               \
+        \     \"mergeStrategy\": \"ocdsVersion\"\n                },\n           \
+        \     \"awardCriteriaDetails\": {\n                    \"description\": \"\
+        Any detailed or further information on the award or selection criteria.\"\
+        ,\n                    \"type\": [\"string\", \"null\"],\n               \
+        \     \"mergeStrategy\": \"ocdsVersion\"\n                },\n           \
+        \     \"submissionMethod\": {\n                    \"description\": \"Specify\
+        \ the method by which bids must be submitted, in person, written, or electronic\
+        \ auction. Using the [submission method codelist](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists#submission-method)\"\
+        ,\n                    \"type\": [\"array\", \"null\"],\n                \
+        \    \"items\": {\n                        \"type\": \"string\"\n        \
+        \            },\n                    \"mergeStrategy\": \"ocdsVersion\"\n\
+        \                },\n                \"submissionMethodDetails\" : {\n   \
+        \                 \"description\": \"Any detailed or further information on\
+        \ the submission method. This may include the address, e-mail address or online\
+        \ service to which bids should be submitted, and any special requirements\
+        \ to be followed for submissions.\",\n                    \"type\": [\"string\"\
+        , \"null\"],\n                    \"mergeStrategy\": \"ocdsVersion\"\n   \
+        \             },\n                \"tenderPeriod\": {\n                  \
+        \  \"description\": \"The period when the tender is open for submissions.\
+        \ The end date is the closing date for tender submissions.\",\n          \
+        \          \"$ref\": \"#/definitions/Period\"\n                },\n      \
+        \          \"enquiryPeriod\": {\n                    \"description\": \"The\
+        \ period during which enquiries may be made and answered.\",\n           \
+        \         \"$ref\": \"#/definitions/Period\"\n                },\n       \
+        \         \"hasEnquiries\": {\n                    \"description\": \"A Yes/No\
+        \ field to indicate whether enquiries were part of tender process.\",\n  \
+        \                  \"type\": [\"boolean\", \"null\"],\n                  \
+        \  \"mergeStrategy\": \"ocdsVersion\"\n                },\n              \
+        \  \"eligibilityCriteria\": {\n                    \"description\": \"A description\
+        \ of any eligibility criteria for potential suppliers.\",\n              \
+        \      \"type\": [\"string\", \"null\"],\n                    \"mergeStrategy\"\
+        : \"ocdsVersion\"\n                },\n                \"awardPeriod\": {\n\
+        \                    \"description\": \"The date or period on which an award\
+        \ is anticipated to be made.\",\n                    \"$ref\": \"#/definitions/Period\"\
+        \n                },\n                \"numberOfTenderers\": {\n         \
+        \           \"definition\": \"The number of entities who submit a tender.\"\
+        ,\n                    \"type\": [\"integer\", \"null\"],\n              \
+        \      \"mergeStrategy\": \"ocdsVersion\"\n                },\n          \
+        \      \"tenderers\": {\n                    \"description\": \"All entities\
+        \ who submit a tender.\",\n                    \"type\": \"array\",\n    \
+        \                \"items\": { \"$ref\": \"#/definitions/Organization\" },\n\
+        \                    \"uniqueItems\": true,\n                    \"mergeStrategy\"\
+        : \"ocdsVersion\"\n                },\n                \"procuringEntity\"\
+        : {\n                    \"description\": \"The entity managing the procurement,\
+        \ which may be different from the buyer who is paying / using the items being\
+        \ procured.\",\n                    \"$ref\": \"#/definitions/Organization\"\
+        \n                },\n                \"documents\": {\n                 \
+        \   \"description\": \"All documents and attachments related to the tender,\
+        \ including any notices. See the [documentType codelist](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists#document-type)\
+        \ for details of potential documents to include.\",\n                    \"\
+        type\": \"array\",\n                    \"mergeStrategy\": \"arrayMergeById\"\
+        ,\n                    \"mergeOptions\": { \"idRef\": \"id\" },\n        \
+        \            \"items\": { \"$ref\": \"#/definitions/Document\" }\n       \
+        \         },\n                \"milestones\": {\n                    \"description\"\
+        : \"A list of milestones associated with the tender.\",\n                \
+        \    \"type\": \"array\",\n                    \"mergeStrategy\": \"arrayMergeById\"\
+        ,\n                    \"mergeOptions\": { \"idRef\": \"id\" },\n        \
+        \            \"items\": { \"$ref\": \"#/definitions/Milestone\" }\n      \
+        \          },\n                \"amendment\": { \"$ref\": \"#/definitions/Amendment\"\
+        \ }\n            },\n            \"patternProperties\": {\n              \
+        \  \"^(title_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  },\n                \"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  },\n                \"^(procurementMethodRationale_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  },\n                \"^(awardCriteriaDetails_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  },\n                \"^(submissionMethodDetails_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  },\n                \"^(eligibilityCriteria_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Award\": {\n            \"title\"\
+        : \"Award\",\n            \"description\": \"An award for the given procurement.\
+        \ There may be more than one award per contracting process e.g. because the\
+        \ contract is split amongst different providers, or because it is a standing\
+        \ offer.\",\n            \"type\": \"object\",\n            \"required\":\
+        \ [\"id\"],\n            \"properties\": {\n                \"id\": {\n  \
+        \                  \"title\": \"Award ID\",\n                    \"description\"\
+        : \"The identifier for this award. It must be unique and cannot change within\
+        \ the Open Contracting Process it is part of (defined by a single ocid). See\
+        \ the [identifier guidance](http://ocds.open-contracting.org/standard/r/1__0__0/en/key_concepts/identifiers/)\
+        \ for further details.\",\n                    \"type\": [\"string\", \"integer\"\
+        ],\n                    \"mergeStrategy\": \"overwrite\"\n               \
+        \ },\n                \"title\": {\n                    \"description\": \"\
+        Award title\",\n                    \"type\": [\"string\", \"null\"],\n  \
+        \                  \"mergeStrategy\": \"ocdsVersion\"\n                },\n\
+        \                \"description\": {\n                    \"description\":\
+        \ \"Award description\",\n                    \"type\": [\"string\", \"null\"\
+        ],\n                    \"mergeStrategy\": \"ocdsVersion\"\n             \
+        \   },\n                \"status\": {\n                    \"title\": \"Award\
+        \ Status\",\n                    \"description\": \"The current status of\
+        \ the award drawn from the [awardStatus codelist](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists/#award-status)\"\
+        ,\n                    \"type\": [\"string\", \"null\"],\n               \
+        \     \"enum\": [\"pending\", \"active\", \"cancelled\", \"unsuccessful\"\
+        ],\n                    \"mergeStrategy\": \"ocdsVersion\"\n             \
+        \   },\n                \"date\": {\n                    \"title\": \"Award\
+        \ date\",\n                    \"description\": \"The date of the contract\
+        \ award. This is usually the date on which a decision to award was made.\"\
+        ,\n                    \"type\": [\"string\", \"null\"],\n               \
+        \     \"format\": \"date-time\",\n                    \"mergeStrategy\": \"\
+        ocdsVersion\"\n                },\n                \"value\": {\n        \
+        \            \"description\": \"The total value of this award. In the case\
+        \ of a framework contract this may be the total estimated lifetime value,\
+        \ or maximum value, of the agreement. There may be more than one award per\
+        \ procurement.\",\n                    \"$ref\": \"#/definitions/Value\"\n\
+        \                },\n                \"suppliers\": {\n                  \
+        \  \"description\": \"The suppliers awarded this award. If different suppliers\
+        \ have been awarded different items of values, these should be split into\
+        \ separate award blocks.\",\n                    \"type\": \"array\",\n  \
+        \                  \"items\": { \"$ref\": \"#/definitions/Organization\" },\n\
+        \                    \"uniqueItems\": true,\n                    \"mergeStrategy\"\
+        : \"ocdsVersion\"\n                },\n                \"items\": {\n    \
+        \                \"title\": \"Items Awarded\",\n                    \"description\"\
+        : \"The goods and services awarded in this award, broken into line items wherever\
+        \ possible. Items should not be duplicated, but the quantity specified instead.\"\
+        ,\n                    \"type\": \"array\",\n                    \"minItems\"\
+        : 1,\n                    \"mergeStrategy\": \"arrayMergeById\",\n       \
+        \             \"mergeOptions\": { \"idRef\": \"id\" },\n                 \
+        \   \"items\": { \"$ref\": \"#/definitions/Item\" },\n                   \
+        \ \"uniqueItems\": true\n                },\n                \"contractPeriod\"\
+        : {\n                    \"description\": \"The period for which the contract\
+        \ has been awarded.\",\n                    \"$ref\": \"#/definitions/Period\"\
+        \n                },\n                \"documents\": {\n                 \
+        \   \"description\": \"All documents and attachments related to the award,\
+        \ including any notices.\",\n                    \"type\": \"array\",\n  \
+        \                  \"mergeStrategy\": \"arrayMergeById\",\n              \
+        \      \"mergeOptions\": { \"idRef\": \"id\" },\n                    \"items\"\
+        : { \"$ref\": \"#/definitions/Document\" },\n                    \"uniqueItems\"\
+        : true\n                },\n                \"amendment\": { \n          \
+        \          \"$ref\": \"#/definitions/Amendment\"\n                }\n    \
+        \        },\n            \"patternProperties\": {\n                \"^(title_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  },\n                \"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Contract\": {\n            \"type\"\
+        : \"object\",\n            \"title\": \"Contract\",\n            \"description\"\
+        : \"Information regarding the signed contract between the buyer and supplier(s).\"\
+        ,\n            \"required\": [\"id\", \"awardID\"],\n            \"properties\"\
+        : {\n                \"id\": {\n                    \"title\": \"Contract\
+        \ ID\",\n                    \"description\": \"The identifier for this contract.\
+        \ It must be unique and cannot change within its Open Contracting Process\
+        \ (defined by a single ocid). See the [identifier guidance](http://ocds.open-contracting.org/standard/r/1__0__0/en/key_concepts/identifiers/)\
+        \ for further details.\",\n                    \"type\": [\"string\", \"integer\"\
+        ],\n                    \"mergeStrategy\": \"overwrite\"\n               \
+        \ },\n                \"awardID\": {\n                    \"title\": \"Award\
+        \ ID\",\n                    \"description\": \"The award.id against which\
+        \ this contract is being issued.\",\n                    \"type\": [\"string\"\
+        , \"integer\"],\n                    \"mergeStrategy\": \"ocdsVersion\"\n\
+        \                },\n                \"title\": {\n                    \"\
+        description\": \"Contract title\",\n                    \"type\": [\"string\"\
+        , \"null\"],\n                    \"mergeStrategy\": \"ocdsVersion\"\n   \
+        \             },\n                \"description\": {\n                   \
+        \ \"description\": \"Contract description\",\n                    \"type\"\
+        : [\"string\", \"null\"],\n                    \"mergeStrategy\": \"ocdsVersion\"\
+        \n                },\n                \"status\": {\n                    \"\
+        title\": \"Contract Status\",\n                    \"description\": \"The\
+        \ current status of the contract. Drawn from the [contractStatus codelist](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists/#contract-status)\"\
+        ,\n                    \"type\": [\"string\", \"null\"],\n               \
+        \     \"enum\": [\"pending\", \"active\", \"cancelled\", \"terminated\"],\n\
+        \                    \"mergeStrategy\": \"ocdsVersion\"\n                },\n\
+        \                \"period\": {\n                    \"description\": \"The\
+        \ start and end date for the contract.\",\n                    \"$ref\": \"\
+        #/definitions/Period\"\n                },\n                \"value\": {\n\
+        \                    \"description\": \"The total value of this contract.\"\
+        ,\n                    \"$ref\": \"#/definitions/Value\"\n               \
+        \ },\n                \"items\": {\n                    \"title\": \"Items\
+        \ Contracted\",\n                    \"description\": \"The goods, services,\
+        \ and any intangible outcomes in this contract. Note: If the items are the\
+        \ same as the award do not repeat.\",\n                    \"type\": \"array\"\
+        ,\n                    \"minItems\": 1,\n                    \"mergeStrategy\"\
+        : \"arrayMergeById\",\n                    \"mergeOptions\": { \"idRef\":\
+        \ \"id\" },\n                    \"items\": { \"$ref\": \"#/definitions/Item\"\
+        \ },\n                    \"uniqueItems\": true\n                },\n    \
+        \            \"dateSigned\": {\n                    \"description\": \"The\
+        \ date the contract was signed. In the case of multiple signatures, the date\
+        \ of the last signature.\",\n                    \"type\": [\"string\", \"\
+        null\"],\n                    \"format\": \"date-time\",\n               \
+        \     \"mergeStrategy\": \"ocdsVersion\"\n                },\n           \
+        \     \"documents\": {\n                    \"description\": \"All documents\
+        \ and attachments related to the contract, including any notices.\",\n   \
+        \                 \"type\": \"array\",\n                    \"mergeStrategy\"\
+        : \"arrayMergeById\",\n                    \"mergeOptions\": { \"idRef\":\
+        \ \"id\" },\n                    \"items\": { \"$ref\": \"#/definitions/Document\"\
+        \ },\n                    \"uniqueItems\": true\n                },\n    \
+        \            \"amendment\": { \n                    \"$ref\": \"#/definitions/Amendment\"\
+        \n                },\n                \"implementation\": { \n           \
+        \         \"title\": \"Implementation\",\n                    \"description\"\
+        : \"Information related to the implementation of the contract in accordance\
+        \ with the obligations laid out therein.\",\n                    \"$ref\"\
+        : \"#/definitions/Implementation\" \n                }\n            },\n \
+        \           \"patternProperties\": {\n                \"^(title_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  },\n                \"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Implementation\": {\n         \
+        \   \"type\": \"object\",\n            \"title\": \"Implementation\",\n  \
+        \          \"description\": \"Information during the performance / implementation\
+        \ stage of the contract.\",\n            \"properties\": {\n             \
+        \   \"transactions\": {\n                    \"description\": \"A list of\
+        \ the spending transactions made against this contract\",\n              \
+        \      \"type\": \"array\",\n                    \"mergeStrategy\": \"arrayMergeById\"\
+        ,\n                    \"mergeOptions\": { \"idRef\": \"id\" },\n        \
+        \            \"items\": { \"$ref\": \"#/definitions/Transaction\" },\n   \
+        \                 \"uniqueItems\": true\n                },\n            \
+        \    \"milestones\": {\n                    \"description\": \"As milestones\
+        \ are completed, milestone completions should be documented.\",\n        \
+        \            \"type\": \"array\",\n                    \"mergeStrategy\":\
+        \ \"arrayMergeById\",\n                    \"mergeOptions\": { \"idRef\":\
+        \ \"id\" },\n                    \"items\": { \"$ref\": \"#/definitions/Milestone\"\
+        \ },\n                    \"uniqueItems\": true\n                },\n    \
+        \            \"documents\":{\n                    \"description\": \"Documents\
+        \ and reports that are part of the implementation phase e.g. audit and evaluation\
+        \ reports.\",\n                    \"type\": \"array\",\n                \
+        \    \"mergeStrategy\": \"arrayMergeById\",\n                    \"mergeOptions\"\
+        : { \"idRef\": \"id\" },\n                    \"items\": { \"$ref\": \"#/definitions/Document\"\
+        \ },\n                    \"uniqueItems\": true\n                }\n     \
+        \       }\n        },\n        \"Milestone\": {\n            \"type\": \"\
+        object\",\n            \"required\": [\"id\"],\n            \"properties\"\
+        : {\n                \"id\": {\n                    \"description\": \"A local\
+        \ identifier for this milestone, unique within this block. This field is used\
+        \ to keep track of multiple revisions of a milestone through the compilation\
+        \ from release to record mechanism.\",\n                    \"type\": [\"\
+        string\", \"integer\"],\n                    \"mergeStrategy\": \"overwrite\"\
+        \n                },\n                \"title\": {\n                    \"\
+        description\": \"Milestone title\",\n                    \"type\": [\"string\"\
+        , \"null\"],\n                    \"mergeStrategy\": \"ocdsVersion\"\n   \
+        \             },\n                \"description\": {\n                   \
+        \ \"description\": \"A description of the milestone.\",\n                \
+        \    \"type\": [\"string\", \"null\"],\n                    \"mergeStrategy\"\
+        : \"ocdsVersion\"\n                },\n                \"dueDate\": {\n  \
+        \                  \"description\": \"The date the milestone is due.\",\n\
+        \                    \"type\": [\"string\", \"null\"],\n                 \
+        \   \"format\": \"date-time\",\n                    \"mergeStrategy\": \"\
+        ocdsVersion\"\n                },\n                \"dateModified\" : {\n\
+        \                    \"description\": \"The date the milestone was last reviewed\
+        \ or modified and the status was altered or confirmed to still be correct.\"\
+        ,\n                    \"type\": [\"string\", \"null\"],\n               \
+        \     \"format\": \"date-time\",\n                    \"mergeStrategy\": \"\
+        ocdsVersion\"\n                },\n                \"status\": {\n       \
+        \             \"description\": \"The status that was realized on the date\
+        \ provided in dateModified, drawn from the [milestoneStatus codelist](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists#milestone-status).\"\
+        ,\n                    \"type\": [\"string\", \"null\"],\n               \
+        \     \"enum\": [\"met\", \"notMet\", \"partiallyMet\", null],\n         \
+        \           \"mergeStrategy\": \"ocdsVersion\"\n                },\n     \
+        \           \"documents\": {\n                    \"description\": \"List\
+        \ of documents associated with this milestone.\",\n                    \"\
+        type\": \"array\",\n                    \"mergeStrategy\": \"arrayMergeById\"\
+        ,\n                    \"mergeOptions\": { \"idRef\": \"id\" },\n        \
+        \            \"items\": { \"$ref\": \"#/definitions/Document\" },\n      \
+        \              \"uniqueItems\": true\n                }\n            },\n\
+        \            \"patternProperties\": {\n                \"^(title_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  },\n                \"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Document\": {\n            \"type\"\
+        : \"object\",\n            \"title\": \"Document\",\n            \"description\"\
+        : \"Links to, or descriptions of, external documents can be attached at various\
+        \ locations within the standard. Documents may be supporting information,\
+        \ formal notices, downloadable forms, or any other kind of resource that should\
+        \ be made public as part of full open contracting.\",\n            \"required\"\
+        : [\"id\"],\n            \"properties\": {\n                \"id\": {\n  \
+        \                  \"description\": \"A local, unique identifier for this\
+        \ document. This field is used to keep track of multiple revisions of a document\
+        \ through the compilation from release to record mechanism.\",\n         \
+        \           \"type\": [\"string\", \"integer\"],\n                    \"mergeStrategy\"\
+        : \"overwrite\"\n                },\n                \"documentType\": {\n\
+        \                    \"description\": \"A classification of the document described\
+        \ taken from the [documentType codelist](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists#document-type).\
+        \ Values from the provided codelist should be used wherever possible, though\
+        \ extended values can be provided if the codelist does not have a relevant\
+        \ code.\",\n                    \"type\": [\"string\", \"null\"],\n      \
+        \              \"mergeStrategy\": \"ocdsVersion\"\n                },\n  \
+        \              \"title\": {\n                    \"description\": \"The document\
+        \ title.\",\n                    \"type\": [\"string\", \"null\"],\n     \
+        \               \"mergeStrategy\": \"ocdsVersion\"\n                },\n \
+        \               \"description\": {\n                    \"description\": \"\
+        A short description of the document. We recommend descriptions do not exceed\
+        \ 250 words. In the event the document is not accessible online, the description\
+        \ field can be used to describe arrangements for obtaining a copy of the document.\"\
+        ,\n                    \"type\": [\"string\", \"null\"],\n               \
+        \     \"mergeStrategy\": \"ocdsVersion\"\n                },\n           \
+        \     \"url\": {\n                    \"description\": \" direct link to the\
+        \ document or attachment. The server providing access to this document should\
+        \ be configured to correctly report the document mime type.\",\n         \
+        \           \"type\": [\"string\", \"null\"],\n                    \"format\"\
+        : \"uri\",\n                    \"mergeStrategy\": \"ocdsVersion\"\n     \
+        \           },\n                \"datePublished\": {\n                   \
+        \ \"description\": \"The date on which the document was first published. This\
+        \ is particularly important for legally important documents such as notices\
+        \ of a tender.\",\n                    \"type\": [\"string\", \"null\"],\n\
+        \                    \"format\": \"date-time\",\n                    \"mergeStrategy\"\
+        : \"ocdsVersion\"\n                },\n                \"dateModified\": {\n\
+        \                    \"description\": \"Date that the document was last modified\"\
+        ,\n                    \"type\": [\"string\", \"null\"],\n               \
+        \     \"format\": \"date-time\",\n                    \"mergeStrategy\": \"\
+        ocdsVersion\"\n                },\n                \"format\": {\n       \
+        \             \"description\": \"The format of the document taken from the\
+        \ [IANA Media Types code list](http://www.iana.org/assignments/media-types/),\
+        \ with the addition of one extra value for 'offline/print', used when this\
+        \ document entry is being used to describe the offline publication of a document.\
+        \ Use values from the template column. Links to web pages should be tagged\
+        \ 'text/html'.\",\n                    \"type\": [\"string\", \"null\"],\n\
+        \                    \"mergeStrategy\": \"ocdsVersion\"\n                },\n\
+        \                \"language\": {\n                    \"description\": \"\
+        Specifies the language of the linked document using either two-digit [ISO\
+        \ 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), or extended\
+        \ [BCP47 language tags](http://www.w3.org/International/articles/language-tags/).\
+        \ The use of two-letter codes from [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)\
+        \ is strongly recommended unless there is a clear user need for distinguishing\
+        \ the language subtype.\",\n                    \"type\": [\"string\", \"\
+        null\"],\n                    \"mergeStrategy\": \"ocdsVersion\"\n       \
+        \         }\n            },\n            \"patternProperties\": {\n      \
+        \          \"^(title_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  },\n                \"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Budget\": {\n            \"type\"\
+        : \"object\",\n            \"title\": \"Budget Information\",\n          \
+        \  \"description\": \"This section contain information about the budget line,\
+        \ and associated projects, through which this contracting process is funded.\
+        \ It draws upon data model of the [Budget Data Package](https://github.com/openspending/budget-data-package/blob/master/specification.md),\
+        \ and should be used to cross-reference to more detailed information held\
+        \ using a Budget Data Package, or, where no linked Budget Data Package is\
+        \ available, to provide enough information to allow a user to manually or\
+        \ automatically cross-reference with another published source of budget and\
+        \ project information.\",\n            \"mergeStrategy\": \"ocdsVersion\"\
+        ,\n            \"properties\": {\n                \"source\": {\n        \
+        \            \"title\": \"Data Source\",\n                    \"description\"\
+        : \"Used to point either to a corresponding Budget Data Package, or to a machine\
+        \ or human-readable source where users can find further information on the\
+        \ budget line item identifiers, or project identifiers, provided here.\",\n\
+        \                    \"type\":[\"string\", \"null\"],\n                  \
+        \  \"mergeStrategy\": \"ocdsVersion\",\n                    \"format\": \"\
+        uri\"\n                },\n                \"id\":{ \n                   \
+        \ \"description\": \"An identifier for the budget line item which provides\
+        \ funds for this contracting process. This identifier should be possible to\
+        \ cross-reference against the provided data source.\",\n                 \
+        \   \"mergeStrategy\": \"ocdsVersion\",\n                    \"type\":[\"\
+        string\", \"integer\", \"null\"]\n                },\n                \"description\"\
+        : {\n                    \"title\": \"Budget Source\",\n                 \
+        \   \"description\": \"A short free text description of the budget source.\
+        \ May be used to provide the title of the budget line, or the programme used\
+        \ to fund this project.\",\n                    \"mergeStrategy\": \"ocdsVersion\"\
+        ,\n                    \"type\": [\"string\", \"null\"]\n                },\n\
+        \                \"amount\": { \n                    \"description\": \"The\
+        \ value of the budget line item.\",\n                    \"$ref\": \"#/definitions/Value\"\
+        \n                },\n                \"project\": {\n                   \
+        \ \"title\": \"Project Title\",\n                    \"description\": \"The\
+        \ name of the project that through which this contracting process is funded\
+        \ (if applicable). Some organizations maintain a registry of projects, and\
+        \ the data should use the name by which the project is known in that registry.\
+        \ No translation option is offered for this string, as translated values can\
+        \ be provided in third-party data, linked from the data source above.\",\n\
+        \                    \"mergeStrategy\": \"ocdsVersion\",\n               \
+        \     \"type\": [\"string\", \"null\"]\n                },\n             \
+        \   \"projectID\": {\n                    \"title\": \"Project Identifier\"\
+        ,\n                    \"description\": \"An external identifier for the project\
+        \ that this contracting process forms part of, or is funded via (if applicable).\
+        \ Some organizations maintain a registry of projects, and the data should\
+        \ use the identifier from the relevant registry of projects.\",\n        \
+        \            \"mergeStrategy\": \"ocdsVersion\",\n                    \"type\"\
+        : [\"string\", \"integer\", \"null\"]\n                },\n              \
+        \  \"uri\":{\n                    \"title\": \"Linked budget information\"\
+        ,\n                    \"description\": \"A URI pointing directly to a machine-readable\
+        \ record about the related budget or projects for this contracting process.\"\
+        ,\n                    \"mergeStrategy\": \"ocdsVersion\",\n             \
+        \       \"type\": [\"string\", \"null\"],\n                    \"format\"\
+        : \"uri\"\n                }\n            },\n            \"patternProperties\"\
+        : {\n                \"^(source_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  },\n                \"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  },\n                \"^(project_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Transaction\": {\n            \"\
+        type\": \"object\",\n            \"title\": \"Transaction Information\",\n\
+        \            \"description\": \"A spending transaction related to the contracting\
+        \ process. Draws upon the data models of the [Budget Data Package](https://github.com/openspending/budget-data-package/blob/master/specification.md)\
+        \ and the [International Aid Transpareny Initiative](http://iatistandard.org/activity-standard/iati-activities/iati-activity/transaction/)\
+        \ and should be used to cross-reference to more detailed information held\
+        \ using a Budget Data Package, IATI file, or to provide enough information\
+        \ to allow a user to manually or automatically cross-reference with some other\
+        \ published source of transactional spending data.\",\n            \"required\"\
+        : [\"id\"],\n            \"properties\": {\n                \"id\":{ \n  \
+        \                  \"description\": \"A unique identifier for this transaction.\
+        \ This identifier should be possible to cross-reference against the provided\
+        \ data source. For the budget data package this is the id, for IATI, the transaction\
+        \ reference.\",\n                    \"type\": [\"string\", \"integer\"],\n\
+        \                    \"mergeStrategy\": \"overwrite\"\n                },\n\
+        \                \"source\": {\n                    \"title\": \"Data Source\"\
+        ,\n                    \"description\": \"Used to point either to a corresponding\
+        \ Budget Data Package, IATI file, or machine or human-readable source where\
+        \ users can find further information on the budget line item identifiers,\
+        \ or project identifiers, provided here.\",\n                    \"mergeStrategy\"\
+        : \"ocdsVersion\",\n                    \"type\": [\"string\", \"null\"],\n\
+        \                    \"format\": \"uri\"\n                },\n           \
+        \     \"date\": {\n                    \"description\": \"The date of the\
+        \ transaction\",\n                    \"mergeStrategy\": \"ocdsVersion\",\n\
+        \                    \"type\": [\"string\", \"null\"],\n                 \
+        \   \"format\": \"date-time\"\n                },\n                \"amount\"\
+        : { \n                    \"description\": \"The value of the transaction.\"\
+        ,\n                    \"$ref\": \"#/definitions/Value\"\n               \
+        \ },\n                \"providerOrganization\":{\n                    \"description\"\
+        : \"The Organization Identifier for the organization from which the funds\
+        \ in this transaction originate. Expressed following the Organizational Identifier\
+        \ standard - consult the documentation and the codelist.\",\n            \
+        \        \"$ref\": \"#/definitions/Identifier\"\n                },\n    \
+        \            \"receiverOrganization\":{\n                    \"description\"\
+        : \"The Organization Identifier for the organization which receives the funds\
+        \ in this transaction. Expressed following the Organizational Identifier standard\
+        \ - consult the documentation and the codelist.\",\n                    \"\
+        $ref\": \"#/definitions/Identifier\"\n                },\n               \
+        \ \"uri\":{\n                    \"title\":\"Linked spending information\"\
+        ,\n                    \"description\":\"A URI pointing directly to a machine-readable\
+        \ record about this spending transaction.\",\n                    \"mergeStrategy\"\
+        : \"ocdsVersion\",\n                    \"type\":[\"string\", \"null\"],\n\
+        \                    \"format\":\"uri\"\n                }\n            }\n\
+        \        },\n        \"Organization\": {\n            \"title\": \"Organization\"\
+        ,\n            \"description\": \"An organization.\",\n            \"type\"\
+        : \"object\",\n            \"properties\": {\n                \"identifier\"\
+        : { \n                    \"description\": \"The primary identifier for this\
+        \ organization. Identifiers that uniquely pick out a legal entity should be\
+        \ preferred. Consult the [organization identifier guidance](http://ocds.open-contracting.org/standard/r/1__0__0/en/key_concepts/identifiers/#organization-identifiers)\
+        \ for the preferred scheme and identifier to use.\",\n                   \
+        \ \"$ref\": \"#/definitions/Identifier\" \n                },\n          \
+        \      \"additionalIdentifiers\": { \n                    \"description\"\
+        : \"A list of additional / supplemental identifiers for the organization,\
+        \ using the [organization identifier guidance](http://ocds.open-contracting.org/standard/r/1__0__0/en/key_concepts/identifiers/#organization-identifiers).\
+        \ This could be used to provide an internally used identifier for this organization\
+        \ in addition to the primary legal entity identifier.\",\n               \
+        \     \"type\": \"array\",\n                    \"mergeStrategy\": \"ocdsVersion\"\
+        ,\n                    \"items\": { \"$ref\": \"#/definitions/Identifier\"\
+        \ },\n                    \"uniqueItems\": true\n                },\n    \
+        \            \"name\": {\n                    \"description\": \"The common\
+        \ name of the organization. The ID property provides an space for the formal\
+        \ legal name, and so this may either repeat that value, or could provide the\
+        \ common name by which this organization is known. This field could also include\
+        \ details of the department or sub-unit involved in this contracting process.\"\
+        ,\n                    \"mergeStrategy\": \"ocdsVersion\",\n             \
+        \       \"type\": [\"string\", \"null\"]\n                },\n           \
+        \     \"address\": { \"$ref\": \"#/definitions/Address\" },\n            \
+        \    \"contactPoint\": { \"$ref\": \"#/definitions/ContactPoint\" }\n    \
+        \        },\n            \"patternProperties\": {\n                \"^(name_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Item\": {\n            \"type\"\
+        : \"object\",\n            \"description\": \"A good, service, or work to\
+        \ be contracted.\",\n            \"required\": [\"id\"],\n            \"properties\"\
+        : {\n                \"id\": {\n                    \"description\": \"A local\
+        \ identifier to reference and merge the items by. Must be unique within a\
+        \ given array of items.\",\n                    \"type\": [\"string\", \"\
+        integer\"],\n                    \"mergeStrategy\": \"overwrite\"\n      \
+        \          },\n                \"description\": {\n                    \"\
+        description\": \"A description of the goods, services to be provided.\",\n\
+        \                    \"mergeStrategy\": \"ocdsVersion\",\n               \
+        \     \"type\": [\"string\", \"null\"]\n                },\n             \
+        \   \"classification\": {\n                    \"description\": \"The primary\
+        \ classification for the item. See the [itemClassificationScheme](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists#item-classification-scheme)\
+        \ to identify preferred classification lists, including CPV and GSIN.\",\n\
+        \                    \"$ref\": \"#/definitions/Classification\"\n        \
+        \        },\n                \"additionalClassifications\": {\n          \
+        \          \"description\": \"An array of additional classifications for the\
+        \ item. See the [itemClassificationScheme](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists#item-classification-scheme)\
+        \ codelist for common options to use in OCDS. This may also be used to present\
+        \ codes from an internal classification scheme.\",\n                    \"\
+        type\": \"array\",\n                    \"mergeStrategy\": \"ocdsVersion\"\
+        ,\n                    \"items\": { \"$ref\": \"#/definitions/Classification\"\
+        \ },\n                    \"uniqueItems\": true\n                },\n    \
+        \            \"quantity\": {\n                    \"description\": \"The number\
+        \ of units required\",\n                    \"mergeStrategy\": \"ocdsVersion\"\
+        ,\n                    \"minimum\": 0,\n                    \"type\": [\"\
+        integer\", \"null\"]\n                },\n                \"unit\": {\n  \
+        \                  \"description\": \"Description of the unit which the good\
+        \ comes in e.g. hours, kilograms. Made up of a unit name, and the value of\
+        \ a single unit.\",\n                    \"type\": \"object\",\n         \
+        \           \"properties\": {\n                        \"name\": {\n     \
+        \                       \"description\": \"Name of the unit\",\n         \
+        \                   \"mergeStrategy\": \"ocdsVersion\",\n                \
+        \            \"type\": [\"string\", \"null\"]\n                        },\n\
+        \                        \"value\": {\n                            \"description\"\
+        : \"The monetary value of a single unit.\",\n                            \"\
+        $ref\": \"#/definitions/Value\"\n                        }\n             \
+        \       },\n                    \"patternProperties\": {\n               \
+        \         \"^(name_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                            \"type\": [\"string\", \"null\"]\n      \
+        \                  }\n                    }\n                }\n         \
+        \   },\n            \"patternProperties\": {\n                \"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Amendment\": {\n            \"\
+        type\": \"object\",\n            \"title\": \"Amendment information\",\n \
+        \           \"properties\": {\n                \"date\": {\n             \
+        \       \"title\": \"Amendment Date\",\n                    \"description\"\
+        :\"The data of this amendment.\",\n                    \"type\": [\"string\"\
+        , \"null\"],\n                    \"format\": \"date-time\",\n           \
+        \         \"mergeStrategy\": \"ocdsVersion\"\n                },\n       \
+        \         \"changes\": {\n                    \"title\": \"Amended fields\"\
+        ,\n                    \"description\": \"Comma-seperated list of affected\
+        \ fields.\",\n                    \"mergeStrategy\": \"ocdsVersion\",\n  \
+        \                  \"type\": \"array\",\n                    \"items\": {\n\
+        \                        \"type\": \"object\",\n                        \"\
+        properties\": {\n                            \"property\": {\n           \
+        \                     \"description\": \"The property name that has been changed\
+        \ relative to the place the amendment is. For example if the contract value\
+        \ has changed, then the property under changes within the contract.amendment\
+        \ would be value.amount. \",\n                                \"type\": \"\
+        string\"\n                            },\n                            \"former_value\"\
+        : {\n                                \"description\": \"The previous value\
+        \ of the changed property, in whatever type the property is.\",\n        \
+        \                        \"type\": [\"string\", \"number\", \"integer\", \"\
+        array\", \"object\", \"null\"]\n                            }\n          \
+        \              }\n                    }\n                },\n            \
+        \    \"rationale\": {\n                    \"description\": \"An explanation\
+        \ for the amendment.\",\n                    \"type\": [\"string\", \"null\"\
+        ],\n                    \"mergeStrategy\": \"ocdsVersion\"\n             \
+        \   }\n            },\n            \"patternProperties\": {\n            \
+        \    \"^(rationale_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Classification\": {\n         \
+        \   \"type\": \"object\",\n            \"properties\": {\n               \
+        \ \"scheme\": {\n                    \"description\": \"An classification\
+        \ should be drawn from an existing scheme or list of codes. This field is\
+        \ used to indicate the scheme/codelist from which the classification is drawn.\
+        \ For line item classifications, this value should represent an known [Item\
+        \ Classification Scheme](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists/#item-classification-scheme)\
+        \ wherever possible.\",\n                    \"type\": [\"string\", \"null\"\
+        ],\n                    \"mergeStrategy\": \"ocdsVersion\"\n             \
+        \   },\n                \"id\": {\n                    \"description\": \"\
+        The classification code drawn from the selected scheme.\",\n             \
+        \       \"type\": [\"string\", \"integer\", \"null\"],\n                 \
+        \   \"mergeStrategy\": \"ocdsVersion\"\n                },\n             \
+        \   \"description\": {\n                    \"description\": \"A textual description\
+        \ or title for the code.\",\n                    \"type\": [\"string\", \"\
+        null\"],\n                    \"mergeStrategy\": \"ocdsVersion\"\n       \
+        \         },\n                \"uri\": {\n                    \"description\"\
+        : \"A URI to identify the code. In the event individual URIs are not available\
+        \ for items in the identifier scheme this value should be left blank.\",\n\
+        \                    \"type\": [\"string\", \"null\"],\n                 \
+        \   \"format\" : \"uri\",\n                    \"mergeStrategy\": \"ocdsVersion\"\
+        \n                }\n            },\n            \"patternProperties\": {\n\
+        \                \"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Identifier\": {\n            \"\
+        type\": \"object\",\n            \"properties\": {\n                \"scheme\"\
+        : {\n                    \"description\": \"Organization identifiers be drawn\
+        \ from an existing identification scheme. This field is used to indicate the\
+        \ scheme or codelist in which the identifier will be found. This value should\
+        \ be drawn from the [Organization Identifier Scheme](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists/#organization-identifier-scheme).\"\
+        ,\n                    \"type\": [\"string\", \"null\"],\n               \
+        \     \"mergeStrategy\": \"ocdsVersion\"\n                },\n           \
+        \     \"id\": {\n                    \"description\": \"The identifier of\
+        \ the organization in the selected scheme.\",\n                    \"type\"\
+        : [\"string\", \"integer\", \"null\"],\n                    \"mergeStrategy\"\
+        : \"ocdsVersion\"\n                },\n                \"legalName\": {\n\
+        \                    \"description\": \"The legally registered name of the\
+        \ organization.\",\n                    \"type\": [\"string\", \"null\"],\n\
+        \                    \"mergeStrategy\": \"ocdsVersion\"\n                },\n\
+        \                \"uri\": {\n                    \"description\": \"A URI\
+        \ to identify the organization, such as those provided by [Open Corporates](http://www.opencorporates.com)\
+        \ or some other relevant URI provider. This is not for listing the website\
+        \ of the organization: that can be done through the url field of the Organization\
+        \ contact point.\",\n                    \"type\": [\"string\", \"null\"],\n\
+        \                    \"format\" : \"uri\",\n                    \"mergeStrategy\"\
+        : \"ocdsVersion\"\n                }\n            },\n            \"patternProperties\"\
+        : {\n                \"^(legalName_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Address\": {\n            \"description\"\
+        : \"An address. This may be the legally registered address of the organization,\
+        \ or may be a correspondence address for this particular contracting process.\"\
+        ,\n            \"type\": \"object\",\n            \"properties\": {\n    \
+        \            \"streetAddress\": {\n                    \"type\": [\"string\"\
+        , \"null\"],\n                    \"description\": \"The street address. For\
+        \ example, 1600 Amphitheatre Pkwy.\",\n                    \"mergeStrategy\"\
+        : \"ocdsVersion\"\n                },\n                \"locality\":{\n  \
+        \                  \"type\": [\"string\", \"null\"],\n                   \
+        \ \"description\": \"The locality. For example, Mountain View.\",\n      \
+        \              \"mergeStrategy\": \"ocdsVersion\"\n                },\n  \
+        \              \"region\": {\n                    \"type\": [\"string\", \"\
+        null\"],\n                    \"description\":\"The region. For example, CA.\"\
+        ,\n                    \"mergeStrategy\": \"ocdsVersion\"\n              \
+        \  },\n                \"postalCode\": {\n                    \"type\": [\"\
+        string\", \"null\"],\n                    \"description\":\"The postal code.\
+        \ For example, 94043.\",\n                    \"mergeStrategy\": \"ocdsVersion\"\
+        \n                },\n                \"countryName\": {\n               \
+        \     \"type\": [\"string\", \"null\"],\n                    \"description\"\
+        :\"The country name. For example, United States.\",\n                    \"\
+        mergeStrategy\": \"ocdsVersion\"\n                }\n            },\n    \
+        \        \"patternProperties\": {\n                \"^(countryName_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"ContactPoint\": {\n           \
+        \ \"type\": \"object\",\n            \"description\": \"An person, contact\
+        \ point or department to contact in relation to this contracting process.\"\
+        ,\n            \"properties\": {\n                \"name\": {\n          \
+        \          \"type\": [\"string\", \"null\"],\n                    \"description\"\
+        :\"The name of the contact person, department, or contact point, for correspondence\
+        \ relating to this contracting process.\",\n                    \"mergeStrategy\"\
+        : \"ocdsVersion\"\n                },\n                \"email\":{\n     \
+        \               \"type\": [\"string\", \"null\"],\n                    \"\
+        description\":\"The e-mail address of the contact point/person.\",\n     \
+        \               \"mergeStrategy\": \"ocdsVersion\"\n                },\n \
+        \               \"telephone\": {\n                    \"type\": [\"string\"\
+        , \"null\"],\n                    \"description\":\"The telephone number of\
+        \ the contact point/person. This should include the international dialling\
+        \ code.\",\n                    \"mergeStrategy\": \"ocdsVersion\"\n     \
+        \           },\n                \"faxNumber\": {\n                    \"type\"\
+        : [\"string\", \"null\"],\n                    \"description\":\"The fax number\
+        \ of the contact point/person. This should include the international dialling\
+        \ code.\",\n                    \"mergeStrategy\": \"ocdsVersion\"\n     \
+        \           },\n                \"url\": {\n                    \"type\":\
+        \ [\"string\", \"null\"],\n                    \"description\":\"A web address\
+        \ for the contact point/person.\",\n                    \"format\": \"uri\"\
+        ,\n                    \"mergeStrategy\": \"ocdsVersion\"\n              \
+        \  }\n            },\n            \"patternProperties\": {\n             \
+        \   \"^(name_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Value\": {\n            \"type\"\
+        : \"object\",\n            \"properties\": {\n                \"amount\":\
+        \ {\n                    \"description\": \"Amount as a number.\",\n     \
+        \               \"type\": [\"number\", \"null\"],\n                    \"\
+        minimum\": 0,\n                    \"mergeStrategy\": \"ocdsVersion\"\n  \
+        \              },\n                \"currency\": {\n                    \"\
+        description\": \"The currency in 3-letter ISO 4217 format.\",\n          \
+        \          \"type\": [\"string\", \"null\"],\n                    \"mergeStrategy\"\
+        : \"ocdsVersion\"\n                }\n            }\n        },\n        \"\
+        Period\": {\n            \"type\": \"object\",\n            \"title\": \"\
+        Period\",\n            \"properties\": {\n                \"startDate\": {\
+        \ \n                    \"description\": \"The start date for the period.\"\
+        ,\n                    \"type\": [\"string\", \"null\"],\n               \
+        \     \"format\": \"date-time\",\n                    \"mergeStrategy\": \"\
+        ocdsVersion\"\n                },\n                \"endDate\": {\n      \
+        \              \"description\": \"The end date for the period.\",\n      \
+        \              \"type\": [\"string\", \"null\"],\n                    \"format\"\
+        : \"date-time\",\n                    \"mergeStrategy\": \"ocdsVersion\"\n\
+        \                }\n            }\n        }\n    }\n}\n"}
+    headers:
+      Content-Type: [application/json]
+      Date: ['Thu, 03 Dec 2015 06:20:58 GMT']
+      Expires: ['Thu, 03 Dec 2015 08:20:58 GMT']
+      Server: [Apache/2.4.7 (Ubuntu)]
+      X-Frame-Options: [SAMEORIGIN]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.8.1]
+    method: GET
+    uri: http://ocds.open-contracting.org/standard/r/1__0__0/release-package-schema.json
+  response:
+    body: {string: "{\n    \"id\": \"http://ocds.open-contracting.org/standard/r/1__0__0/release-package-schema.json\"\
+        ,\n    \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n    \"title\"\
+        : \"Schema for an Open Contracting Release Package\",\n    \"description\"\
+        : \"Note that all releases within a release package must have a unique releaseID\
+        \ within this release package.\",\n    \"type\": \"object\",\n    \"required\"\
+        : [\"uri\", \"publisher\", \"publishedDate\", \"releases\"],\n    \"properties\"\
+        : {\n        \"uri\": {\n            \"title\": \"Package Identifier\",\n\
+        \            \"description\": \"The URI of this package that identifies it\
+        \ uniquely in the world.\",\n            \"type\": \"string\",\n         \
+        \   \"format\": \"uri\"\n        },\n        \"publishedDate\": {\n      \
+        \      \"description\": \"The date that this package was published. Ideally\
+        \ this should be the latest date that there is release information in this\
+        \ package.\",\n            \"type\": \"string\",\n            \"format\":\
+        \ \"date-time\"\n        },\n        \"releases\": {\n            \"type\"\
+        : \"array\",\n            \"minItems\": 1,\n            \"items\": { \"$ref\"\
+        : \"http://ocds.open-contracting.org/standard/r/1__0__0/release-schema.json\"\
+        \ },\n            \"uniqueItems\": true\n        },\n        \"publisher\"\
+        : { \n            \"description\": \"Information to uniquely identify the\
+        \ publisher of this package.\",\n            \"type\": \"object\",\n     \
+        \       \"properties\": {\n                \"name\": {\n                 \
+        \   \"type\": \"string\"\n                },\n                \"scheme\":\
+        \ {\n                    \"description\": \"The scheme that holds the unique\
+        \ identifiers used to identify the item being identified.\",\n           \
+        \         \"type\": [\"string\", \"null\"],\n                    \"format\"\
+        : \"uri\"\n                },\n                \"uid\": {\n              \
+        \      \"description\": \"The unique ID for this entity under the given ID\
+        \ scheme.\",\n                    \"type\": [\"string\", \"null\"]\n     \
+        \           },\n                \"uri\": {\n                    \"type\":\
+        \ [\"string\", \"null\"],\n                    \"format\" : \"uri\"\n    \
+        \            }\n            },\n            \"required\": [\"name\"]\n   \
+        \     },\n        \"license\": {\n            \"description\": \"A link to\
+        \ the license that applies to the data in this datapackage. A Public Domain\
+        \ Dedication or [Open Definition Conformant](http://opendefinition.org/licenses/)\
+        \ license is strongly recommended. The canonical URI of the license should\
+        \ be used. Documents linked from this file may be under other license conditions.\
+        \ \",\n            \"type\": [\"string\", \"null\"],\n            \"format\"\
+        : \"uri\"\n        },\n        \"publicationPolicy\": {\n            \"description\"\
+        : \"A link to a document describing the publishers [publication policy](http://ocds.open-contracting.org/standard/r/1__0__0/en/implementation/publication_patterns/#publication-policy).\"\
+        ,\n            \"type\": [\"string\", \"null\"],\n            \"format\":\
+        \ \"uri\"\n        }\n    }\n}\n"}
+    headers:
+      Content-Type: [application/json]
+      Date: ['Thu, 03 Dec 2015 06:21:05 GMT']
+      Expires: ['Thu, 03 Dec 2015 08:21:05 GMT']
+      Server: [Apache/2.4.7 (Ubuntu)]
+      X-Frame-Options: [SAMEORIGIN]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.8.1]
+    method: GET
+    uri: http://ocds.open-contracting.org/standard/r/1__0__0/release-schema.json
+  response:
+    body: {string: "{\n    \"id\": \"http://ocds.open-contracting.org/standard/r/1__0__0/release-schema.json\"\
+        ,\n    \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n    \"title\"\
+        : \"Schema for an Open Contracting Release\",\n    \"type\": \"object\",\n\
+        \    \"properties\": {\n        \"ocid\": {\n            \"title\": \"Open\
+        \ Contracting ID\",\n            \"description\": \"A globally unique identifier\
+        \ for this Open Contracting Process. Composed of a publisher prefix and an\
+        \ identifier for the contracting process. For more information see the [Open\
+        \ Contracting Identifier guidance](http://ocds.open-contracting.org/standard/r/1__0__0/en/key_concepts/identifiers/#ocid)\"\
+        ,\n            \"type\": \"string\",\n            \"mergeStrategy\": \"ocdsOmit\"\
+        \n        },\n        \"id\": {\n            \"title\": \"Release ID\",\n\
+        \            \"description\": \"A unique identifier that identifies this release.\
+        \ A releaseID must be unique within a release-package and must not contain\
+        \ the # character.\",\n            \"type\": \"string\",\n            \"mergeStrategy\"\
+        : \"ocdsOmit\"\n        },\n        \"date\": {\n            \"title\": \"\
+        Release Date\",\n            \"description\": \"The date this information\
+        \ is released, it may well be the same as the parent publishedDate, it must\
+        \ not be later than the publishedDate from the parent package. It is used\
+        \ to determine merge order.\",\n            \"type\": \"string\",\n      \
+        \      \"format\": \"date-time\",\n            \"mergeStrategy\": \"ocdsOmit\"\
+        \n        },\n        \"tag\": {\n            \"title\": \"Release Tag\",\n\
+        \            \"description\": \"A value from the [releaseTag codelist](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists#release-tag)\
+        \ that identifies the nature of the release being made. Tags may be used to\
+        \ filter release, or, in future, for for advanced validation when certain\
+        \ kinds of releases should contain certain fields.\",\n            \"type\"\
+        : \"array\",\n            \"items\": {\n                \"type\": \"string\"\
+        ,\n                \"enum\": [\"planning\", \"tender\", \"tenderAmendment\"\
+        , \"tenderUpdate\", \"tenderCancellation\", \"award\", \"awardUpdate\", \"\
+        awardCancellation\", \"contract\", \"contractUpdate\", \"contractAmendment\"\
+        , \"implementation\", \"implementationUpdate\", \"contractTermination\", \"\
+        compiled\"]\n            },\n            \"mergeStrategy\": \"ocdsOmit\"\n\
+        \        },\n        \"initiationType\": {\n            \"title\": \"Initiation\
+        \ type\",\n            \"description\": \"String specifying the type of initiation\
+        \ process used for this contract, taken from the [initiationType](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists#initiation-type)\
+        \ codelist. Currently only tender is supported.\",\n            \"type\":\
+        \ \"string\",\n            \"enum\": [\"tender\"],\n            \"mergeStrategy\"\
+        : \"ocdsVersion\"\n        },\n        \"planning\": { \n            \"title\"\
+        : \"Planning\",\n            \"description\": \"Information from the planning\
+        \ phase of the contracting process. This includes information related to the\
+        \ process of deciding what to contract for, when and how.\",\n           \
+        \ \"$ref\": \"#/definitions/Planning\"\n        },\n        \"tender\": {\n\
+        \            \"title\": \"Tender\",\n            \"description\": \"The activities\
+        \ undertaken in order to enter into a contract.\",\n            \"$ref\":\
+        \ \"#/definitions/Tender\"\n        },\n        \"buyer\": {\n           \
+        \ \"title\": \"Buyer\",\n            \"description\": \"The buyer is the entity\
+        \ whose budget will be used to purchase the goods. This may be different from\
+        \ the procuring agency who may be specified in the tender data.\",\n     \
+        \       \"$ref\": \"#/definitions/Organization\"\n        },\n        \"awards\"\
+        : { \n            \"title\": \"Awards\",\n            \"description\": \"\
+        Information from the award phase of the contracting process. There may be\
+        \ more than one award per contracting process e.g. because the contract is\
+        \ split amongst different providers, or because it is a standing offer.\"\
+        ,\n            \"type\": \"array\",\n            \"mergeStrategy\": \"arrayMergeById\"\
+        ,\n            \"mergeOptions\": {\"idRef\": \"id\"},\n            \"items\"\
+        : { \"$ref\": \"#/definitions/Award\" },\n            \"uniqueItems\": true\n\
+        \        },\n        \"contracts\": { \n            \"title\": \"Contracts\"\
+        ,\n            \"description\": \"Information from the contract creation phase\
+        \ of the procurement process.\",\n            \"type\": \"array\",\n     \
+        \       \"mergeStrategy\": \"arrayMergeById\",\n            \"mergeOptions\"\
+        : {\"idRef\": \"id\"},\n            \"items\": {\"$ref\": \"#/definitions/Contract\"\
+        \ },\n            \"uniqueItems\": true\n        },\n        \"language\"\
+        : {\n            \"title\": \"Release language\",\n            \"description\"\
+        : \"Specifies the default language of the data using either two-digit ISO\
+        \ 639-1, or extended BCP47 language tags. The use of two-letter codes from\
+        \ ISO 639-1 is strongly recommended.\",\n            \"type\": [\"string\"\
+        , \"null\"],\n            \"default\": \"en\",\n            \"mergeStrategy\"\
+        : \"ocdsVersion\"\n        }\n    },\n    \"required\": [\"ocid\", \"id\"\
+        , \"date\", \"tag\", \"initiationType\"],\n    \"definitions\": {\n      \
+        \  \"Planning\": {\n            \"title\": \"Planning\",\n            \"description\"\
+        : \"Information from the planning phase of the contracting process. Note that\
+        \ many other fields may be filled in a planning release, in the appropriate\
+        \ fields in other schema sections, these would likely be estimates at this\
+        \ stage e.g. totalValue in tender\",\n            \"type\": \"object\",\n\
+        \            \"properties\": {\n                \"budget\": { \"$ref\": \"\
+        #/definitions/Budget\" },\n                \"rationale\": {\n            \
+        \        \"description\": \"The rationale for the procurement provided in\
+        \ free text. More detail can be provided in an attached document.\",\n   \
+        \                 \"type\": [\"string\", \"null\"],\n                    \"\
+        mergeStrategy\": \"ocdsVersion\"\n                },\n                \"documents\"\
+        : {\n                    \"description\": \"A list of documents related to\
+        \ the planning process.\",\n                    \"type\": \"array\",\n   \
+        \                 \"mergeStrategy\": \"arrayMergeById\",\n               \
+        \     \"mergeOptions\": { \"idRef\": \"id\" },\n                    \"items\"\
+        : { \"$ref\": \"#/definitions/Document\" }\n                }\n          \
+        \  },\n            \"patternProperties\": {\n                \"^(rationale_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Tender\": {\n            \"title\"\
+        : \"Tender\",\n            \"description\": \"Data regarding tender process\
+        \ - publicly inviting prospective contractors to submit bids for evaluation\
+        \ and selecting a winner or winners.\",\n            \"type\": \"object\"\
+        ,\n            \"required\": [\"id\"],\n            \"properties\": {\n  \
+        \              \"id\": {\n                    \"title\": \"Tender ID\",\n\
+        \                    \"description\": \"An identifier for this tender process.\
+        \ This may be the same as the ocid, or may be drawn from an internally held\
+        \ identifier for this tender.\",\n                    \"type\": [\"string\"\
+        , \"integer\"],\n                    \"mergeStrategy\": \"ocdsVersion\"\n\
+        \                },\n                \"title\": {\n                    \"\
+        description\": \"Tender title\",\n                    \"type\": [\"string\"\
+        , \"null\"],\n                    \"mergeStrategy\": \"ocdsVersion\"\n   \
+        \             },\n                \"description\": {\n                   \
+        \ \"description\": \"Tender description\",\n                    \"type\":\
+        \ [\"string\", \"null\"],\n                    \"mergeStrategy\": \"ocdsVersion\"\
+        \n                },\n                \"status\": {\n                    \"\
+        title\": \"Tender Status\",\n                    \"description\": \"The current\
+        \ status of the tender based on the [tenderStatus codelist](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists#tender-status)\"\
+        ,\n                    \"type\": [\"string\", \"null\"],\n               \
+        \     \"enum\": [\"planned\", \"active\", \"cancelled\", \"unsuccessful\"\
+        , \"complete\", null],\n                    \"mergeStrategy\": \"ocdsVersion\"\
+        \n                },\n                \"items\": {\n                    \"\
+        title\": \"Items to be procured\",\n                    \"description\": \"\
+        The goods and services to be purchased, broken into line items wherever possible.\
+        \ Items should not be duplicated, but a quantity of 2 specified instead.\"\
+        ,\n                    \"type\": \"array\",\n                    \"mergeStrategy\"\
+        : \"arrayMergeById\",\n                    \"mergeOptions\": { \"idRef\":\
+        \ \"id\" },\n                    \"items\": { \"$ref\": \"#/definitions/Item\"\
+        \ },\n                    \"uniqueItems\": true\n                },\n    \
+        \            \"minValue\": {\n                    \"description\": \"The minimum\
+        \ estimated value of the procurement.\",\n                    \"$ref\": \"\
+        #/definitions/Value\"\n                },\n                \"value\": {\n\
+        \                    \"description\": \"The total upper estimated value of\
+        \ the procurement.\",\n                    \"$ref\": \"#/definitions/Value\"\
+        \n                },\n                \"procurementMethod\": {\n         \
+        \           \"description\": \"Specify tendering method against the [method\
+        \ codelist](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists#method)\
+        \ as per [GPA definitions](http://www.wto.org/english/docs_e/legal_e/rev-gpr-94_01_e.htm)\
+        \ of Open, Selective, Limited\",\n                    \"type\": [\"string\"\
+        , \"null\"],\n                    \"enum\": [\"open\", \"selective\", \"limited\"\
+        , null],\n                    \"mergeStrategy\": \"ocdsVersion\"\n       \
+        \         },\n                \"procurementMethodRationale\": {\n        \
+        \            \"description\": \"Rationale of procurement method, especially\
+        \ in the case of Limited tendering.\",\n                    \"type\": [\"\
+        string\", \"null\"],\n                    \"mergeStrategy\": \"ocdsVersion\"\
+        \n                },\n                \"awardCriteria\": {\n             \
+        \       \"description\": \"Specify the award criteria for the procurement,\
+        \ using the [award criteria codelist](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists#award-criteria)\"\
+        ,\n                    \"type\": [\"string\", \"null\"],\n               \
+        \     \"mergeStrategy\": \"ocdsVersion\"\n                },\n           \
+        \     \"awardCriteriaDetails\": {\n                    \"description\": \"\
+        Any detailed or further information on the award or selection criteria.\"\
+        ,\n                    \"type\": [\"string\", \"null\"],\n               \
+        \     \"mergeStrategy\": \"ocdsVersion\"\n                },\n           \
+        \     \"submissionMethod\": {\n                    \"description\": \"Specify\
+        \ the method by which bids must be submitted, in person, written, or electronic\
+        \ auction. Using the [submission method codelist](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists#submission-method)\"\
+        ,\n                    \"type\": [\"array\", \"null\"],\n                \
+        \    \"items\": {\n                        \"type\": \"string\"\n        \
+        \            },\n                    \"mergeStrategy\": \"ocdsVersion\"\n\
+        \                },\n                \"submissionMethodDetails\" : {\n   \
+        \                 \"description\": \"Any detailed or further information on\
+        \ the submission method. This may include the address, e-mail address or online\
+        \ service to which bids should be submitted, and any special requirements\
+        \ to be followed for submissions.\",\n                    \"type\": [\"string\"\
+        , \"null\"],\n                    \"mergeStrategy\": \"ocdsVersion\"\n   \
+        \             },\n                \"tenderPeriod\": {\n                  \
+        \  \"description\": \"The period when the tender is open for submissions.\
+        \ The end date is the closing date for tender submissions.\",\n          \
+        \          \"$ref\": \"#/definitions/Period\"\n                },\n      \
+        \          \"enquiryPeriod\": {\n                    \"description\": \"The\
+        \ period during which enquiries may be made and answered.\",\n           \
+        \         \"$ref\": \"#/definitions/Period\"\n                },\n       \
+        \         \"hasEnquiries\": {\n                    \"description\": \"A Yes/No\
+        \ field to indicate whether enquiries were part of tender process.\",\n  \
+        \                  \"type\": [\"boolean\", \"null\"],\n                  \
+        \  \"mergeStrategy\": \"ocdsVersion\"\n                },\n              \
+        \  \"eligibilityCriteria\": {\n                    \"description\": \"A description\
+        \ of any eligibility criteria for potential suppliers.\",\n              \
+        \      \"type\": [\"string\", \"null\"],\n                    \"mergeStrategy\"\
+        : \"ocdsVersion\"\n                },\n                \"awardPeriod\": {\n\
+        \                    \"description\": \"The date or period on which an award\
+        \ is anticipated to be made.\",\n                    \"$ref\": \"#/definitions/Period\"\
+        \n                },\n                \"numberOfTenderers\": {\n         \
+        \           \"definition\": \"The number of entities who submit a tender.\"\
+        ,\n                    \"type\": [\"integer\", \"null\"],\n              \
+        \      \"mergeStrategy\": \"ocdsVersion\"\n                },\n          \
+        \      \"tenderers\": {\n                    \"description\": \"All entities\
+        \ who submit a tender.\",\n                    \"type\": \"array\",\n    \
+        \                \"items\": { \"$ref\": \"#/definitions/Organization\" },\n\
+        \                    \"uniqueItems\": true,\n                    \"mergeStrategy\"\
+        : \"ocdsVersion\"\n                },\n                \"procuringEntity\"\
+        : {\n                    \"description\": \"The entity managing the procurement,\
+        \ which may be different from the buyer who is paying / using the items being\
+        \ procured.\",\n                    \"$ref\": \"#/definitions/Organization\"\
+        \n                },\n                \"documents\": {\n                 \
+        \   \"description\": \"All documents and attachments related to the tender,\
+        \ including any notices. See the [documentType codelist](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists#document-type)\
+        \ for details of potential documents to include.\",\n                    \"\
+        type\": \"array\",\n                    \"mergeStrategy\": \"arrayMergeById\"\
+        ,\n                    \"mergeOptions\": { \"idRef\": \"id\" },\n        \
+        \            \"items\": { \"$ref\": \"#/definitions/Document\" }\n       \
+        \         },\n                \"milestones\": {\n                    \"description\"\
+        : \"A list of milestones associated with the tender.\",\n                \
+        \    \"type\": \"array\",\n                    \"mergeStrategy\": \"arrayMergeById\"\
+        ,\n                    \"mergeOptions\": { \"idRef\": \"id\" },\n        \
+        \            \"items\": { \"$ref\": \"#/definitions/Milestone\" }\n      \
+        \          },\n                \"amendment\": { \"$ref\": \"#/definitions/Amendment\"\
+        \ }\n            },\n            \"patternProperties\": {\n              \
+        \  \"^(title_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  },\n                \"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  },\n                \"^(procurementMethodRationale_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  },\n                \"^(awardCriteriaDetails_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  },\n                \"^(submissionMethodDetails_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  },\n                \"^(eligibilityCriteria_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Award\": {\n            \"title\"\
+        : \"Award\",\n            \"description\": \"An award for the given procurement.\
+        \ There may be more than one award per contracting process e.g. because the\
+        \ contract is split amongst different providers, or because it is a standing\
+        \ offer.\",\n            \"type\": \"object\",\n            \"required\":\
+        \ [\"id\"],\n            \"properties\": {\n                \"id\": {\n  \
+        \                  \"title\": \"Award ID\",\n                    \"description\"\
+        : \"The identifier for this award. It must be unique and cannot change within\
+        \ the Open Contracting Process it is part of (defined by a single ocid). See\
+        \ the [identifier guidance](http://ocds.open-contracting.org/standard/r/1__0__0/en/key_concepts/identifiers/)\
+        \ for further details.\",\n                    \"type\": [\"string\", \"integer\"\
+        ],\n                    \"mergeStrategy\": \"overwrite\"\n               \
+        \ },\n                \"title\": {\n                    \"description\": \"\
+        Award title\",\n                    \"type\": [\"string\", \"null\"],\n  \
+        \                  \"mergeStrategy\": \"ocdsVersion\"\n                },\n\
+        \                \"description\": {\n                    \"description\":\
+        \ \"Award description\",\n                    \"type\": [\"string\", \"null\"\
+        ],\n                    \"mergeStrategy\": \"ocdsVersion\"\n             \
+        \   },\n                \"status\": {\n                    \"title\": \"Award\
+        \ Status\",\n                    \"description\": \"The current status of\
+        \ the award drawn from the [awardStatus codelist](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists/#award-status)\"\
+        ,\n                    \"type\": [\"string\", \"null\"],\n               \
+        \     \"enum\": [\"pending\", \"active\", \"cancelled\", \"unsuccessful\"\
+        ],\n                    \"mergeStrategy\": \"ocdsVersion\"\n             \
+        \   },\n                \"date\": {\n                    \"title\": \"Award\
+        \ date\",\n                    \"description\": \"The date of the contract\
+        \ award. This is usually the date on which a decision to award was made.\"\
+        ,\n                    \"type\": [\"string\", \"null\"],\n               \
+        \     \"format\": \"date-time\",\n                    \"mergeStrategy\": \"\
+        ocdsVersion\"\n                },\n                \"value\": {\n        \
+        \            \"description\": \"The total value of this award. In the case\
+        \ of a framework contract this may be the total estimated lifetime value,\
+        \ or maximum value, of the agreement. There may be more than one award per\
+        \ procurement.\",\n                    \"$ref\": \"#/definitions/Value\"\n\
+        \                },\n                \"suppliers\": {\n                  \
+        \  \"description\": \"The suppliers awarded this award. If different suppliers\
+        \ have been awarded different items of values, these should be split into\
+        \ separate award blocks.\",\n                    \"type\": \"array\",\n  \
+        \                  \"items\": { \"$ref\": \"#/definitions/Organization\" },\n\
+        \                    \"uniqueItems\": true,\n                    \"mergeStrategy\"\
+        : \"ocdsVersion\"\n                },\n                \"items\": {\n    \
+        \                \"title\": \"Items Awarded\",\n                    \"description\"\
+        : \"The goods and services awarded in this award, broken into line items wherever\
+        \ possible. Items should not be duplicated, but the quantity specified instead.\"\
+        ,\n                    \"type\": \"array\",\n                    \"minItems\"\
+        : 1,\n                    \"mergeStrategy\": \"arrayMergeById\",\n       \
+        \             \"mergeOptions\": { \"idRef\": \"id\" },\n                 \
+        \   \"items\": { \"$ref\": \"#/definitions/Item\" },\n                   \
+        \ \"uniqueItems\": true\n                },\n                \"contractPeriod\"\
+        : {\n                    \"description\": \"The period for which the contract\
+        \ has been awarded.\",\n                    \"$ref\": \"#/definitions/Period\"\
+        \n                },\n                \"documents\": {\n                 \
+        \   \"description\": \"All documents and attachments related to the award,\
+        \ including any notices.\",\n                    \"type\": \"array\",\n  \
+        \                  \"mergeStrategy\": \"arrayMergeById\",\n              \
+        \      \"mergeOptions\": { \"idRef\": \"id\" },\n                    \"items\"\
+        : { \"$ref\": \"#/definitions/Document\" },\n                    \"uniqueItems\"\
+        : true\n                },\n                \"amendment\": { \n          \
+        \          \"$ref\": \"#/definitions/Amendment\"\n                }\n    \
+        \        },\n            \"patternProperties\": {\n                \"^(title_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  },\n                \"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Contract\": {\n            \"type\"\
+        : \"object\",\n            \"title\": \"Contract\",\n            \"description\"\
+        : \"Information regarding the signed contract between the buyer and supplier(s).\"\
+        ,\n            \"required\": [\"id\", \"awardID\"],\n            \"properties\"\
+        : {\n                \"id\": {\n                    \"title\": \"Contract\
+        \ ID\",\n                    \"description\": \"The identifier for this contract.\
+        \ It must be unique and cannot change within its Open Contracting Process\
+        \ (defined by a single ocid). See the [identifier guidance](http://ocds.open-contracting.org/standard/r/1__0__0/en/key_concepts/identifiers/)\
+        \ for further details.\",\n                    \"type\": [\"string\", \"integer\"\
+        ],\n                    \"mergeStrategy\": \"overwrite\"\n               \
+        \ },\n                \"awardID\": {\n                    \"title\": \"Award\
+        \ ID\",\n                    \"description\": \"The award.id against which\
+        \ this contract is being issued.\",\n                    \"type\": [\"string\"\
+        , \"integer\"],\n                    \"mergeStrategy\": \"ocdsVersion\"\n\
+        \                },\n                \"title\": {\n                    \"\
+        description\": \"Contract title\",\n                    \"type\": [\"string\"\
+        , \"null\"],\n                    \"mergeStrategy\": \"ocdsVersion\"\n   \
+        \             },\n                \"description\": {\n                   \
+        \ \"description\": \"Contract description\",\n                    \"type\"\
+        : [\"string\", \"null\"],\n                    \"mergeStrategy\": \"ocdsVersion\"\
+        \n                },\n                \"status\": {\n                    \"\
+        title\": \"Contract Status\",\n                    \"description\": \"The\
+        \ current status of the contract. Drawn from the [contractStatus codelist](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists/#contract-status)\"\
+        ,\n                    \"type\": [\"string\", \"null\"],\n               \
+        \     \"enum\": [\"pending\", \"active\", \"cancelled\", \"terminated\"],\n\
+        \                    \"mergeStrategy\": \"ocdsVersion\"\n                },\n\
+        \                \"period\": {\n                    \"description\": \"The\
+        \ start and end date for the contract.\",\n                    \"$ref\": \"\
+        #/definitions/Period\"\n                },\n                \"value\": {\n\
+        \                    \"description\": \"The total value of this contract.\"\
+        ,\n                    \"$ref\": \"#/definitions/Value\"\n               \
+        \ },\n                \"items\": {\n                    \"title\": \"Items\
+        \ Contracted\",\n                    \"description\": \"The goods, services,\
+        \ and any intangible outcomes in this contract. Note: If the items are the\
+        \ same as the award do not repeat.\",\n                    \"type\": \"array\"\
+        ,\n                    \"minItems\": 1,\n                    \"mergeStrategy\"\
+        : \"arrayMergeById\",\n                    \"mergeOptions\": { \"idRef\":\
+        \ \"id\" },\n                    \"items\": { \"$ref\": \"#/definitions/Item\"\
+        \ },\n                    \"uniqueItems\": true\n                },\n    \
+        \            \"dateSigned\": {\n                    \"description\": \"The\
+        \ date the contract was signed. In the case of multiple signatures, the date\
+        \ of the last signature.\",\n                    \"type\": [\"string\", \"\
+        null\"],\n                    \"format\": \"date-time\",\n               \
+        \     \"mergeStrategy\": \"ocdsVersion\"\n                },\n           \
+        \     \"documents\": {\n                    \"description\": \"All documents\
+        \ and attachments related to the contract, including any notices.\",\n   \
+        \                 \"type\": \"array\",\n                    \"mergeStrategy\"\
+        : \"arrayMergeById\",\n                    \"mergeOptions\": { \"idRef\":\
+        \ \"id\" },\n                    \"items\": { \"$ref\": \"#/definitions/Document\"\
+        \ },\n                    \"uniqueItems\": true\n                },\n    \
+        \            \"amendment\": { \n                    \"$ref\": \"#/definitions/Amendment\"\
+        \n                },\n                \"implementation\": { \n           \
+        \         \"title\": \"Implementation\",\n                    \"description\"\
+        : \"Information related to the implementation of the contract in accordance\
+        \ with the obligations laid out therein.\",\n                    \"$ref\"\
+        : \"#/definitions/Implementation\" \n                }\n            },\n \
+        \           \"patternProperties\": {\n                \"^(title_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  },\n                \"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Implementation\": {\n         \
+        \   \"type\": \"object\",\n            \"title\": \"Implementation\",\n  \
+        \          \"description\": \"Information during the performance / implementation\
+        \ stage of the contract.\",\n            \"properties\": {\n             \
+        \   \"transactions\": {\n                    \"description\": \"A list of\
+        \ the spending transactions made against this contract\",\n              \
+        \      \"type\": \"array\",\n                    \"mergeStrategy\": \"arrayMergeById\"\
+        ,\n                    \"mergeOptions\": { \"idRef\": \"id\" },\n        \
+        \            \"items\": { \"$ref\": \"#/definitions/Transaction\" },\n   \
+        \                 \"uniqueItems\": true\n                },\n            \
+        \    \"milestones\": {\n                    \"description\": \"As milestones\
+        \ are completed, milestone completions should be documented.\",\n        \
+        \            \"type\": \"array\",\n                    \"mergeStrategy\":\
+        \ \"arrayMergeById\",\n                    \"mergeOptions\": { \"idRef\":\
+        \ \"id\" },\n                    \"items\": { \"$ref\": \"#/definitions/Milestone\"\
+        \ },\n                    \"uniqueItems\": true\n                },\n    \
+        \            \"documents\":{\n                    \"description\": \"Documents\
+        \ and reports that are part of the implementation phase e.g. audit and evaluation\
+        \ reports.\",\n                    \"type\": \"array\",\n                \
+        \    \"mergeStrategy\": \"arrayMergeById\",\n                    \"mergeOptions\"\
+        : { \"idRef\": \"id\" },\n                    \"items\": { \"$ref\": \"#/definitions/Document\"\
+        \ },\n                    \"uniqueItems\": true\n                }\n     \
+        \       }\n        },\n        \"Milestone\": {\n            \"type\": \"\
+        object\",\n            \"required\": [\"id\"],\n            \"properties\"\
+        : {\n                \"id\": {\n                    \"description\": \"A local\
+        \ identifier for this milestone, unique within this block. This field is used\
+        \ to keep track of multiple revisions of a milestone through the compilation\
+        \ from release to record mechanism.\",\n                    \"type\": [\"\
+        string\", \"integer\"],\n                    \"mergeStrategy\": \"overwrite\"\
+        \n                },\n                \"title\": {\n                    \"\
+        description\": \"Milestone title\",\n                    \"type\": [\"string\"\
+        , \"null\"],\n                    \"mergeStrategy\": \"ocdsVersion\"\n   \
+        \             },\n                \"description\": {\n                   \
+        \ \"description\": \"A description of the milestone.\",\n                \
+        \    \"type\": [\"string\", \"null\"],\n                    \"mergeStrategy\"\
+        : \"ocdsVersion\"\n                },\n                \"dueDate\": {\n  \
+        \                  \"description\": \"The date the milestone is due.\",\n\
+        \                    \"type\": [\"string\", \"null\"],\n                 \
+        \   \"format\": \"date-time\",\n                    \"mergeStrategy\": \"\
+        ocdsVersion\"\n                },\n                \"dateModified\" : {\n\
+        \                    \"description\": \"The date the milestone was last reviewed\
+        \ or modified and the status was altered or confirmed to still be correct.\"\
+        ,\n                    \"type\": [\"string\", \"null\"],\n               \
+        \     \"format\": \"date-time\",\n                    \"mergeStrategy\": \"\
+        ocdsVersion\"\n                },\n                \"status\": {\n       \
+        \             \"description\": \"The status that was realized on the date\
+        \ provided in dateModified, drawn from the [milestoneStatus codelist](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists#milestone-status).\"\
+        ,\n                    \"type\": [\"string\", \"null\"],\n               \
+        \     \"enum\": [\"met\", \"notMet\", \"partiallyMet\", null],\n         \
+        \           \"mergeStrategy\": \"ocdsVersion\"\n                },\n     \
+        \           \"documents\": {\n                    \"description\": \"List\
+        \ of documents associated with this milestone.\",\n                    \"\
+        type\": \"array\",\n                    \"mergeStrategy\": \"arrayMergeById\"\
+        ,\n                    \"mergeOptions\": { \"idRef\": \"id\" },\n        \
+        \            \"items\": { \"$ref\": \"#/definitions/Document\" },\n      \
+        \              \"uniqueItems\": true\n                }\n            },\n\
+        \            \"patternProperties\": {\n                \"^(title_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  },\n                \"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Document\": {\n            \"type\"\
+        : \"object\",\n            \"title\": \"Document\",\n            \"description\"\
+        : \"Links to, or descriptions of, external documents can be attached at various\
+        \ locations within the standard. Documents may be supporting information,\
+        \ formal notices, downloadable forms, or any other kind of resource that should\
+        \ be made public as part of full open contracting.\",\n            \"required\"\
+        : [\"id\"],\n            \"properties\": {\n                \"id\": {\n  \
+        \                  \"description\": \"A local, unique identifier for this\
+        \ document. This field is used to keep track of multiple revisions of a document\
+        \ through the compilation from release to record mechanism.\",\n         \
+        \           \"type\": [\"string\", \"integer\"],\n                    \"mergeStrategy\"\
+        : \"overwrite\"\n                },\n                \"documentType\": {\n\
+        \                    \"description\": \"A classification of the document described\
+        \ taken from the [documentType codelist](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists#document-type).\
+        \ Values from the provided codelist should be used wherever possible, though\
+        \ extended values can be provided if the codelist does not have a relevant\
+        \ code.\",\n                    \"type\": [\"string\", \"null\"],\n      \
+        \              \"mergeStrategy\": \"ocdsVersion\"\n                },\n  \
+        \              \"title\": {\n                    \"description\": \"The document\
+        \ title.\",\n                    \"type\": [\"string\", \"null\"],\n     \
+        \               \"mergeStrategy\": \"ocdsVersion\"\n                },\n \
+        \               \"description\": {\n                    \"description\": \"\
+        A short description of the document. We recommend descriptions do not exceed\
+        \ 250 words. In the event the document is not accessible online, the description\
+        \ field can be used to describe arrangements for obtaining a copy of the document.\"\
+        ,\n                    \"type\": [\"string\", \"null\"],\n               \
+        \     \"mergeStrategy\": \"ocdsVersion\"\n                },\n           \
+        \     \"url\": {\n                    \"description\": \" direct link to the\
+        \ document or attachment. The server providing access to this document should\
+        \ be configured to correctly report the document mime type.\",\n         \
+        \           \"type\": [\"string\", \"null\"],\n                    \"format\"\
+        : \"uri\",\n                    \"mergeStrategy\": \"ocdsVersion\"\n     \
+        \           },\n                \"datePublished\": {\n                   \
+        \ \"description\": \"The date on which the document was first published. This\
+        \ is particularly important for legally important documents such as notices\
+        \ of a tender.\",\n                    \"type\": [\"string\", \"null\"],\n\
+        \                    \"format\": \"date-time\",\n                    \"mergeStrategy\"\
+        : \"ocdsVersion\"\n                },\n                \"dateModified\": {\n\
+        \                    \"description\": \"Date that the document was last modified\"\
+        ,\n                    \"type\": [\"string\", \"null\"],\n               \
+        \     \"format\": \"date-time\",\n                    \"mergeStrategy\": \"\
+        ocdsVersion\"\n                },\n                \"format\": {\n       \
+        \             \"description\": \"The format of the document taken from the\
+        \ [IANA Media Types code list](http://www.iana.org/assignments/media-types/),\
+        \ with the addition of one extra value for 'offline/print', used when this\
+        \ document entry is being used to describe the offline publication of a document.\
+        \ Use values from the template column. Links to web pages should be tagged\
+        \ 'text/html'.\",\n                    \"type\": [\"string\", \"null\"],\n\
+        \                    \"mergeStrategy\": \"ocdsVersion\"\n                },\n\
+        \                \"language\": {\n                    \"description\": \"\
+        Specifies the language of the linked document using either two-digit [ISO\
+        \ 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), or extended\
+        \ [BCP47 language tags](http://www.w3.org/International/articles/language-tags/).\
+        \ The use of two-letter codes from [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)\
+        \ is strongly recommended unless there is a clear user need for distinguishing\
+        \ the language subtype.\",\n                    \"type\": [\"string\", \"\
+        null\"],\n                    \"mergeStrategy\": \"ocdsVersion\"\n       \
+        \         }\n            },\n            \"patternProperties\": {\n      \
+        \          \"^(title_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  },\n                \"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Budget\": {\n            \"type\"\
+        : \"object\",\n            \"title\": \"Budget Information\",\n          \
+        \  \"description\": \"This section contain information about the budget line,\
+        \ and associated projects, through which this contracting process is funded.\
+        \ It draws upon data model of the [Budget Data Package](https://github.com/openspending/budget-data-package/blob/master/specification.md),\
+        \ and should be used to cross-reference to more detailed information held\
+        \ using a Budget Data Package, or, where no linked Budget Data Package is\
+        \ available, to provide enough information to allow a user to manually or\
+        \ automatically cross-reference with another published source of budget and\
+        \ project information.\",\n            \"mergeStrategy\": \"ocdsVersion\"\
+        ,\n            \"properties\": {\n                \"source\": {\n        \
+        \            \"title\": \"Data Source\",\n                    \"description\"\
+        : \"Used to point either to a corresponding Budget Data Package, or to a machine\
+        \ or human-readable source where users can find further information on the\
+        \ budget line item identifiers, or project identifiers, provided here.\",\n\
+        \                    \"type\":[\"string\", \"null\"],\n                  \
+        \  \"mergeStrategy\": \"ocdsVersion\",\n                    \"format\": \"\
+        uri\"\n                },\n                \"id\":{ \n                   \
+        \ \"description\": \"An identifier for the budget line item which provides\
+        \ funds for this contracting process. This identifier should be possible to\
+        \ cross-reference against the provided data source.\",\n                 \
+        \   \"mergeStrategy\": \"ocdsVersion\",\n                    \"type\":[\"\
+        string\", \"integer\", \"null\"]\n                },\n                \"description\"\
+        : {\n                    \"title\": \"Budget Source\",\n                 \
+        \   \"description\": \"A short free text description of the budget source.\
+        \ May be used to provide the title of the budget line, or the programme used\
+        \ to fund this project.\",\n                    \"mergeStrategy\": \"ocdsVersion\"\
+        ,\n                    \"type\": [\"string\", \"null\"]\n                },\n\
+        \                \"amount\": { \n                    \"description\": \"The\
+        \ value of the budget line item.\",\n                    \"$ref\": \"#/definitions/Value\"\
+        \n                },\n                \"project\": {\n                   \
+        \ \"title\": \"Project Title\",\n                    \"description\": \"The\
+        \ name of the project that through which this contracting process is funded\
+        \ (if applicable). Some organizations maintain a registry of projects, and\
+        \ the data should use the name by which the project is known in that registry.\
+        \ No translation option is offered for this string, as translated values can\
+        \ be provided in third-party data, linked from the data source above.\",\n\
+        \                    \"mergeStrategy\": \"ocdsVersion\",\n               \
+        \     \"type\": [\"string\", \"null\"]\n                },\n             \
+        \   \"projectID\": {\n                    \"title\": \"Project Identifier\"\
+        ,\n                    \"description\": \"An external identifier for the project\
+        \ that this contracting process forms part of, or is funded via (if applicable).\
+        \ Some organizations maintain a registry of projects, and the data should\
+        \ use the identifier from the relevant registry of projects.\",\n        \
+        \            \"mergeStrategy\": \"ocdsVersion\",\n                    \"type\"\
+        : [\"string\", \"integer\", \"null\"]\n                },\n              \
+        \  \"uri\":{\n                    \"title\": \"Linked budget information\"\
+        ,\n                    \"description\": \"A URI pointing directly to a machine-readable\
+        \ record about the related budget or projects for this contracting process.\"\
+        ,\n                    \"mergeStrategy\": \"ocdsVersion\",\n             \
+        \       \"type\": [\"string\", \"null\"],\n                    \"format\"\
+        : \"uri\"\n                }\n            },\n            \"patternProperties\"\
+        : {\n                \"^(source_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  },\n                \"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  },\n                \"^(project_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Transaction\": {\n            \"\
+        type\": \"object\",\n            \"title\": \"Transaction Information\",\n\
+        \            \"description\": \"A spending transaction related to the contracting\
+        \ process. Draws upon the data models of the [Budget Data Package](https://github.com/openspending/budget-data-package/blob/master/specification.md)\
+        \ and the [International Aid Transpareny Initiative](http://iatistandard.org/activity-standard/iati-activities/iati-activity/transaction/)\
+        \ and should be used to cross-reference to more detailed information held\
+        \ using a Budget Data Package, IATI file, or to provide enough information\
+        \ to allow a user to manually or automatically cross-reference with some other\
+        \ published source of transactional spending data.\",\n            \"required\"\
+        : [\"id\"],\n            \"properties\": {\n                \"id\":{ \n  \
+        \                  \"description\": \"A unique identifier for this transaction.\
+        \ This identifier should be possible to cross-reference against the provided\
+        \ data source. For the budget data package this is the id, for IATI, the transaction\
+        \ reference.\",\n                    \"type\": [\"string\", \"integer\"],\n\
+        \                    \"mergeStrategy\": \"overwrite\"\n                },\n\
+        \                \"source\": {\n                    \"title\": \"Data Source\"\
+        ,\n                    \"description\": \"Used to point either to a corresponding\
+        \ Budget Data Package, IATI file, or machine or human-readable source where\
+        \ users can find further information on the budget line item identifiers,\
+        \ or project identifiers, provided here.\",\n                    \"mergeStrategy\"\
+        : \"ocdsVersion\",\n                    \"type\": [\"string\", \"null\"],\n\
+        \                    \"format\": \"uri\"\n                },\n           \
+        \     \"date\": {\n                    \"description\": \"The date of the\
+        \ transaction\",\n                    \"mergeStrategy\": \"ocdsVersion\",\n\
+        \                    \"type\": [\"string\", \"null\"],\n                 \
+        \   \"format\": \"date-time\"\n                },\n                \"amount\"\
+        : { \n                    \"description\": \"The value of the transaction.\"\
+        ,\n                    \"$ref\": \"#/definitions/Value\"\n               \
+        \ },\n                \"providerOrganization\":{\n                    \"description\"\
+        : \"The Organization Identifier for the organization from which the funds\
+        \ in this transaction originate. Expressed following the Organizational Identifier\
+        \ standard - consult the documentation and the codelist.\",\n            \
+        \        \"$ref\": \"#/definitions/Identifier\"\n                },\n    \
+        \            \"receiverOrganization\":{\n                    \"description\"\
+        : \"The Organization Identifier for the organization which receives the funds\
+        \ in this transaction. Expressed following the Organizational Identifier standard\
+        \ - consult the documentation and the codelist.\",\n                    \"\
+        $ref\": \"#/definitions/Identifier\"\n                },\n               \
+        \ \"uri\":{\n                    \"title\":\"Linked spending information\"\
+        ,\n                    \"description\":\"A URI pointing directly to a machine-readable\
+        \ record about this spending transaction.\",\n                    \"mergeStrategy\"\
+        : \"ocdsVersion\",\n                    \"type\":[\"string\", \"null\"],\n\
+        \                    \"format\":\"uri\"\n                }\n            }\n\
+        \        },\n        \"Organization\": {\n            \"title\": \"Organization\"\
+        ,\n            \"description\": \"An organization.\",\n            \"type\"\
+        : \"object\",\n            \"properties\": {\n                \"identifier\"\
+        : { \n                    \"description\": \"The primary identifier for this\
+        \ organization. Identifiers that uniquely pick out a legal entity should be\
+        \ preferred. Consult the [organization identifier guidance](http://ocds.open-contracting.org/standard/r/1__0__0/en/key_concepts/identifiers/#organization-identifiers)\
+        \ for the preferred scheme and identifier to use.\",\n                   \
+        \ \"$ref\": \"#/definitions/Identifier\" \n                },\n          \
+        \      \"additionalIdentifiers\": { \n                    \"description\"\
+        : \"A list of additional / supplemental identifiers for the organization,\
+        \ using the [organization identifier guidance](http://ocds.open-contracting.org/standard/r/1__0__0/en/key_concepts/identifiers/#organization-identifiers).\
+        \ This could be used to provide an internally used identifier for this organization\
+        \ in addition to the primary legal entity identifier.\",\n               \
+        \     \"type\": \"array\",\n                    \"mergeStrategy\": \"ocdsVersion\"\
+        ,\n                    \"items\": { \"$ref\": \"#/definitions/Identifier\"\
+        \ },\n                    \"uniqueItems\": true\n                },\n    \
+        \            \"name\": {\n                    \"description\": \"The common\
+        \ name of the organization. The ID property provides an space for the formal\
+        \ legal name, and so this may either repeat that value, or could provide the\
+        \ common name by which this organization is known. This field could also include\
+        \ details of the department or sub-unit involved in this contracting process.\"\
+        ,\n                    \"mergeStrategy\": \"ocdsVersion\",\n             \
+        \       \"type\": [\"string\", \"null\"]\n                },\n           \
+        \     \"address\": { \"$ref\": \"#/definitions/Address\" },\n            \
+        \    \"contactPoint\": { \"$ref\": \"#/definitions/ContactPoint\" }\n    \
+        \        },\n            \"patternProperties\": {\n                \"^(name_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Item\": {\n            \"type\"\
+        : \"object\",\n            \"description\": \"A good, service, or work to\
+        \ be contracted.\",\n            \"required\": [\"id\"],\n            \"properties\"\
+        : {\n                \"id\": {\n                    \"description\": \"A local\
+        \ identifier to reference and merge the items by. Must be unique within a\
+        \ given array of items.\",\n                    \"type\": [\"string\", \"\
+        integer\"],\n                    \"mergeStrategy\": \"overwrite\"\n      \
+        \          },\n                \"description\": {\n                    \"\
+        description\": \"A description of the goods, services to be provided.\",\n\
+        \                    \"mergeStrategy\": \"ocdsVersion\",\n               \
+        \     \"type\": [\"string\", \"null\"]\n                },\n             \
+        \   \"classification\": {\n                    \"description\": \"The primary\
+        \ classification for the item. See the [itemClassificationScheme](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists#item-classification-scheme)\
+        \ to identify preferred classification lists, including CPV and GSIN.\",\n\
+        \                    \"$ref\": \"#/definitions/Classification\"\n        \
+        \        },\n                \"additionalClassifications\": {\n          \
+        \          \"description\": \"An array of additional classifications for the\
+        \ item. See the [itemClassificationScheme](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists#item-classification-scheme)\
+        \ codelist for common options to use in OCDS. This may also be used to present\
+        \ codes from an internal classification scheme.\",\n                    \"\
+        type\": \"array\",\n                    \"mergeStrategy\": \"ocdsVersion\"\
+        ,\n                    \"items\": { \"$ref\": \"#/definitions/Classification\"\
+        \ },\n                    \"uniqueItems\": true\n                },\n    \
+        \            \"quantity\": {\n                    \"description\": \"The number\
+        \ of units required\",\n                    \"mergeStrategy\": \"ocdsVersion\"\
+        ,\n                    \"minimum\": 0,\n                    \"type\": [\"\
+        integer\", \"null\"]\n                },\n                \"unit\": {\n  \
+        \                  \"description\": \"Description of the unit which the good\
+        \ comes in e.g. hours, kilograms. Made up of a unit name, and the value of\
+        \ a single unit.\",\n                    \"type\": \"object\",\n         \
+        \           \"properties\": {\n                        \"name\": {\n     \
+        \                       \"description\": \"Name of the unit\",\n         \
+        \                   \"mergeStrategy\": \"ocdsVersion\",\n                \
+        \            \"type\": [\"string\", \"null\"]\n                        },\n\
+        \                        \"value\": {\n                            \"description\"\
+        : \"The monetary value of a single unit.\",\n                            \"\
+        $ref\": \"#/definitions/Value\"\n                        }\n             \
+        \       },\n                    \"patternProperties\": {\n               \
+        \         \"^(name_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                            \"type\": [\"string\", \"null\"]\n      \
+        \                  }\n                    }\n                }\n         \
+        \   },\n            \"patternProperties\": {\n                \"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Amendment\": {\n            \"\
+        type\": \"object\",\n            \"title\": \"Amendment information\",\n \
+        \           \"properties\": {\n                \"date\": {\n             \
+        \       \"title\": \"Amendment Date\",\n                    \"description\"\
+        :\"The data of this amendment.\",\n                    \"type\": [\"string\"\
+        , \"null\"],\n                    \"format\": \"date-time\",\n           \
+        \         \"mergeStrategy\": \"ocdsVersion\"\n                },\n       \
+        \         \"changes\": {\n                    \"title\": \"Amended fields\"\
+        ,\n                    \"description\": \"Comma-seperated list of affected\
+        \ fields.\",\n                    \"mergeStrategy\": \"ocdsVersion\",\n  \
+        \                  \"type\": \"array\",\n                    \"items\": {\n\
+        \                        \"type\": \"object\",\n                        \"\
+        properties\": {\n                            \"property\": {\n           \
+        \                     \"description\": \"The property name that has been changed\
+        \ relative to the place the amendment is. For example if the contract value\
+        \ has changed, then the property under changes within the contract.amendment\
+        \ would be value.amount. \",\n                                \"type\": \"\
+        string\"\n                            },\n                            \"former_value\"\
+        : {\n                                \"description\": \"The previous value\
+        \ of the changed property, in whatever type the property is.\",\n        \
+        \                        \"type\": [\"string\", \"number\", \"integer\", \"\
+        array\", \"object\", \"null\"]\n                            }\n          \
+        \              }\n                    }\n                },\n            \
+        \    \"rationale\": {\n                    \"description\": \"An explanation\
+        \ for the amendment.\",\n                    \"type\": [\"string\", \"null\"\
+        ],\n                    \"mergeStrategy\": \"ocdsVersion\"\n             \
+        \   }\n            },\n            \"patternProperties\": {\n            \
+        \    \"^(rationale_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Classification\": {\n         \
+        \   \"type\": \"object\",\n            \"properties\": {\n               \
+        \ \"scheme\": {\n                    \"description\": \"An classification\
+        \ should be drawn from an existing scheme or list of codes. This field is\
+        \ used to indicate the scheme/codelist from which the classification is drawn.\
+        \ For line item classifications, this value should represent an known [Item\
+        \ Classification Scheme](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists/#item-classification-scheme)\
+        \ wherever possible.\",\n                    \"type\": [\"string\", \"null\"\
+        ],\n                    \"mergeStrategy\": \"ocdsVersion\"\n             \
+        \   },\n                \"id\": {\n                    \"description\": \"\
+        The classification code drawn from the selected scheme.\",\n             \
+        \       \"type\": [\"string\", \"integer\", \"null\"],\n                 \
+        \   \"mergeStrategy\": \"ocdsVersion\"\n                },\n             \
+        \   \"description\": {\n                    \"description\": \"A textual description\
+        \ or title for the code.\",\n                    \"type\": [\"string\", \"\
+        null\"],\n                    \"mergeStrategy\": \"ocdsVersion\"\n       \
+        \         },\n                \"uri\": {\n                    \"description\"\
+        : \"A URI to identify the code. In the event individual URIs are not available\
+        \ for items in the identifier scheme this value should be left blank.\",\n\
+        \                    \"type\": [\"string\", \"null\"],\n                 \
+        \   \"format\" : \"uri\",\n                    \"mergeStrategy\": \"ocdsVersion\"\
+        \n                }\n            },\n            \"patternProperties\": {\n\
+        \                \"^(description_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Identifier\": {\n            \"\
+        type\": \"object\",\n            \"properties\": {\n                \"scheme\"\
+        : {\n                    \"description\": \"Organization identifiers be drawn\
+        \ from an existing identification scheme. This field is used to indicate the\
+        \ scheme or codelist in which the identifier will be found. This value should\
+        \ be drawn from the [Organization Identifier Scheme](http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists/#organization-identifier-scheme).\"\
+        ,\n                    \"type\": [\"string\", \"null\"],\n               \
+        \     \"mergeStrategy\": \"ocdsVersion\"\n                },\n           \
+        \     \"id\": {\n                    \"description\": \"The identifier of\
+        \ the organization in the selected scheme.\",\n                    \"type\"\
+        : [\"string\", \"integer\", \"null\"],\n                    \"mergeStrategy\"\
+        : \"ocdsVersion\"\n                },\n                \"legalName\": {\n\
+        \                    \"description\": \"The legally registered name of the\
+        \ organization.\",\n                    \"type\": [\"string\", \"null\"],\n\
+        \                    \"mergeStrategy\": \"ocdsVersion\"\n                },\n\
+        \                \"uri\": {\n                    \"description\": \"A URI\
+        \ to identify the organization, such as those provided by [Open Corporates](http://www.opencorporates.com)\
+        \ or some other relevant URI provider. This is not for listing the website\
+        \ of the organization: that can be done through the url field of the Organization\
+        \ contact point.\",\n                    \"type\": [\"string\", \"null\"],\n\
+        \                    \"format\" : \"uri\",\n                    \"mergeStrategy\"\
+        : \"ocdsVersion\"\n                }\n            },\n            \"patternProperties\"\
+        : {\n                \"^(legalName_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Address\": {\n            \"description\"\
+        : \"An address. This may be the legally registered address of the organization,\
+        \ or may be a correspondence address for this particular contracting process.\"\
+        ,\n            \"type\": \"object\",\n            \"properties\": {\n    \
+        \            \"streetAddress\": {\n                    \"type\": [\"string\"\
+        , \"null\"],\n                    \"description\": \"The street address. For\
+        \ example, 1600 Amphitheatre Pkwy.\",\n                    \"mergeStrategy\"\
+        : \"ocdsVersion\"\n                },\n                \"locality\":{\n  \
+        \                  \"type\": [\"string\", \"null\"],\n                   \
+        \ \"description\": \"The locality. For example, Mountain View.\",\n      \
+        \              \"mergeStrategy\": \"ocdsVersion\"\n                },\n  \
+        \              \"region\": {\n                    \"type\": [\"string\", \"\
+        null\"],\n                    \"description\":\"The region. For example, CA.\"\
+        ,\n                    \"mergeStrategy\": \"ocdsVersion\"\n              \
+        \  },\n                \"postalCode\": {\n                    \"type\": [\"\
+        string\", \"null\"],\n                    \"description\":\"The postal code.\
+        \ For example, 94043.\",\n                    \"mergeStrategy\": \"ocdsVersion\"\
+        \n                },\n                \"countryName\": {\n               \
+        \     \"type\": [\"string\", \"null\"],\n                    \"description\"\
+        :\"The country name. For example, United States.\",\n                    \"\
+        mergeStrategy\": \"ocdsVersion\"\n                }\n            },\n    \
+        \        \"patternProperties\": {\n                \"^(countryName_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"ContactPoint\": {\n           \
+        \ \"type\": \"object\",\n            \"description\": \"An person, contact\
+        \ point or department to contact in relation to this contracting process.\"\
+        ,\n            \"properties\": {\n                \"name\": {\n          \
+        \          \"type\": [\"string\", \"null\"],\n                    \"description\"\
+        :\"The name of the contact person, department, or contact point, for correspondence\
+        \ relating to this contracting process.\",\n                    \"mergeStrategy\"\
+        : \"ocdsVersion\"\n                },\n                \"email\":{\n     \
+        \               \"type\": [\"string\", \"null\"],\n                    \"\
+        description\":\"The e-mail address of the contact point/person.\",\n     \
+        \               \"mergeStrategy\": \"ocdsVersion\"\n                },\n \
+        \               \"telephone\": {\n                    \"type\": [\"string\"\
+        , \"null\"],\n                    \"description\":\"The telephone number of\
+        \ the contact point/person. This should include the international dialling\
+        \ code.\",\n                    \"mergeStrategy\": \"ocdsVersion\"\n     \
+        \           },\n                \"faxNumber\": {\n                    \"type\"\
+        : [\"string\", \"null\"],\n                    \"description\":\"The fax number\
+        \ of the contact point/person. This should include the international dialling\
+        \ code.\",\n                    \"mergeStrategy\": \"ocdsVersion\"\n     \
+        \           },\n                \"url\": {\n                    \"type\":\
+        \ [\"string\", \"null\"],\n                    \"description\":\"A web address\
+        \ for the contact point/person.\",\n                    \"format\": \"uri\"\
+        ,\n                    \"mergeStrategy\": \"ocdsVersion\"\n              \
+        \  }\n            },\n            \"patternProperties\": {\n             \
+        \   \"^(name_(((([A-Za-z]{2,3}(-([A-Za-z]{3}(-[A-Za-z]{3}){0,2}))?)|[A-Za-z]{4}|[A-Za-z]{5,8})(-([A-Za-z]{4}))?(-([A-Za-z]{2}|[0-9]{3}))?(-([A-Za-z0-9]{5,8}|[0-9][A-Za-z0-9]{3}))*(-([0-9A-WY-Za-wy-z](-[A-Za-z0-9]{2,8})+))*(-(x(-[A-Za-z0-9]{1,8})+))?)|(x(-[A-Za-z0-9]{1,8})+)))$\"\
+        : {\n                    \"type\": [\"string\", \"null\"]\n              \
+        \  }\n            }\n        },\n        \"Value\": {\n            \"type\"\
+        : \"object\",\n            \"properties\": {\n                \"amount\":\
+        \ {\n                    \"description\": \"Amount as a number.\",\n     \
+        \               \"type\": [\"number\", \"null\"],\n                    \"\
+        minimum\": 0,\n                    \"mergeStrategy\": \"ocdsVersion\"\n  \
+        \              },\n                \"currency\": {\n                    \"\
+        description\": \"The currency in 3-letter ISO 4217 format.\",\n          \
+        \          \"type\": [\"string\", \"null\"],\n                    \"mergeStrategy\"\
+        : \"ocdsVersion\"\n                }\n            }\n        },\n        \"\
+        Period\": {\n            \"type\": \"object\",\n            \"title\": \"\
+        Period\",\n            \"properties\": {\n                \"startDate\": {\
+        \ \n                    \"description\": \"The start date for the period.\"\
+        ,\n                    \"type\": [\"string\", \"null\"],\n               \
+        \     \"format\": \"date-time\",\n                    \"mergeStrategy\": \"\
+        ocdsVersion\"\n                },\n                \"endDate\": {\n      \
+        \              \"description\": \"The end date for the period.\",\n      \
+        \              \"type\": [\"string\", \"null\"],\n                    \"format\"\
+        : \"date-time\",\n                    \"mergeStrategy\": \"ocdsVersion\"\n\
+        \                }\n            }\n        }\n    }\n}\n"}
+    headers:
+      Content-Type: [application/json]
+      Date: ['Thu, 03 Dec 2015 06:21:05 GMT']
+      Expires: ['Thu, 03 Dec 2015 08:21:05 GMT']
+      Server: [Apache/2.4.7 (Ubuntu)]
+      X-Frame-Options: [SAMEORIGIN]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.8.1]
+    method: GET
+    uri: http://localhost:8081/media/45866126-a338-459e-87dd-32336262a7ff/tenders_releases_2_releases_invalid.json
+  response:
+    body: {string: "{\n    \"publisher\": {\n        \"scheme\": null, \n        \"\
+        name\": \"Buyandsell.gc.ca\", \n        \"uri\": \"https://buyandsell.gc.ca\"\
+        , \n        \"uid\": null\n    }, \n    \"releases\": [\n        {\n     \
+        \       \"date\": \"2014-03-25\", \n            \"language\": \"English\"\
+        , \n            \"ocid\": \"PW-14-00627094\", \n            \"initiationType\"\
+        : \"tender\", \n            \"tender\": {\n                \"documents\":\
+        \ [\n                    {\n                        \"url\": \"https://buyandsell.gc.ca/cds/public/2014/03/25/3a76d19e61825db7939e14afaa2002e3/14-2015_itt.pdf\"\
+        , \n                        \"id\": \"https://buyandsell.gc.ca/cds/public/2014/03/25/3a76d19e61825db7939e14afaa2002e3/14-2015_itt.pdf\"\
+        \n                    }, \n                    {\n                       \
+        \ \"url\": \"https://buyandsell.gc.ca/cds/public/2014/03/25/a5d07c1166142b8b2f4183d7a5363fec/14-2015_itt_-_f.pdf\"\
+        , \n                        \"id\": \"https://buyandsell.gc.ca/cds/public/2014/03/25/a5d07c1166142b8b2f4183d7a5363fec/14-2015_itt_-_f.pdf\"\
+        \n                    }, \n                    {\n                       \
+        \ \"url\": \"https://buyandsell.gc.ca/cds/public/2014/04/04/ea5d0f03cfc6ea201b5b6df8794dbb3c/14-2015_itt_amd1.pdf\"\
+        , \n                        \"id\": \"https://buyandsell.gc.ca/cds/public/2014/04/04/ea5d0f03cfc6ea201b5b6df8794dbb3c/14-2015_itt_amd1.pdf\"\
+        \n                    }, \n                    {\n                       \
+        \ \"url\": \"https://buyandsell.gc.ca/cds/public/2014/04/04/ac9afb3b664a28d519062f2b2a4cbceb/14-2015_itt_amd1-f.pdf\"\
+        , \n                        \"id\": \"https://buyandsell.gc.ca/cds/public/2014/04/04/ac9afb3b664a28d519062f2b2a4cbceb/14-2015_itt_amd1-f.pdf\"\
+        \n                    }, \n                    {\n                       \
+        \ \"url\": \"https://buyandsell.gc.ca/cds/public/2014/04/11/f3f3993b4f6f260e057d0cb95f43741d/14-2015_itt_amd2.pdf\"\
+        , \n                        \"id\": \"https://buyandsell.gc.ca/cds/public/2014/04/11/f3f3993b4f6f260e057d0cb95f43741d/14-2015_itt_amd2.pdf\"\
+        \n                    }, \n                    {\n                       \
+        \ \"url\": \"https://buyandsell.gc.ca/cds/public/2014/04/11/69359ba194d3f01f4f13cb9673b85071/14-2015_itt_amd2-f.pdf\"\
+        , \n                        \"id\": \"https://buyandsell.gc.ca/cds/public/2014/04/11/69359ba194d3f01f4f13cb9673b85071/14-2015_itt_amd2-f.pdf\"\
+        \n                    }\n                ], \n                \"tenderPeriod\"\
+        : {\n                    \"endDate\": \"2014-04-15 14:00 Eastern Daylight\
+        \ Time (EDT)\"\n                }, \n                \"items\": [\n      \
+        \              {\n                        \"id\": \"1\", \n              \
+        \          \"classification\": {\n                            \"scheme\":\
+        \ \"GSIN\", \n                            \"description\": \"F029: Other Animal\
+        \ Care and Control Services\"\n                        }, \n             \
+        \           \"description\": \"Canine Control of the Canada Geese (14-2015)\"\
+        \n                    }\n                ], \n                \"awardCriteriaDetails\"\
+        : null, \n                \"procuringEntity\": {\n                    \"name\"\
+        : \"Agriculture & Agrifood Canada\"\n                }, \n               \
+        \ \"id\": \"PW-14-00627094\", \n                \"methodRationale\": \"Open\"\
+        \n            }, \n            \"tag\": [\"tender\"], \n            \"buyer\"\
+        : {\n                \"name\": \"Agriculture & Agrifood Canada\"\n       \
+        \     }\n        }, \n        {\n            \"date\": \"2014-04-04\", \n\
+        \            \"language\": \"English\", \n            \"id\": \"Buyandsell.gc.ca-2014-11-07-a76b0dd2-3dc8-4c52-bc36-cd0e42530602\"\
+        , \n            \"ocid\": \"PW-14-00629344\", \n            \"initiationType\"\
+        : \"tender\", \n            \"tender\": {\n                \"documents\":\
+        \ [\n                    {\n                        \"url\": \"https://buyandsell.gc.ca/cds/public/2014/04/04/cb21d6397174fbba48c92edb694de76f/tender_document_5p404-13181.pdf\"\
+        , \n                        \"id\": \"https://buyandsell.gc.ca/cds/public/2014/04/04/cb21d6397174fbba48c92edb694de76f/tender_document_5p404-13181.pdf\"\
+        \n                    }, \n                    {\n                       \
+        \ \"url\": \"https://buyandsell.gc.ca/cds/public/2014/04/04/370b7a9ab2bdd35086e6caed9b5226f9/fr_tender_document_5p404-13181.pdf\"\
+        , \n                        \"id\": \"https://buyandsell.gc.ca/cds/public/2014/04/04/370b7a9ab2bdd35086e6caed9b5226f9/fr_tender_document_5p404-13181.pdf\"\
+        \n                    }\n                ], \n                \"tenderPeriod\"\
+        : {\n                    \"endDate\": \"2014-04-22 14:00 Central Daylight\
+        \ Time (CDT)\"\n                }, \n                \"items\": [\n      \
+        \              {\n                        \"id\": \"1\", \n              \
+        \          \"classification\": {\n                            \"scheme\":\
+        \ \"GSIN\", \n                            \"description\": \"5131BI: Asphalt\
+        \ and Joint Sealing Services, 5131C: Highways, Roads, Railways,  Airfield\
+        \ Runways\"\n                        }, \n                        \"description\"\
+        : \"Clear Lake Campground Asphalt Paving - Riding Mountain National Park of\
+        \ Canada (5P404-13181)\"\n                    }\n                ], \n   \
+        \             \"awardCriteriaDetails\": null, \n                \"procuringEntity\"\
+        : {\n                    \"name\": \"Parks Canada\"\n                }, \n\
+        \                \"id\": \"PW-14-00629344\", \n                \"methodRationale\"\
+        : \"Open\"\n            }, \n            \"tag\": [\"tender\"], \n       \
+        \     \"buyer\": {\n                \"name\": \"Parks Canada\"\n         \
+        \   }\n        }\n    ], \n    \"uri\": \"https://github.com/open-contracting/sample-data/blob/master/buyandsell/ocds_data/tender_releases.json.zip\"\
+        , \n    \"license\": \"http://data.gc.ca/eng/open-government-licence-canada\"\
+        , \n    \"publishedDate\": \"2014-11-07\"\n}\n"}
+    headers:
+      Content-Length: ['5502']
+      Content-Type: [application/json]
+      Date: ['Thu, 03 Dec 2015 06:21:20 GMT']
+      Last-Modified: ['Thu, 03 Dec 2015 06:21:14 GMT']
+      Server: [WSGIServer/0.2 CPython/3.4.3+]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.8.1]
+    method: GET
+    uri: http://localhost:8081/media/45866126-a338-459e-87dd-32336262a7ff//flattened.xlsx
+  response:
+    body:
+      string: !!binary |
+        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
+    headers:
+      Content-Length: ['14472']
+      Content-Type: [application/vnd.openxmlformats-officedocument.spreadsheetml.sheet]
+      Date: ['Thu, 03 Dec 2015 06:21:20 GMT']
+      Last-Modified: ['Thu, 03 Dec 2015 06:21:14 GMT']
+      Server: [WSGIServer/0.2 CPython/3.4.3+]
+    status: {code: 200, message: OK}
 version: 1
