@@ -25,3 +25,8 @@ PyYAML==3.11
 
 # selenium
 selenium==2.48.0
+
+# vcrpy
+vcrpy==1.7.4
+wrapt==1.10.5
+
