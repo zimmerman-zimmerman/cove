@@ -5,7 +5,7 @@
   <div class="col-md-3">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h4 class="panel-title">{% trans 'Number of grants' %}</h4>
+        {% trans 'Number of grants' %}
       </div>
       <div class="panel-body">
         {{grants_aggregates.count}}
@@ -13,19 +13,49 @@
     </div>
   </div>
   
-  <div class="col-md-3">
+  <div class="col-md-2">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h4 class="panel-title">
-          {% blocktrans with number_of_ids=grants_aggregates.unique_ids|length %}Unique IDs ({{number_of_ids}}){% endblocktrans %}
-        </h4>
+          <a data-toggle="collapse" href="#collapse1" >{% trans 'Unique IDs' %}</a> ({{ grants_aggregates.unique_ids|length }})
       </div>
-      <div class="panel-body">
+      <div id="collapse1" class="panel-body panel-collapse collapse"">
         <ul>
-        {% for id in grants_aggregates.unique_ids %}
+          {% for id in grants_aggregates.unique_ids %}
         <li>{{id}}</li>
         {% endfor %}
         </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-2">
+    <div class="panel {% if grants_aggregates.duplicate_ids|length == 0 %}panel-success{% else %}panel-danger{% endif %}">
+      <div class="panel-heading">
+          {% if grants_aggregates.duplicate_ids|length == 0 %}
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+          {% else %}
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          {% endif %}
+          {% trans 'Duplicate IDs' %}
+      </div>
+      <div class="panel-body">
+        {{ grants_aggregates.duplicate_ids|length }}
+      </div>
+    </div>
+  </div>
+  
+    <div class="col-md-2">
+    <div class="panel {% if grants_aggregates.missing_ids == 0 %}panel-success{% else %}panel-danger{% endif %}">
+      <div class="panel-heading">
+          {% if grants_aggregates.missing_ids == 0 %}
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+          {% else %}
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          {% endif %}
+          {% trans 'Missing IDs' %}
+      </div>
+      <div class="panel-body">
+        {{ grants_aggregates.missing_ids }}
       </div>
     </div>
   </div>

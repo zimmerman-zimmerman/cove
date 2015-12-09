@@ -71,7 +71,7 @@ def get_releases_aggregates(json_data):
             #Gather all the release dates
             if 'date' in release:
                 release_dates.append(release['date'])
- 
+
         # Find unique ocid's
         unique_ocids = set(ocids)
         
@@ -115,18 +115,27 @@ def get_grants_aggregates(json_data):
     
     ids = []
     unique_ids = []
+    duplicate_ids = []
+    missing_ids = 0
     if 'grants' in json_data:
         for grant in json_data['grants']:
             # Gather all the ocids
             if 'id' in grant:
                 ids.append(grant['id'])
-            
+            else:
+                missing_ids += 1
+        
+        # Find duplicate ids
+        duplicate_ids = [k for k, v in collections.Counter(ids).items() if v > 1]
+        
         # Find unique ocid's
         unique_ids = set(ids)
     
     return {
         'count': count,
-        'unique_ids': unique_ids
+        'unique_ids': unique_ids,
+        'duplicate_ids': duplicate_ids,
+        'missing_ids': missing_ids
     }
 
 

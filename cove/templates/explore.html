@@ -96,13 +96,17 @@
   {% if schema_url %}
 
   <div class="col-md-3">
-    <div class="panel panel-default">
+    <div class="panel {% if validation_errors %}panel-danger{% else %}panel-success{% endif %}">
       <div class="panel-heading">
-        <h4 class="panel-title">{% trans 'Validates against the schema?' %}</h4>
+          {% if validation_errors %}
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          {% else %}
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+          {% endif %}
+        {% trans 'Validates against the schema?' %}
       </div>
       <div class="panel-body">
         {% if validation_errors %}No{% else %}Yes{% endif %}
-
       </div>
     </div>
   </div>
