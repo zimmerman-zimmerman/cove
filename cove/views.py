@@ -21,6 +21,7 @@ from jsonschema import FormatChecker
 from django.db.models.aggregates import Count
 from django.utils import timezone
 from datetime import timedelta
+import requests_mock
 
 logger = logging.getLogger(__name__)
 
@@ -546,10 +547,23 @@ def schema_dict_fields_generator(schema_dict):
                         yield '/' + property_name + field
                 yield '/' + property_name
 
+mock_url_map = {
+    'https://raw.githubusercontent.com/ThreeSixtyGiving/standard/master/schema/360-giving-schema.json': None,
+    'https://raw.githubusercontent.com/ThreeSixtyGiving/standard/master/schema/360-giving-package-schema.json': None,
+    'http://standard.open-contracting.org/schema/1__0__1/release-schema.json': 'https://raw.githubusercontent.com/open-contracting/standard/1.0-dev-tmp-integration-1.0.1/standard/schema/release-schema.json',
+    'http://standard.open-contracting.org/schema/1__0__1/release-package-schema.json': 'https://raw.githubusercontent.com/open-contracting/standard/1.0-dev-tmp-integration-1.0.1/standard/schema/release-package-schema.json',
+    'http://standard.open-contracting.org/schema/1__0__1/versioned-release-validation-schema.json': 'https://raw.githubusercontent.com/open-contracting/standard/1.0-dev-tmp-integration-1.0.1/standard/schema/versioned-release-validation-schema.json',
+    'http://standard.open-contracting.org/schema/1__0__1/record-package-schema.json': 'https://raw.githubusercontent.com/open-contracting/standard/1.0-dev-tmp-integration-1.0.1/standard/schema/record-package-schema.json',
+}
+mock_url_text = {url: requests.get(new_url).text if new_url else requests.get(url).text for url, new_url in mock_url_map.items()}
+
 
 def get_schema_fields(schema_filename):
-    r = requests.get(schema_filename)
-    return set(schema_dict_fields_generator(jsonref.loads(r.text, object_pairs_hook=OrderedDict)))
+    with requests_mock.Mocker() as m:
+        for url, text in mock_url_text.items():
+            m.get(url, text=text)
+        r = requests.get(schema_filename)
+        return set(schema_dict_fields_generator(jsonref.loads(r.text, object_pairs_hook=OrderedDict)))
 
 
 def get_counts_additional_fields(schema_url, json_data):
@@ -575,14 +589,17 @@ def datetime_or_date(instance):
 
 
 def get_schema_validation_errors(json_data, schema_url, current_app):
-    schema = requests.get(schema_url).json()
-    validation_errors = collections.defaultdict(list)
-    format_checker = FormatChecker()
-    if current_app == 'cove-360':
-        format_checker.checkers['date-time'] = (datetime_or_date, ValueError)
-    for n, e in enumerate(validator(schema, format_checker=format_checker).iter_errors(json_data)):
-        validation_errors[e.message].append("/".join(str(item) for item in e.path))
-    return dict(validation_errors)
+    with requests_mock.Mocker() as m:
+        for url, text in mock_url_text.items():
+            m.get(url, text=text)
+        schema = requests.get(schema_url).json()
+        validation_errors = collections.defaultdict(list)
+        format_checker = FormatChecker()
+        if current_app == 'cove-360':
+            format_checker.checkers['date-time'] = (datetime_or_date, ValueError)
+        for n, e in enumerate(validator(schema, format_checker=format_checker).iter_errors(json_data)):
+            validation_errors[e.message].append("/".join(str(item) for item in e.path))
+        return dict(validation_errors)
     
 
 class CoveInputDataError(Exception):
@@ -642,7 +659,10 @@ def convert_json(request, data):
     try:
         if not os.path.exists(converted_path + '.xlsx'):
             if request.POST.get('flatten'):
-                flattentool.flatten(data.original_file.file.name, **flatten_kwargs)
+                with requests_mock.Mocker() as m:
+                    for url, text in mock_url_text.items():
+                        m.get(url, text=text)
+                    flattentool.flatten(data.original_file.file.name, **flatten_kwargs)
             else:
                 return {'conversion': 'flattenable'}
 
@@ -653,7 +673,10 @@ def convert_json(request, data):
                 use_titles=True
             ))
             if not os.path.exists(converted_path + '-titles.xlsx'):
-                flattentool.flatten(data.original_file.file.name, **flatten_kwargs)
+                with requests_mock.Mocker() as m:
+                    for url, text in mock_url_text.items():
+                        m.get(url, text=text)
+                    flattentool.flatten(data.original_file.file.name, **flatten_kwargs)
             context['converted_file_size_titles'] = os.path.getsize(converted_path + '-titles.xlsx')
     except BadlyFormedJSONError as err:
         raise CoveInputDataError(context={
@@ -705,16 +728,19 @@ def convert_spreadsheet(request, data, file_type):
         input_name = data.original_file.file.name
     try:
         if not os.path.exists(converted_path):
-            flattentool.unflatten(
-                input_name,
-                output_name=converted_path,
-                input_format=file_type,
-                main_sheet_name=request.cove_config['main_sheet_name'],
-                root_id=request.cove_config['root_id'],
-                schema=request.cove_config['item_schema_url'],
-                convert_titles=True,
-                encoding=encoding
-            )
+            with requests_mock.Mocker() as m:
+                for url, text in mock_url_text.items():
+                    m.get(url, text=text)
+                flattentool.unflatten(
+                    input_name,
+                    output_name=converted_path,
+                    input_format=file_type,
+                    main_sheet_name=request.cove_config['main_sheet_name'],
+                    root_id=request.cove_config['root_id'],
+                    schema=request.cove_config['item_schema_url'],
+                    convert_titles=True,
+                    encoding=encoding
+                )
         context['converted_file_size'] = os.path.getsize(converted_path)
     except Exception as err:
         logger.exception(err, extra={
