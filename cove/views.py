@@ -550,10 +550,10 @@ def schema_dict_fields_generator(schema_dict):
 mock_url_map = {
     'https://raw.githubusercontent.com/ThreeSixtyGiving/standard/master/schema/360-giving-schema.json': None,
     'https://raw.githubusercontent.com/ThreeSixtyGiving/standard/master/schema/360-giving-package-schema.json': None,
-    'http://standard.open-contracting.org/schema/1__0__1/release-schema.json': 'https://raw.githubusercontent.com/open-contracting/standard/1.0-dev-tmp-integration-1.0.1/standard/schema/release-schema.json',
-    'http://standard.open-contracting.org/schema/1__0__1/release-package-schema.json': 'https://raw.githubusercontent.com/open-contracting/standard/1.0-dev-tmp-integration-1.0.1/standard/schema/release-package-schema.json',
-    'http://standard.open-contracting.org/schema/1__0__1/versioned-release-validation-schema.json': 'https://raw.githubusercontent.com/open-contracting/standard/1.0-dev-tmp-integration-1.0.1/standard/schema/versioned-release-validation-schema.json',
-    'http://standard.open-contracting.org/schema/1__0__1/record-package-schema.json': 'https://raw.githubusercontent.com/open-contracting/standard/1.0-dev-tmp-integration-1.0.1/standard/schema/record-package-schema.json',
+    'http://standard.open-contracting.org/schema/1__0__1/release-schema.json': 'https://raw.githubusercontent.com/open-contracting/standard/1.0-dev/standard/schema/release-schema.json',
+    'http://standard.open-contracting.org/schema/1__0__1/release-package-schema.json': 'https://raw.githubusercontent.com/open-contracting/standard/1.0-dev/standard/schema/release-package-schema.json',
+    'http://standard.open-contracting.org/schema/1__0__1/versioned-release-validation-schema.json': 'https://raw.githubusercontent.com/open-contracting/standard/1.0-dev/standard/schema/versioned-release-validation-schema.json',
+    'http://standard.open-contracting.org/schema/1__0__1/record-package-schema.json': 'https://raw.githubusercontent.com/open-contracting/standard/1.0-dev/standard/schema/record-package-schema.json',
 }
 mock_url_text = {url: requests.get(new_url).text if new_url else requests.get(url).text for url, new_url in mock_url_map.items()}
 
