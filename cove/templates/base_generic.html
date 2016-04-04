@@ -2,17 +2,22 @@
 {% load bootstrap3 %}
 {% load static from staticfiles %}
 {% load i18n %}
+{% load offlinecdn %}
 <html>
 <head>
   {% block after_head %}
   {% endblock %}
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% offlinecdn %}
   {% block bootstrap_css %}
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   {% endblock %}
+  {% endofflinecdn %}
 
   <link rel="stylesheet" type="text/css" href="{% static 'dataexplore/css/style.css' %}">
+  {% offlinecdn %}
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css">
+  {% endofflinecdn %}
 
   <link rel="icon" type="image/png" href="{% static 'dataexplore/favicon.png' %}">
   <title>{{ application_name }} {% block title %}{% endblock %}</title>
