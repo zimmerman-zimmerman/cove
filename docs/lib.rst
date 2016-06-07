@@ -1,6 +1,8 @@
 Using cove as a library (cove.lib)
 ==================================
 
+Note that this is a work in progress, and all the functions here are currently subject to change without notice. See https://github.com/OpenDataServices/cove/issues/207 for more info.
+
 Currently the main user of ``cove.lib`` is ``cove.views`` which is responsible for rendering the Cove web application.
 
 .. Another use is..... [e.g. OCDS sample data, see https://github.com/OpenDataServices/cove/issues/207#issuecomment-223984203]
