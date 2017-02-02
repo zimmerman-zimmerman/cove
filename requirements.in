@@ -1,7 +1,7 @@
 pip
 Django<1.9
 #^^ rq.filter: <1.9
--e git+https://github.com/OpenDataServices/flatten-tool.git@4eb7e4224eab6ea533c01379d2169172cd92d61e#egg=flattentool
+-e git+https://github.com/OpenDataServices/flatten-tool.git@054b6cfcf8247397b4be5f8c503ddcc31fad2dea#egg=flattentool
 django-bootstrap3
 django-debug-toolbar
 requests
