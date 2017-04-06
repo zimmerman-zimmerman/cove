@@ -252,7 +252,7 @@ def test_URL_input(server_url, browser, httpserver, source_filename, prefix, exp
         httpserver.serve_content(fp.read())
     if 'CUSTOM_SERVER_URL' in os.environ:
         # Use urls pointing to GitHub if we have a custom (probably non local) server URL
-        source_url = 'https://raw.githubusercontent.com/OpenDataServices/cove/master/cove/fixtures/' + source_filename
+        source_url = 'https://raw.githubusercontent.com/OpenDataServices/cove/release-201611/cove/fixtures/' + source_filename
     else:
         source_url = httpserver.url + '/' + source_filename
 
@@ -341,7 +341,7 @@ def test_error_modal(server_url, browser, httpserver, source_filename, prefix):
         httpserver.serve_content(fp.read())
     if 'CUSTOM_SERVER_URL' in os.environ:
         # Use urls pointing to GitHub if we have a custom (probably non local) server URL
-        source_url = 'https://raw.githubusercontent.com/OpenDataServices/cove/master/cove/fixtures/' + source_filename
+        source_url = 'https://raw.githubusercontent.com/OpenDataServices/cove/release-201611/cove/fixtures/' + source_filename
     else:
         source_url = httpserver.url + '/' + source_filename
 
@@ -373,7 +373,7 @@ def test_check_schema_link_on_result_page(server_url, browser, httpserver, sourc
         httpserver.serve_content(fp.read())
     if 'CUSTOM_SERVER_URL' in os.environ:
         # Use urls pointing to GitHub if we have a custom (probably non local) server URL
-        source_url = 'https://raw.githubusercontent.com/OpenDataServices/cove/master/cove/fixtures/' + source_filename
+        source_url = 'https://raw.githubusercontent.com/OpenDataServices/cove/release-201611/cove/fixtures/' + source_filename
     else:
         source_url = httpserver.url + '/' + source_filename
 
@@ -434,7 +434,7 @@ def test_flattentool_warnings(server_url, browser, httpserver, monkeypatch, warn
         httpserver.serve_content(fp.read())
     if 'CUSTOM_SERVER_URL' in os.environ:
         # Use urls pointing to GitHub if we have a custom (probably non local) server URL
-        source_url = 'https://raw.githubusercontent.com/OpenDataServices/cove/master/cove/fixtures/' + source_filename
+        source_url = 'https://raw.githubusercontent.com/OpenDataServices/cove/release-201611/cove/fixtures/' + source_filename
     else:
         source_url = httpserver.url + '/' + source_filename
 
