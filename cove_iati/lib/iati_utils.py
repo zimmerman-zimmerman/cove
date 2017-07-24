@@ -25,6 +25,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 '''
 from collections import OrderedDict
 import defusedxml.lxml as ET
+import sys
 
 # Namespaces necessary for opening schema files
 namespaces = {
@@ -61,7 +62,7 @@ class IATISchemaWalker(object):
             schema_element = self.tree2.find('xsd:{0}[@name="{1}"]'.format(tag_name, name_attribute), namespaces=namespaces)
         return schema_element
 
-    def element_loop(self, element, path):
+    def element_loop(self, element):
         '''
         Return information about the children of the supplied element.
         '''
@@ -77,14 +78,12 @@ class IATISchemaWalker(object):
                     element.findall('xsd:complexType/xsd:sequence/xsd:element', namespaces=namespaces) +
                     element.findall("xsd:complexType/xsd:all/xsd:element", namespaces=namespaces) +
                     type_elements)
-        child_tuples = []
         for child in children:
             a = child.attrib
             if 'name' in a:
-                child_tuples.append((a['name'], child, None, a.get('minOccurs'), a.get('maxOccurs')))
+                yield a['name'], child, None, a.get('minOccurs'), a.get('maxOccurs')
             else:
-                child_tuples.append((a['ref'], None, child, a.get('minOccurs'), a.get('maxOccurs')))
-        return child_tuples
+                yield a['ref'], None, child, a.get('minOccurs'), a.get('maxOccurs')
 
     def create_schema_dict(self, parent_name, parent_element=None):
         '''
@@ -95,7 +94,87 @@ class IATISchemaWalker(object):
             parent_element = self.get_schema_element('element', parent_name)
 
         return OrderedDict([(name, self.create_schema_dict(name, element))
-                           for name, element, _, _, _ in self.element_loop(parent_element, '')])
+                           for name, element, _, _, _ in self.element_loop(parent_element)])
+
+    def attribute_loop(self, element):
+        """
+        Returns a list containing a tuple for each attribute the given element
+        can have.
+        The format of the tuple is (name, is_required)
+        """
+        #if element.find("xsd:complexType[@mixed='true']", namespaces=namespaces) is not None:
+        #    print_column_info('text', indent)
+            
+        a = element.attrib
+        type_attributes = []
+        type_attributeGroups = []
+        if 'type' in a:
+            complexType = self.get_schema_element('complexType', a['type'])
+            if complexType is not None:
+                type_attributes = (
+                    complexType.findall('xsd:attribute', namespaces=namespaces) +
+                    complexType.findall('xsd:simpleContent/xsd:extension/xsd:attribute', namespaces=namespaces)
+                    )
+                type_attributeGroups = (
+                    complexType.findall('xsd:attributeGroup', namespaces=namespaces) +
+                    complexType.findall('xsd:simpleContent/xsd:extension/xsd:attributeGroup', namespaces=namespaces)
+                    )
+
+        group_attributes = []
+        for attributeGroup in (
+                element.findall('xsd:complexType/xsd:attributeGroup', namespaces=namespaces) +
+                element.findall('xsd:complexType/xsd:simpleContent/xsd:extension/xsd:attributeGroup', namespaces=namespaces) +
+                type_attributeGroups
+                ):
+            group_attributes += self.get_schema_element('attributeGroup', attributeGroup.attrib['ref']).findall('xsd:attribute', namespaces=namespaces)
+
+        for attribute in (
+                element.findall('xsd:complexType/xsd:attribute', namespaces=namespaces) +
+                element.findall('xsd:complexType/xsd:simpleContent/xsd:extension/xsd:attribute', namespaces=namespaces) +
+                type_attributes + group_attributes
+                ):
+            doc = attribute.find(".//xsd:documentation", namespaces=namespaces)
+            if 'ref' in attribute.attrib:
+                referenced_attribute = self.get_schema_element('attribute', attribute.get('ref'))
+                if referenced_attribute is not None:
+                    attribute = referenced_attribute
+                if doc is None:
+                    # Only fetch the documentation of the referenced definition
+                    # if we don't already have documentation.
+                    doc = attribute.find(".//xsd:documentation", namespaces=namespaces)
+            yield attribute.get('name') or attribute.get('ref'), attribute.get('use') == 'required'
+
+    def has_simple_content(self, element):
+        a = element.attrib
+        simple_content = False
+        if 'type' in a:
+            complexType = self.get_schema_element('complexType', a['type'])
+            if complexType is not None:
+                simple_content = bool(complexType.findall('xsd:simpleContent', namespaces=namespaces))
+        return simple_content or bool(element.findall('xsd:complexType/xsd:simpleContent', namespaces=namespaces))
+
+    def generate_paths(self, parent_name, parent_element=None, parent_path=''):
+        if parent_element is None:
+            parent_element = self.get_schema_element('element', parent_name)
+
+        for name, required, in self.attribute_loop(parent_element):
+            if name == 'xml:lang':
+                # Namespaces not supported yet https://github.com/OpenDataServices/flatten-tool/issues/148
+                # And no way to specify two narrative elements anyway https://github.com/OpenDataServices/cove/issues/777
+                continue
+            yield parent_path + '@' + name
+
+        for name, element, _, minOccurs, maxOccurs in self.element_loop(parent_element):
+            if element is None:
+                element = self.get_schema_element('element', name)
+            path = parent_path + name
+            if self.has_simple_content(element):
+                yield path
+            if maxOccurs == 'unbounded' or int(maxOccurs) > 1:
+                path += '/0/'
+            else:
+                path += '/'
+            yield from list(self.generate_paths(name, element, path))
 
 
 def sort_iati_element(element, schema_subdict):
@@ -131,3 +210,8 @@ def sort_iati_xml_file(input_file, output_file):
 
     with open(output_file, 'wb') as fp:
         tree.write(fp, encoding='utf-8')
+
+
+if __name__ == '__main__' and len(sys.argv) > 1 and sys.argv[1] == 'generate_template':
+    for path in IATISchemaWalker('iati-activities-schema.xsd').generate_paths('iati-activity'):
+        print(path)
