@@ -559,7 +559,7 @@ def test_get_additional_codelist_values():
     assert additional_codelist_values == {
         ('releases', 'tag'): {
             'codelist': 'releaseTag.csv',
-            'codelist_url': 'https://raw.githubusercontent.com/open-contracting/standard/1.1-dev/standard/schema/codelists/releaseTag.csv',
+            'codelist_url': 'https://raw.githubusercontent.com/open-contracting/standard/1.1.1-dev/standard/schema/codelists/releaseTag.csv',
             'field': 'tag',
             'isopen': False,
             'path': 'releases',
@@ -567,7 +567,7 @@ def test_get_additional_codelist_values():
         },
         ('releases', 'tender', 'items', 'classification', 'scheme'): {
             'codelist': 'itemClassificationScheme.csv',
-            'codelist_url': 'https://raw.githubusercontent.com/open-contracting/standard/1.1-dev/standard/schema/codelists/itemClassificationScheme.csv',
+            'codelist_url': 'https://raw.githubusercontent.com/open-contracting/standard/1.1.1-dev/standard/schema/codelists/itemClassificationScheme.csv',
             'field': 'scheme',
             'isopen': True,
             'path': 'releases/tender/items/classification',
