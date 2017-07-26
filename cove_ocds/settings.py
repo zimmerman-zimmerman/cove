@@ -39,7 +39,7 @@ COVE_CONFIG = {
     'schema_item_name': 'release-schema.json',
     'schema_host': None,
     'schema_version_choices': OrderedDict((  # {version: (display, url)}
-        ('1.0', ('1.0', 'http://standard.open-contracting.org/1.0.3-dev/en/')),
+        ('1.0', ('1.0', 'https://raw.githubusercontent.com/open-contracting/standard/1.0.3-dev/standard/schema/')),
         ('1.1', ('1.1', 'http://standard.open-contracting.org/1.1.1-dev/en/')),
     )),
     'schema_codelists': OrderedDict((  # {version: codelist_dir}
