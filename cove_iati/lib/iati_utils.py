@@ -158,22 +158,17 @@ class IATISchemaWalker(object):
             parent_element = self.get_schema_element('element', parent_name)
 
         for name, required, in self.attribute_loop(parent_element):
-            if name == 'xml:lang':
-                # Namespaces not supported yet https://github.com/OpenDataServices/flatten-tool/issues/148
-                # And no way to specify two narrative elements anyway https://github.com/OpenDataServices/cove/issues/777
-                continue
             yield parent_path + '@' + name
 
         for name, element, _, minOccurs, maxOccurs in self.element_loop(parent_element):
             if element is None:
                 element = self.get_schema_element('element', name)
             path = parent_path + name
+            if maxOccurs == 'unbounded' or int(maxOccurs) > 1:
+                path += '/0'
             if self.has_simple_content(element):
                 yield path
-            if maxOccurs == 'unbounded' or int(maxOccurs) > 1:
-                path += '/0/'
-            else:
-                path += '/'
+            path += '/'
             yield from list(self.generate_paths(name, element, path))
 
 
