@@ -7,10 +7,11 @@ from django.conf import settings
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.chrome.options import Options
 
 PREFIX_OCDS = os.environ.get('PREFIX_OCDS', '/validator/')
 
-BROWSER = os.environ.get('BROWSER', 'Firefox')
+BROWSER = os.environ.get('BROWSER', 'Chrome')
 
 OCDS_DEFAULT_SCHEMA_VERSION = settings.COVE_CONFIG['schema_version']
 OCDS_SCHEMA_VERSIONS = settings.COVE_CONFIG['schema_version_choices']
@@ -19,7 +20,12 @@ OCDS_SCHEMA_VERSIONS_DISPLAY = list(display_url[0] for version, display_url in O
 
 @pytest.fixture(scope='module')
 def browser(request):
-    browser = getattr(webdriver, BROWSER)()
+    if BROWSER == 'Chrome':
+        chrome_options = Options()
+        chrome_options.add_argument("--headless")
+        browser = getattr(webdriver, BROWSER)(chrome_options=chrome_options)
+    else:
+        browser = getattr(webdriver, BROWSER)()
     browser.implicitly_wait(3)
     request.addfinalizer(lambda: browser.quit())
     return browser
@@ -218,6 +224,7 @@ def test_500_error(server_url, browser):
     ('tenders_releases_1_release_with_patch_in_version.json', ['"version" field in your data follows the major.minor.patch pattern',
                                                                '100.100.0 format does not comply with the schema',
                                                                'Error message'], ['Convert to Spreadsheet'], False),
+    ('bad_toplevel_list.json', ['OCDS JSON should have an object as the top level, the JSON you supplied does not.'], [], False),
 ])
 def test_url_input(server_url, url_input_browser, httpserver, source_filename, expected_text, not_expected_text, conversion_successful):
     browser, source_url = url_input_browser(source_filename, output_source_url=True)

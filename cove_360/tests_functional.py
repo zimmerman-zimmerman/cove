@@ -8,15 +8,21 @@ import os
 import flattentool
 import warnings
 from flattentool.exceptions import DataErrorWarning
+from selenium.webdriver.chrome.options import Options
 
-BROWSER = os.environ.get('BROWSER', 'Firefox')
+BROWSER = os.environ.get('BROWSER', 'Chrome')
 
 PREFIX_360 = os.environ.get('PREFIX_360', '/')
 
 
 @pytest.fixture(scope="module")
 def browser(request):
-    browser = getattr(webdriver, BROWSER)()
+    if BROWSER == 'Chrome':
+        chrome_options = Options()
+        chrome_options.add_argument("--headless")
+        browser = getattr(webdriver, BROWSER)(chrome_options=chrome_options)
+    else:
+        browser = getattr(webdriver, BROWSER)()
     browser.implicitly_wait(3)
     request.addfinalizer(lambda: browser.quit())
     return browser
@@ -76,6 +82,17 @@ def server_url(request, live_server):
     ('paul-hamlyn-foundation-grants_dc.txt', 'We can only process json, csv and xlsx files', False),
     # Test a unconvertable spreadsheet (blank file)
     ('bad.xlsx', 'We think you tried to supply a spreadsheet, but we failed to convert it to JSON.', False),
+    # Check that a file with a UTF-8 BOM converts correctly
+    ('bom.csv', 'Grant identifiers:  1', True),
+    ('nulls.json', [
+        'Value is not an array',
+        'Date is not in the correct format',
+        'Invalid code found in \'countryCode\'',
+        'Value is not a number',
+        'Value is not a string',
+    ], True),
+    ('decimal_amounts.csv', 'The grants were awarded in GBP with a total value of £7,000.7 and individual awards ranging from £1,000.1 (lowest) to £1,000.1 (highest).', True),
+    ('decimal_amounts.json', 'The grants were awarded in GBP with a total value of £7,000.7 and individual awards ranging from £1,000.1 (lowest) to £1,000.1 (highest).', True),
 ])
 def test_explore_360_url_input(server_url, browser, httpserver, source_filename, expected_text, conversion_successful):
     """
@@ -158,7 +175,7 @@ def check_url_input_result_page(server_url, browser, httpserver, source_filename
             assert "unflattened.json" in browser.find_element_by_link_text("JSON (Converted from Original)").get_attribute("href")
 
         assert source_filename in original_file
-        assert '0 bytes' not in body_text
+        assert ' 0 bytes' not in body_text
         # Test for Load New File button
         assert 'Load New File' in body_text
 
@@ -172,6 +189,9 @@ def check_url_input_result_page(server_url, browser, httpserver, source_filename
                 grant1 = converted_file_response.json()['grants'][1]
                 assert grant1['recipientOrganization'][0]['department'] == 'Test data'
                 assert grant1['classifications'][0]['title'] == 'Test'
+            elif source_filename == 'bom.csv':
+                assert converted_file_response.json()['grants'][0]['id'] == '42'
+                assert 'This file is not \'utf-8\' encoded' not in body_text
             assert converted_file_response.status_code == 200
             assert int(converted_file_response.headers['content-length']) != 0
 
