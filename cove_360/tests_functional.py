@@ -135,7 +135,9 @@ def test_explore_360_url_input(server_url, browser, httpserver, source_filename,
 
     if conversion_successful:
         # Expand all sections with the expand all button this time
-        browser.find_element_by_link_text('Expand all').click()
+        expand_all = browser.find_element_by_link_text('Expand all')
+        browser.execute_script("arguments[0].click()", expand_all)
+        #expand_all.click()
         time.sleep(0.5)
 
     # Do the assertions again
@@ -382,7 +384,8 @@ def test_error_modal(server_url, browser, httpserver, source_filename):
             section.click()
         time.sleep(0.5)
 
-    browser.find_element_by_css_selector('a[data-target=".validation-errors-1"]').click()
+    validation_errors = browser.find_element_by_css_selector('a[data-target=".validation-errors-1"]')
+    browser.execute_script("arguments[0].click()", validation_errors)
 
     modal = browser.find_element_by_css_selector('.validation-errors-1')
     assert "in" in modal.get_attribute("class").split()
@@ -393,7 +396,8 @@ def test_error_modal(server_url, browser, httpserver, source_filename):
     assert len(table_rows) == 4
 
     browser.find_element_by_css_selector('div.modal.validation-errors-1 button.close').click()
-    browser.find_element_by_css_selector('a[data-target=".additional-checks-3"]').click()
+    ac = browser.find_element_by_css_selector('a[data-target=".additional-checks-3"]')
+    browser.execute_script("arguments[0].click()", ac)
 
     modal_additional_checks = browser.find_element_by_css_selector('.additional-checks-3')
     assert "in" in modal_additional_checks.get_attribute("class").split()
@@ -429,7 +433,7 @@ def test_check_schema_link_on_result_page(server_url, browser, httpserver, sourc
             section.click()
         time.sleep(0.5)
     schema_link = browser.find_element_by_link_text(expected_text)
-    schema_link.click()
+    browser.execute_script("arguments[0].click()", schema_link)
     browser.find_element_by_id('giving-json-schemas')
 
 
