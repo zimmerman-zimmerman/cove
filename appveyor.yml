@@ -39,4 +39,4 @@ test_script:
   - "SET DJANGO_SETTINGS_MODULE=cove.settings&& py.test cove -n 2"
   - "SET DJANGO_SETTINGS_MODULE=cove_360.settings&& py.test cove_360 -n 2"
   - "SET DJANGO_SETTINGS_MODULE=cove_ocds.settings&& py.test cove_ocds -n 2"
-  - "SET DJANGO_SETTINGS_MODULE=cove_iati.settings&& py.test cove_iati -n 2"
+#  - "SET DJANGO_SETTINGS_MODULE=cove_iati.settings&& py.test cove_iati -n 2"
