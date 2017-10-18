@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse
 import os
 from django.conf import settings
 import requests
+import urllib.parse
 from django.core.files.base import ContentFile
 from cove.input import get_google_doc
 import rfc6266  # (content-disposition header parser)
@@ -49,7 +50,7 @@ class SuppliedData(models.Model):
         return os.path.join(settings.MEDIA_ROOT, upload_to(self))
 
     def upload_url(self):
-        return os.path.join(settings.MEDIA_URL, upload_to(self))
+        return urllib.parse.urljoin(settings.MEDIA_URL, upload_to(self))
 
     def is_google_doc(self):
         return self.source_url.startswith('https://docs.google.com/')

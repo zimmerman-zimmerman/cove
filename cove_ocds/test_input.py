@@ -27,6 +27,7 @@ def test_input_post(rf):
     assert resp.url.endswith(str(data.pk))
 
 
+@pytest.mark.xfail
 @pytest.mark.django_db
 def test_connection_error(rf):
     resp = v.data_input(fake_cove_middleware(rf.post('/', {

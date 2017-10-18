@@ -1,0 +1,42 @@
+# Based on https://github.com/ogrisel/python-appveyor-demo/blob/master/appveyor.yml
+# which is licensed CC0
+
+environment:
+  matrix:
+
+    - PYTHON: "C:\\Python35-x64"
+      PYTHON_VERSION: "3.5.x"
+      PYTHON_ARCH: "64"
+
+install:
+  # Install Python (from the official .msi of http://python.org) and pip when
+  # not already installed.
+  - ps: if (-not(Test-Path($env:PYTHON))) { & appveyor\install.ps1 }
+
+  # Prepend newly installed Python to the PATH of this build (this cannot be
+  # done from inside the powershell script as it would require to restart
+  # the parent CMD process).
+  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
+
+  # Check that we have the expected version and architecture for Python
+  - "pwd"
+  - "cd C:\\projects\\cove"
+  - "ls"
+  - "python --version"
+  - "pip --version"
+
+  # Install the build dependencies of the project. If some dependencies contain
+  # compiled extensions and are not provided as pre-built wheel packages,
+  # pip will build them from source using the MSVC compiler matching the
+  # target Python version and architecture
+  - "pip install -r requirements_dev.txt"
+  - "pip install -r requirements_iati.txt"
+
+build_script:
+  - "true"
+
+test_script:
+  - "SET DJANGO_SETTINGS_MODULE=cove.settings&& py.test cove -n 4"
+  - "SET DJANGO_SETTINGS_MODULE=cove_360.settings&& py.test cove_360 -n 4"
+  - "SET DJANGO_SETTINGS_MODULE=cove_ocds.settings&& py.test cove_ocds -n 4"
+  - "SET DJANGO_SETTINGS_MODULE=cove_iati.settings&& py.test cove_iati -n 4"

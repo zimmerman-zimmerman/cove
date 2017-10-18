@@ -3,6 +3,7 @@ import os
 import uuid
 from collections import OrderedDict
 from unittest.mock import patch
+import urllib.parse
 
 import pytest
 from django.conf import settings
@@ -668,7 +669,7 @@ def test_schema_ocds_extended_release_schema_file():
 
     schema.create_extended_release_schema_file(data.upload_dir(), data.upload_url())
     assert schema.extended_schema_file == os.path.join(data.upload_dir(), 'extended_release_schema.json')
-    assert schema.extended_schema_url == os.path.join(data.upload_url(), 'extended_release_schema.json')
+    assert schema.extended_schema_url == urllib.parse.urljoin(data.upload_url(), 'extended_release_schema.json')
 
     json_data = json.loads('{"version": "1.1", "extensions": [], "releases": [{"ocid": "xx"}]}')
     schema = SchemaOCDS(release_data=json_data)
