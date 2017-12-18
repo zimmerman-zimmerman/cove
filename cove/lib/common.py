@@ -2,6 +2,7 @@ import collections
 import csv
 import datetime
 import functools
+import fcntl
 import json
 import os
 import re
@@ -33,6 +34,8 @@ validation_error_lookup = {'date-time': 'Date is not in the correct format',
 
 
 class CustomJsonrefLoader(jsonref.JsonLoader):
+    '''This ref loader is only for use with the jsonref library
+    and NOT jsonschema.'''
     def __init__(self, **kwargs):
         self.schema_url = kwargs.pop('schema_url', None)
         super().__init__(**kwargs)
@@ -48,19 +51,30 @@ class CustomJsonrefLoader(jsonref.JsonLoader):
 
 
 class CustomRefResolver(RefResolver):
+    '''This RefResolver is only for use with the jsonschema library'''
     def __init__(self, *args, **kw):
+        # this is the name of the json file that you want replaced i.e release-schema.json
+        self.file_schema_name = kw.pop('file_schema_name', '')
+        # the path on the disk of the file you want to replace the ref
         self.schema_file = kw.pop('schema_file', None)
+        # the url of the path to the schema. i.e http://standard.open-contracting.org/schema/1__1__1/
+        # the name of the schema file is appended to this to make the full url.
+        # this is ignored when you supply a file
         self.schema_url = kw.pop('schema_url', '')
         super().__init__(*args, **kw)
 
     def resolve_remote(self, uri):
-        schema_name = self.schema_file or uri.split('/')[-1]
-        uri = urljoin(self.schema_url, schema_name)
+        schema_name = uri.split('/')[-1]
+        if self.schema_file and self.file_schema_name == schema_name:
+            uri = self.schema_file
+        else:
+            uri = urljoin(self.schema_url, schema_name)
+
         document = self.store.get(uri)
 
         if document:
             return document
-        if self.schema_url.startswith("http"):
+        if uri.startswith("http"):
             return super().resolve_remote(uri)
         else:
             with open(uri) as schema_file:
@@ -87,7 +101,7 @@ class SchemaJsonMixin():
 
     @property
     def _release_schema_obj(self):
-        return json.loads(self.release_schema_str)
+        return json.loads(self.release_schema_str, object_pairs_hook=OrderedDict)
 
     @property
     def _release_pkg_schema_obj(self):
@@ -302,7 +316,9 @@ def get_schema_validation_errors(json_data, schema_obj, schema_name, cell_src_ma
         format_checker.checkers.update(extra_checkers)
 
     if getattr(schema_obj, 'extended', None):
-        resolver = CustomRefResolver('', pkg_schema_obj, schema_file=schema_obj.extended_schema_file)
+        resolver = CustomRefResolver('', pkg_schema_obj, schema_url=schema_obj.schema_host,
+                                     schema_file=schema_obj.extended_schema_file,
+                                     file_schema_name=schema_obj.release_schema_name)
     else:
         resolver = CustomRefResolver('', pkg_schema_obj, schema_url=schema_obj.schema_host)
 
@@ -635,7 +651,15 @@ def get_spreadsheet_meta_data(upload_dir, file_name, schema, file_type='xlsx', n
 
 
 def get_orgids_prefixes(orgids_url=None):
-    local_org_ids_file = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'org-ids.json')
+    '''Get org-ids.json file from file system (or fetch upstream if it doesn't exist)
+
+    A lock file is needed to avoid different processes trying to access the file
+    trampling each other. If a process has the exclusive lock, a different process
+    will wait until it is released.
+    '''
+    local_org_ids_dir = os.path.dirname(os.path.realpath(__file__))
+    local_org_ids_file = os.path.join(local_org_ids_dir, 'org-ids.json')
+    lock_file = os.path.join(local_org_ids_dir, 'org-ids.json.lock')
     today = datetime.date.today()
     get_remote_file = False
     first_request = False
@@ -644,8 +668,12 @@ def get_orgids_prefixes(orgids_url=None):
         orgids_url = 'http://org-id.guide/download.json'
 
     if os.path.exists(local_org_ids_file):
-        with open(local_org_ids_file) as fp:
+        with open(lock_file, 'w') as lock:
+            fcntl.flock(lock, fcntl.LOCK_EX)
+            fp = open(local_org_ids_file)
             org_ids = json.load(fp)
+            fp.close()
+            fcntl.flock(lock, fcntl.LOCK_UN)
         date_str = org_ids.get('downloaded', '2000-1-1')
         date_downloaded = datetime.datetime.strptime(date_str, '%Y-%m-%d').date()
         if date_downloaded != today:
@@ -658,8 +686,12 @@ def get_orgids_prefixes(orgids_url=None):
         try:
             org_ids = requests.get(orgids_url).json()
             org_ids['downloaded'] = "%s" % today
-            with open(local_org_ids_file, 'w') as fp:
+            with open(lock_file, 'w') as lock:
+                fcntl.flock(lock, fcntl.LOCK_EX)
+                fp = open(local_org_ids_file, 'w')
                 json.dump(org_ids, fp, indent=2)
+                fp.close()
+                fcntl.flock(lock, fcntl.LOCK_UN)
         except requests.exceptions.RequestException:
             if first_request:
                 raise  # First time ever request fails
