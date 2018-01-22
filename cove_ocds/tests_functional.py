@@ -165,13 +165,14 @@ def test_500_error(server_url, browser):
 
 @pytest.mark.parametrize(('source_filename', 'expected_text', 'not_expected_text', 'conversion_successful'), [
     ('tenders_releases_2_releases.json', ['Convert', 'Schema', 'OCDS release package schema version 1.0. You can'] + OCDS_SCHEMA_VERSIONS_DISPLAY,
-                                         ['Schema Extensions'], True),
+                                         ['Schema Extensions', 'The schema version specified in the file is'], True),
     ('tenders_releases_1_release_with_extensions_1_1.json', ['Schema Extensions',
                                                              'Contract Parties (Organization structure)',
                                                              'All the extensions above were applied',
                                                              'copy of the schema with extension',
                                                              'Validation Errors',
                                                              '\'buyer:name\' is missing but required',
+                                                             'The schema version specified in the file is 1.1',
                                                              'Party Scale'], ['scale', '/releases/parties/details', 'fetching failed'], True),
     ('tenders_1_release_with_extensions_1_1_missing_party_scale.json', ['Schema Extensions',
                                                                         'Contract Parties (Organization structure)',
@@ -196,9 +197,10 @@ def test_500_error(server_url, browser):
                                                                'Get a copy of the schema with extension patches applied',
                                                                'The following extensions failed',
                                                                "Invalid code found in 'scale'",
-                                                               "is not valid under any of the given schemas",
-                                                               "/records/compiledRelease/tender/targets",
-                                                               "/records/releases/tender/targets"], ['validated against a schema with no extensions'], True),
+                                                               'is not valid under any of the given schemas',
+                                                               '/records/compiledRelease/tender/targets',
+                                                               'The schema version specified in the file is 1.1',
+                                                               '/records/releases/tender/targets'], ['validated against a schema with no extensions'], True),
     ('tenders_releases_deprecated_fields_against_1_1_live.json', ['Deprecated Fields',
                                                                   'The single amendment object has been deprecated',
                                                                   'documents at the milestone level is now deprecated',
@@ -314,7 +316,7 @@ def check_url_input_result_page(server_url, browser, httpserver, source_filename
 
         if 'record' not in source_filename:
             converted_file_response = requests.get(converted_file)
-            if source_filename == 'WellcomeTrust-grants_2_grants_titleswithoutrollup.xlsx':
+            if source_filename == 'fundingproviders-grants_2_grants_titleswithoutrollup.xlsx':
                 grant1 = converted_file_response.json()['grants'][1]
                 assert grant1['recipientOrganization'][0]['department'] == 'Test data'
                 assert grant1['classifications'][0]['title'] == 'Test'
