@@ -6,9 +6,9 @@
 {% block header_button %}
 {{block.super}}
 <div class="expand-collapse-all">
-<a href="#" onclick="$('.collapse').collapse('show')">Expand all</a>
+<a href="#" onclick="expand_all()">Expand all</a>
 /
-<a href="#" onclick="$('.collapse').collapse('hide')">Collapse all</a>
+<a href="#" onclick="collapse_all()">Collapse all</a>
 </div>
 {% endblock %}
 
@@ -23,7 +23,7 @@
           <span class="pull-right glyphicon glyphicon-collapse-{% if conversion == 'flattenable' %}up{% else %}down{% endif %}"></span>
         </h3>
       </div>
-      <div id="data-supplied-body" class="collapse {% if conversion == 'flattenable' %}in{% endif %}">
+      <div id="data-supplied-body" class="collapse in">
         <div class="panel-body">
            <p class="explanation">
              {% trans "A file was " %} 
@@ -34,8 +34,12 @@
              {% endif %}
              {% trans "on " %} {{created_date}}.
            </p>
-           <br>
-           <div class="explore-help"> If anything looks wrong with this data please use the <em>Review</em> section below to identify potential issues. </div>
+          {% if conversion == 'flattenable' %}
+            <form method="post">
+              <button name="flatten" value="true" type="submit" class="btn btn-success btn-sm pull-right">{% trans "Convert to Spreadsheet" %}</button>
+              {% csrf_token %}
+            </form>
+          {% endif %}
         </div>
       </div>
     </div>
@@ -65,7 +69,6 @@
           {% else %}
             <p class="explanation"></p>
             {% if conversion_error %}
-                <p>{% blocktrans %}{% endblocktrans %}</p>
                 {% include 'error_extra.html' %}
             {% endif %}
           {% endif %}
@@ -106,7 +109,7 @@
         {% else %}
           {% trans "Congratulations! Your data is valid against" %}
         {% endif %}
-        <a href=""> IATI Schema</a>.
+          <a href="http://iatistandard.org/203/schema/">IATI Schema version 2.03</a>.
         </p>
         <div class="explore-help"></div>
         {% if validation_errors %}
@@ -114,8 +117,10 @@
           <p class="explanation">&nbsp;{% trans "There are some <strong>validation errors</strong> in your data, please check them in the table below." %}</p>
           <br>
           {% include "validation_table.html" %}
-          {% for error, values in validation_errors %}
-             {% cove_modal_errors className="validation-errors-"|concat:forloop.counter modalTitle=error|get_message errorList=values file_type=file_type %}
+          {% for error_json, values in validation_errors %}
+            {% with error=error_json|json_decode %}
+              {% cove_modal_errors className="validation-errors-"|concat:forloop.counter modalTitle=error.message errorList=values file_type=file_type full_table=True %}
+            {% endwith %}
           {% endfor %}
         {% endif %}
       </div>
@@ -123,6 +128,57 @@
   </div>
   {% endblock validation %}
 
+  {% block ruleset %}
+  <div class="panel panel-default">
+    <div class="panel-heading panel-heading-explore" data-toggle="collapse" data-target="#rulesets-body">
+      <h3 class="panel-title panel-title-explore">
+        {% if ruleset_errors %}
+          {% if ruleset_errors.0.exception %}
+            <span class="glyphicon glyphicon-warning-sign text-warning" aria-hidden="true"></span>
+            {% trans "Ruleset Errors " %}
+            <small><strong>{% trans "Failed" %}</strong></small>
+          {% else %}
+            <span class="font-tick cross" aria-hidden="true"></span>
+            {% trans "Ruleset Errors " %}
+            <small><strong>{% blocktrans count n_errors=ruleset_errors_count %} {{n_errors}} Error.{% plural %}{{n_errors}} Errors {% endblocktrans %}</strong></small>
+          {% endif %}
+        {% else %}
+           <span class="font-tick tick" aria-hidden="true"></span>
+          {% trans "Ruleset Checks" %}
+        {% endif %}
+        <span class="glyphicon glyphicon-collapse-down pull-right"></span>
+      </h3>
+    </div>
+    <div id="rulesets-body" class="collapse">
+      <div class="panel-body">
+        <p class="explanation">
+        {% if ruleset_errors %}
+          {% if ruleset_errors.0.exception %}
+              {% trans "There was a problem running ruleset checks." %}</p>
+            {% if validation_errors %}
+              <br>
+              <p>{% trans "This may be due to validation errors in your data, please fix them and try again." %}</p>
+            {% endif %}
+          {% else %}
+            {% trans "Sorry your data contains ruleset errors" %}</p>
+            <button name="ruleset-table-toggle" class="btn btn-success btn-sm pull-right">See same results <strong>by activity</strong></button>
+          {% endif %}
+        {% else %}
+        <p class="explanation">{% trans "Congratulations! Your data passes all IATI ruleset checks" %}</p>
+        {% endif %}
+        {% if ruleset_errors and not ruleset_errors.0.exception %}
+          <br>
+          <p class="explanation">&nbsp;{% trans "There are some <strong>ruleset errors</strong> in your data, please check them in the table below." %}</p>
+          <br>
+          <h4 class="noscript-notice">Results group by Ruleset</h2>
+          {% include "cove_iati/ruleset_table_by_rule.html" %}
+          <h4 class="noscript-notice">Results group by Activity</h2>
+          {% include "cove_iati/ruleset_table_by_activity.html" %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endblock ruleset %}
 
   {% block download_and_share %}
   <div class="panel panel-default">
@@ -179,11 +235,34 @@
     $("[data-toggle='collapse']").click(function() {
       var $this = $(this);
       if($this.attr("aria-expanded") === "true"){
-        $this.find('.glyphicon-collapse-up').removeClass('glyphicon-collapse-up').addClass('glyphicon-collapse-down')
+          $this.find('.glyphicon-collapse-up').removeClass('glyphicon-collapse-up').addClass('glyphicon-collapse-down')
       } else {
-        $this.find('.glyphicon-collapse-down').removeClass('glyphicon-collapse-down').addClass('glyphicon-collapse-up')
+          $this.find('.glyphicon-collapse-down').removeClass('glyphicon-collapse-down').addClass('glyphicon-collapse-up')
       }
     });
+    $("[name='ruleset-table-toggle']").click(function() {
+        var $tableByRule = $('#ruleset-by-rule');
+        var $tableByActivity = $('#ruleset-by-activity');
+
+        if ($($tableByActivity).is(":visible")){
+            $($tableByActivity).hide();
+            $($tableByRule).fadeIn('slow');
+            $(this).html('See same results <strong>by activity</strong>');
+        }
+        else {
+            $($tableByRule).hide();
+            $($tableByActivity).fadeIn('slow');
+            $(this).html('See same results <strong>by ruleset</strong>');
+        }
+    });
+    function expand_all() {
+        $('.collapse').collapse('show');
+        $("[data-toggle='collapse']").find('.glyphicon-collapse-down').removeClass('glyphicon-collapse-down').addClass('glyphicon-collapse-up');
+    }
+    function collapse_all() {
+        $('.collapse').collapse('hide');
+        $("[data-toggle='collapse']").find('.glyphicon-collapse-up').removeClass('glyphicon-collapse-up').addClass('glyphicon-collapse-down');
+    }
   </script>
 {% endblock extrafooterscript %}
 

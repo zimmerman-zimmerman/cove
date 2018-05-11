@@ -5,8 +5,6 @@
 
 {% block key_facts %}
 {% with releases_aggregates as ra %}
-
-
   <div class="col-md-12">
     <div class="panel panel-primary">
       <div class="panel-heading">
@@ -22,7 +20,7 @@
         {% else %} 
           <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>{% trans "Passed " %} 
         {% endif %}
-        {% blocktrans %}validation against {% endblocktrans %}<a href="{{ schema_url }}">schema version {{ version_used_display }}.</a>
+        {% blocktrans %}validation against {% endblocktrans %}<a href="{{ schema_url }}">OCDS release package schema version {{ version_used_display }}</a>.
         {% if validation_errors %}<br/>{% blocktrans %}See <a href="#validation-errors">Validation Errors</a> below.{% endblocktrans %}{% endif %}
         </div>
         {% if extensions and extensions.invalid_extension %}
@@ -39,6 +37,11 @@
              {% blocktrans count count=ra.release_count %}This file contains <strong>{{count}} release</strong>{% plural %}This file contains <strong>{{count}} releases</strong>{% endblocktrans %}
              {% blocktrans count count=ra.unique_ocids|length %} describing <strong>{{count}} contracting process</strong>{% plural %} describing <strong>{{count}} contracting processes.</strong>{% endblocktrans %}
              </li>
+             {% endif %}
+             {% if data_schema_version %}
+                <li><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                  {% trans "The schema version specified in the file is" %} <strong>{{data_schema_version}}</strong>.
+                </li>
              {% endif %}
              {% if json_data.publisher %}
                 <li><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
@@ -67,7 +70,7 @@
                 {% blocktrans count count=data_only|length %}This file uses {{count}} <a href="#additional-fields">additional field</a> not used in the standard.{% plural %}This file uses {{count}} <a href="#additional-fields">additional fields</a> not used in the standard.{% endblocktrans %}
              </li>
              {% endif %}
-             {% if csv_encoding and csv_encoding != "utf-8" %}
+             {% if csv_encoding and csv_encoding != "utf-8-sig" %}
              <li><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
                 {% trans "This file is not 'utf-8' encoded (it is" %} <strong>{{csv_encoding}}</strong> {% trans "encoded)." %}
              </li>

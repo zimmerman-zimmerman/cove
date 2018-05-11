@@ -1,6 +1,19 @@
+import json
 import collections
+import re
 
 import cove.lib.tools as tools
+from cove.lib.common import common_checks_context, get_additional_codelist_values
+
+from django.utils.html import mark_safe, escape, conditional_escape, format_html
+
+import CommonMark
+import bleach
+
+
+validation_error_lookup = {
+    'date-time': mark_safe('Incorrect date format. Dates should use the form YYYY-MM-DDT00:00:00Z. Learn more about <a href="http://standard.open-contracting.org/latest/en/schema/reference/#date">dates in OCDS</a>.'),
+}
 
 
 @tools.ignore_errors
@@ -256,12 +269,12 @@ def get_releases_aggregates(json_data):
 
     return dict(
         release_count=release_count,
-        unique_ocids=unique_ocids,
-        unique_initation_type=unique_initation_type,
-        duplicate_release_ids=duplicate_release_ids,
+        unique_ocids=sorted(unique_ocids, key=lambda x: str(x)),
+        unique_initation_type=sorted(unique_initation_type, key=lambda x: str(x)),
+        duplicate_release_ids=sorted(duplicate_release_ids, key=lambda x: str(x)),
         tags=dict(tags),
-        unique_lang=unique_lang,
-        unique_award_id=unique_award_id,
+        unique_lang=sorted(unique_lang, key=lambda x: str(x)),
+        unique_award_id=sorted(unique_award_id, key=lambda x: str(x)),
 
         planning_count=len(planning_ocids),
         tender_count=len(tender_ocids),
@@ -282,18 +295,18 @@ def get_releases_aggregates(json_data):
         max_contract_date=max(contract_dates) if contract_dates else '',
 
         unique_buyers_identifier=unique_buyers_identifier,
-        unique_buyers_name_no_id=unique_buyers_name_no_id,
+        unique_buyers_name_no_id=sorted(unique_buyers_name_no_id, key=lambda x: str(x)),
         unique_suppliers_identifier=unique_suppliers_identifier,
-        unique_suppliers_name_no_id=unique_suppliers_name_no_id,
+        unique_suppliers_name_no_id=sorted(unique_suppliers_name_no_id, key=lambda x: str(x)),
         unique_procuring_identifier=unique_procuring_identifier,
-        unique_procuring_name_no_id=unique_procuring_name_no_id,
+        unique_procuring_name_no_id=sorted(unique_procuring_name_no_id, key=lambda x: str(x)),
         unique_tenderers_identifier=unique_tenderers_identifier,
-        unique_tenderers_name_no_id=unique_tenderers_name_no_id,
+        unique_tenderers_name_no_id=sorted(unique_tenderers_name_no_id, key=lambda x: str(x)),
 
-        unique_buyers=set(unique_buyers),
-        unique_suppliers=set(unique_suppliers),
-        unique_procuring=set(unique_procuring),
-        unique_tenderers=set(unique_tenderers),
+        unique_buyers=sorted(set(unique_buyers)),
+        unique_suppliers=sorted(set(unique_suppliers)),
+        unique_procuring=sorted(set(unique_procuring)),
+        unique_tenderers=sorted(set(unique_tenderers)),
 
         unique_buyers_count=unique_buyers_count,
         unique_suppliers_count=unique_suppliers_count,
@@ -304,7 +317,7 @@ def get_releases_aggregates(json_data):
         unique_org_name_count=unique_org_name_count,
         unique_org_count=unique_org_count,
 
-        unique_organisation_schemes=unique_organisation_schemes,
+        unique_organisation_schemes=sorted(unique_organisation_schemes, key=lambda x: str(x)),
 
         organisations_with_address=len(organisation_identifier_address) + len(organisation_name_no_id_address),
         organisations_with_contact_point=len(organisation_identifier_contact_point) + len(organisation_name_no_id_contact_point),
@@ -314,8 +327,8 @@ def get_releases_aggregates(json_data):
         award_item_count=len(release_award_item_ids),
         contract_item_count=len(release_contract_item_ids),
 
-        item_identifier_schemes=item_identifier_schemes,
-        unique_currency=unique_currency,
+        item_identifier_schemes=sorted(item_identifier_schemes, key=lambda x: str(x)),
+        unique_currency=sorted(unique_currency, key=lambda x: str(x)),
 
         planning_doc_count=planning_doc_count,
         tender_doc_count=tender_doc_count,
@@ -337,6 +350,93 @@ def get_releases_aggregates(json_data):
     )
 
 
+def _lookup_schema(schema, path, ref_info=None):
+    if len(path) == 0:
+        return schema, ref_info
+    if hasattr(schema, '__reference__'):
+        ref_info = {
+            'path': path,
+            'reference': schema.__reference__,
+        }
+    path_item, *child_path = path
+    if 'items' in schema:
+        return _lookup_schema(schema['items'], path, ref_info)
+    elif 'properties' in schema:
+        if path_item in schema['properties']:
+            return _lookup_schema(schema['properties'][path_item], child_path, ref_info)
+        else:
+            return None, None
+
+
+def lookup_schema(schema, path):
+    return _lookup_schema(schema, path.split('/'))
+
+
+def common_checks_ocds(context, upload_dir, json_data, schema_obj, api=False, cache=True):
+    schema_name = schema_obj.release_pkg_schema_name
+    if 'records' in json_data:
+        schema_name = schema_obj.record_pkg_schema_name
+    common_checks = common_checks_context(upload_dir, json_data, schema_obj, schema_name, context,
+                                          fields_regex=True, api=api, cache=cache)
+    validation_errors = common_checks['context']['validation_errors']
+
+    new_validation_errors = []
+    for (json_key, values) in validation_errors:
+        error = json.loads(json_key)
+        new_message = validation_error_lookup.get(error['message_type'])
+        if new_message:
+            error['message_safe'] = conditional_escape(new_message)
+        else:
+            if 'message_safe' in error:
+                error['message_safe'] = mark_safe(error['message_safe'])
+            else:
+                error['message_safe'] = conditional_escape(error['message'])
+
+        schema_block, ref_info = lookup_schema(schema_obj.get_release_pkg_schema_obj(deref=True), error['path_no_number'])
+        if schema_block and error['message_type'] != 'required':
+            if 'description' in schema_block:
+                error['schema_title'] = escape(schema_block.get('title', ''))
+                error['schema_description_safe'] = mark_safe(bleach.clean(
+                    CommonMark.commonmark(schema_block['description']),
+                    tags=bleach.sanitizer.ALLOWED_TAGS + ['p']
+                ))
+            if ref_info:
+                ref = ref_info['reference']['$ref']
+                if ref.endswith('release-schema.json'):
+                    ref = ''
+                else:
+                    ref = ref.strip('#')
+                ref_path = '/'.join(ref_info['path'])
+                schema = 'release-schema.json'
+            else:
+                ref = ''
+                ref_path = error['path_no_number']
+                schema = 'release-package-schema.json'
+            error['docs_ref'] = format_html('{},{},{}', schema, ref, ref_path)
+
+        new_validation_errors.append([json.dumps(error, sort_keys=True), values])
+    common_checks['context']['validation_errors'] = new_validation_errors
+
+    context.update(common_checks['context'])
+
+    if schema_name == 'record-package-schema.json':
+        context['records_aggregates'] = get_records_aggregates(json_data, ignore_errors=bool(validation_errors))
+        context['schema_url'] = schema_obj.record_pkg_schema_url
+    else:
+        additional_codelist_values = get_additional_codelist_values(schema_obj, schema_obj.codelists, json_data)
+        closed_codelist_values = {key: value for key, value in additional_codelist_values.items() if not value['isopen']}
+        open_codelist_values = {key: value for key, value in additional_codelist_values.items() if value['isopen']}
+
+        context.update({
+            'releases_aggregates': get_releases_aggregates(json_data, ignore_errors=bool(validation_errors)),
+            'additional_closed_codelist_values': closed_codelist_values,
+            'additional_open_codelist_values': open_codelist_values
+        })
+
+    context = add_conformance_rule_errors(context, json_data, schema_obj)
+    return context
+
+
 @tools.ignore_errors
 def get_records_aggregates(json_data):
     # Unique ocids
@@ -355,3 +455,55 @@ def get_records_aggregates(json_data):
         'count': count,
         'unique_ocids': unique_ocids,
     }
+
+
+def get_bad_ocds_prefixes(json_data):
+    '''Yield tuples with ('ocid', 'path/to/ocid') for ocids with malformed prefixes'''
+    prefix_regex = re.compile(r'^ocds-[a-zA-Z0-9]{6}-')
+    releases = json_data.get('releases', [])
+    records = json_data.get('records', [])
+    bad_prefixes = []
+
+    if releases and isinstance(releases, list):
+        for n_rel, release in enumerate(releases):
+            if not isinstance(release, dict):
+                continue
+            ocid = release.get('ocid', '')
+            if ocid and isinstance(ocid, str) and not prefix_regex.match(ocid):
+                bad_prefixes.append((ocid, 'releases/%s/ocid' % n_rel))
+
+    elif records and isinstance(records, list):
+        for n_rec, record in enumerate(records):
+            if not isinstance(record, dict):
+                continue
+            for n_rel, release in enumerate(record.get('releases', {})):
+                ocid = release.get('ocid', '')
+                if ocid and not prefix_regex.match(ocid):
+                    bad_prefixes.append((ocid, 'records/%s/releases/%s/ocid' % (n_rec, n_rel)))
+
+            compiled_release = record.get('compiledRelease', {})
+            if compiled_release:
+                ocid = compiled_release.get('ocid', '')
+                if ocid and not prefix_regex.match(ocid):
+                    bad_prefixes.append((ocid, 'records/%s/compiledRelease/ocid' % n_rec))
+                    bad_prefixes.append((ocid, 'records/%s/compiledRelease/ocid' % n_rec))
+
+    return bad_prefixes
+
+
+def add_conformance_rule_errors(context, json_data, schema_obj):
+    '''Return context dict augmented with conformance errors if any'''
+    ocds_prefixes_bad_format = get_bad_ocds_prefixes(json_data)
+
+    if ocds_prefixes_bad_format:
+        ocid_schema_description = schema_obj.get_release_schema_obj()['properties']['ocid']['description']
+        ocid_info_index = ocid_schema_description.index('For more information')
+        ocid_description = ocid_schema_description[:ocid_info_index]
+        ocid_info_url = ocid_schema_description[ocid_info_index:].split('[')[1].split(']')[1][1:-1]
+        context['conformance_errors'] = {
+            'ocds_prefixes_bad_format': ocds_prefixes_bad_format,
+            'ocid_description': ocid_description,
+            'ocid_info_url': ocid_info_url
+        }
+
+    return context

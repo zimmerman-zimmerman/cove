@@ -12,7 +12,7 @@
         <h4 class="panel-title">{% trans 'Headlines' %}</h4>
       </div>
       <div class="panel-body">
-        
+
         {% if conversion_warning_messages or conversion_warning_messages_titles %}
           <div class="conversion message"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span>{% blocktrans %}Please read the <a href="#conversion-warning">conversion warnings</a> below.{% endblocktrans %}</div>
         {% endif %} 
@@ -22,7 +22,7 @@
         {% else %} 
           <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>{% trans "Passed " %} 
         {% endif %}
-        {% blocktrans %}validation against {% endblocktrans %}<a href="{{ schema_url }}">{{ schema_url }}</a>.
+        {% blocktrans %}validation against {% endblocktrans %}<a href="{{ schema_url }}">OCDS record package schema version {{ version_used_display }}</a>.
         {% if validation_errors %}<br/>{% blocktrans %}See <a href="#validation-errors">Validation Errors</a> below.{% endblocktrans %}{% endif %}
         </div>
 
@@ -32,6 +32,11 @@
              <li><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
              {% blocktrans count count=records_aggregates.count %}This file contains <strong>{{count}} record.</strong>{% plural %}This file contains <strong>{{count}} record.</strong>{% endblocktrans %}
              </li>
+             {% if data_schema_version %}
+                <li><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                  {% trans "The schema version specified in the file is" %} <strong>{{data_schema_version}}</strong>.
+                </li>
+             {% endif %}
              <li><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
              {% blocktrans count count=records_aggregates.unique_ocids|length %}There is <strong>{{count}} unique OCID.</strong>{% plural %}There are <strong>{{count}} unique OCIDs.</strong>{% endblocktrans %}
              </li>
@@ -57,7 +62,7 @@
                 {% blocktrans count count=data_only|length %}This file uses {{count}} <a href="#additional-fields">additional field</a> not used in the standard.{% plural %}This file uses {{count}} <a href="#additional-fields">additional fields</a> not used in the standard.{% endblocktrans %}
              </li>
              {% endif %}
-             {% if csv_encoding and csv_encoding != "utf-8" %}
+             {% if csv_encoding and csv_encoding != "utf-8-sig" %}
              <li><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
               {% trans "This file is not 'utf-8' encoded (it is" %} <strong>{{csv_encoding}}</strong> {% trans "encoded)." %}
              </li>
@@ -79,12 +84,6 @@
 
 {% endwith %}
 {% endblock %}
-
-
-
-
-
-
 
 {% block explore_additional_content %}
 <div class="row">
@@ -147,8 +146,8 @@
         <tr>
           <td>{{ record.ocid }}</td>
           <td>{{ record.releases|length }}</td>
-          <td>{% if record.compiledRelease %}Yes{% else %}No{% endif %}</td>          
-          <td>{% if record.versionedRelease %}Yes{% else %}No{% endif %}</td>          
+          <td>{% if record.compiledRelease %}Yes{% else %}No{% endif %}</td>
+          <td>{% if record.versionedRelease %}Yes{% else %}No{% endif %}</td>
         </tr>
         {% endfor %}
       </tbody>

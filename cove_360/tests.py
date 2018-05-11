@@ -9,14 +9,18 @@ from . lib.schema import Schema360
 from . lib.threesixtygiving import run_additional_checks
 from cove.input.models import SuppliedData
 
+# Source is cove_360/fixtures/fundingproviders-grants_fixed_2_grants.json
+# see cove_360/fixtures/SOURCES for more info.
+# Data has been edited to increase test coverage, so should not be used for
+# anything besides testing.
 
 GRANTS = {
-    'grants': [{'Co-applicant(s)': 'Mr Bentley Crudgington, Mr Gary Thomas ',
-                'Full name of applicant': 'Miss Abigail Addison',
-                'Grant number': '105177/Z/14/Z',
-                'Grant type': 'Large Arts Awards bob@bop.com',
+    'grants': [{'Co-applicant(s)': 'Miss Hypatia Alexandria, Mr Thomas Aquinas',
+                'Full name of applicant': 'Miss Jane Roe',
+                'Grant number': '000001/X/00/X',
+                'Grant type': 'Large Awards bob@bop.com',
                 'Sponsor(s)': ' ',
-                'Surname of applicant': 'Addison',
+                'Surname of applicant': 'Roe',
                 'amountAwarded': 0,
                 'awardDate': '24/07/2014',
                 'currency': 'GBP',
@@ -26,50 +30,58 @@ GRANTS = {
                 }],
                 'dateModified': '13-03-2015',
                 'fundingOrganization': [{'id': 'XSFAFA',
-                                         'name': 'The Wellcome Trust'}],
-                'id': '360G-wellcometrust-105177/Z/14/Z',
+                                         'name': 'Funding Providers UK'}],
+                'id': '360G-fundingproviders-000001/X/00/X',
                 'plannedDates': [{'duration': '30'}],
-                'recipientOrganization': [{'addressLocality': 'London ',
+                'recipientOrganization': [{'addressLocality': 'London',
+                                           'location': [{
+                                               'name': 'Somewhere in London',
+                                               'geoCode': 'W06000016'}],
                                            'charityNumber': '12345',
                                            'companyNumber': 'AAA',
                                            'id': '360G-Blah',
-                                           'name': 'Animate Project Limited'}],
-                'title': 'Silent Signal.  ,moo@moo.com '},
+                                           'name': 'Company Name Limited'}],
+                'classifications': [{
+                    'title': 'Classification title'}],
+                'title': 'Title A.  ,moo@moo.com '},
                {'Co-applicant(s)': ' ',
-                'Department': 'Department of Museum Studies',
-                'Full name of applicant': 'Prof Richard Sandell',
-                'Grant number': '105182/Z/14/Z',
-                'Grant type': 'Large Arts Awards',
+                'Department': 'Department of Studies',
+                'Full name of applicant': 'Prof John Doe',
+                'Grant number': '000002/X/00/X',
+                'Grant type': 'Large Awards',
                 'Sponsor(s)': ' ',
-                'Surname of applicant': 'Sandell',
+                'Surname of applicant': 'Doe',
                 'amountAwarded': 178990,
                 'awardDate': '24/07/2014',
                 'currency': 'GBP',
-                'dataSource': 'http://www.wellcome.ac.uk/Managing-a-grant/Grants-awarded/index.htm',
+                'dataSource': 'http://www.fundingproviders.co.uk/grants/',
 
-                'description': 'Exceptional and Extraordinary: unruly bodies and '
-                               'minds in the medical museum. ',
-                'fundingOrganization': [{'id': '360G-CHC-210183',
-                                         'name': 'The Wellcome Trust'}],
+                'description': 'Description for project A',
+                'fundingOrganization': [{'id': '360G-CHC-000001',
+                                         'name': 'Funding Providers UK'}],
                 'grantProgramme': [{'code': 'AAC',
-                                    'title': 'Arts Awards Funding Committee'}],
-                'id': '360G-wellcometrust-105182/Z/14/Z',
+                                    'title': 'Awards Funding Committee'}],
+                'id': '360G-fundingproviders-000002/X/00/X',
                 'plannedDates': [{'duration': '25'}],
                 'recipientOrganization': [{'addressLocality': 'Leicester ',
+                                           'location': [{
+                                               'geoCodeType': 'UA',
+                                               'name': 'Rhondda Cynon Taf',
+                                               'geoCode': 'W06000016'}],
                                            'charityNumber': '1234567',
-                                           'companyNumber': 'RC000659',
-                                           'id': 'GB-UNKNOW-RC000659',
-                                           'name': 'UNIVERSITY OF LEICESTER'}],
-                'title': ('Exceptional and Extraordinary: unruly bodies and minds in the medical '
-                          'museum - unique film, dance, performance and comedy commissions that draw '
-                          'on museum collections to explore our problematic attitudes towards difference')},
+                                           'companyNumber': 'RC000000',
+                                           'id': 'GB-UNKNOW-RC000000',
+                                           'name': 'University of UK'}],
+                'title': ('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do '
+                          'eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut '
+                          'enim ad minim veniam, quis nostrud exercitation ullamco laboris.')},
                {'Co-applicant(s)': ' ',
-                'Department': 'Department of Museum Studies',
-                'Full name of applicant': 'Prof Richard Sandell',
-                'Grant number': '105183/Z/14/Z',
-                'Grant type': 'Large Arts Awards',
+                'Department': 'Department of Studies',
+                'Full name of applicant': 'Prof John Doe',
+                'Grant number': '00002/X/00/X',
+                'Grant type': 'Large Awards',
                 'Sponsor(s)': ' ',
-                'Surname of applicant': 'Sandell',
+                'Surname of applicant': 'Doe',
                 'amountAwarded': 178990,
                 'awardDate': '24/07/2014',
                 'currency': 'GBP',
@@ -80,20 +92,22 @@ GRANTS = {
                     
                 }],
                 'dateModified': '13-03-2015',
-                'description': 'Exceptional and Extraordinary: unruly bodies and '
-                               'minds in the medical museum. ',
-                'fundingOrganization': [{'id': 'GB-COH-A106590',
-                                         'name': 'The Wellcome Trust'}],
+                'description': 'Excepteur sint occaecat cupidatat non proident, sunt in culpa '
+                               'qui officia deserunt mollit anim id est laborum.',
+                'fundingOrganization': [{'id': 'GB-COH-000000',
+                                         'name': 'Funding Providers UK'}],
                 'grantProgramme': [{'code': 'AAC',
                                     'title': 'Arts Awards Funding Committee'}],
-                'id': '360G-wellcometrust-105183/Z/14/Z',
+                'id': '360G-fundingproviders-000003/X/00/X',
                 'plannedDates': [{'duration': '25'}],
                 'recipientOrganization': [{'addressLocality': 'Leicester ',
-                                           'id': 'GB-CHC-10659',
-                                           'name': 'UNIVERSITY OF LEICESTER'}],
+                                           'id': 'GB-CHC-00001',
+                                           'name': 'University of UK',
+                                           'postalCode': 'SW10 0AB'}],
                 'relatedActivity': ["", "360G-xxx"],
-                'title': 'Exceptional and Extraordinary: unruly bodies and minds '
-                         'in the medical museum. '}]}
+                'title': 'Excepteur sint occaecat cupidatat non proident, sunt in culpa '
+                         'qui officia deserunt mollit anim id est laborum.'}]}
+
 
 SOURCE_MAP = {
     'grants/0': [['grants', 2]],
@@ -286,141 +300,174 @@ RESULTS = [
                   "on why these grants are £0 might be useful to anyone using the data, "
                   "so consider adding an explanation to the description of the grant.")},
      ['grants/0/amountAwarded'],
-     [['grants', 'Q', 2, 'Amount Awarded']]),
+     [{'sheet': 'grants', 'letter': 'Q', 'row_number': 2, 'header': 'Amount Awarded'}]),
     ({'heading': "1 grant has a Recipient Org:Identifier that starts '360G-'",
-      'message': ("If the grant is from a recipient organisation that has an external "
-                  "identifier (such as a charity number, company number, or in the case "
-                  "of local authorities, geocodes), then this should be used instead. If "
-                  "no other identifier can be used, then this notice can be ignored.")},
+      'message': ("If the grant is to a recipient organisation that has an external "
+                  "identifier (such as a charity or company number), then this should "
+                  "be used instead. Using external identifiers helps people using your "
+                  "data to match it up against other data - for example to see who else "
+                  "has given grants to the same recipient, even if they’re known by a "
+                  "different name. If no external identifier can be used, then you can "
+                  "ignore this notice.")},
      ['grants/0/recipientOrganization/0/id'],
-     [['grants', 'J', 2, 'Recipient Org:Identifier']]),
+     [{'sheet': 'grants', 'letter': 'J', 'row_number': 2, 'header': 'Recipient Org:Identifier'}]),
     ({'heading': "1 grant has a Funding Org:Identifier that starts '360G-'",
-      'message': ("If the grant is from a recipient organisation that has an external "
-                  "identifier (such as a charity number, company number, or in the "
-                  "case of local authorities, geocodes), then this should be used instead. If "
-                  "no other identifier can be used, then this notice can be ignored.")},
+      'message': ("If the grant is from a funding organisation that has an external identifier "
+                  "(such as a charity or company number), then this should be used instead. "
+                  "If no other identifier can be used, then you can ignore this notice.")},
      ['grants/1/fundingOrganization/0/id'],
-     [['grants', 'V', 3, 'Funding Org:Identifier']]),
-    ({'heading': ("1 grant has a Recipient Org:Identifier that doesn’t draw from "
-                  "an external identification body"),
-      'message': ("Using external identifiers (e.g. a charity number or a company number) "
-                  "helps people using your data to match it up against other data - for "
-                  "example to see who else has given grants to the same recipient, even "
-                  "if they’re known by a different name. If the data describes lots of "
-                  "grants to organisations that don’t have such identifiers or individuals "
+     [{'sheet': 'grants', 'letter': 'V', 'row_number': 3, 'header': 'Funding Org:Identifier'}]),
+    ({'heading': ("1 grant has a Recipient Org:Identifier that does not draw from "
+                  "a recognised register."),
+      'message': ("Using external identifiers (such as a charity or company number) helps "
+                  "people using your data to match it up against other data - for example "
+                  "to see who else has given grants to the same recipient, even if they’re "
+                  "known by a different name. If the data describes lots of grants to "
+                  "organisations that don’t have such identifiers, or grants to individuals, "
                   "then you can ignore this notice.")},
      ['grants/1/recipientOrganization/0/id'],
-     [['grants', 'J', 3, 'Recipient Org:Identifier']]),
-    ({'heading': ("1 grant has a Funding Org:Identifier that doesn’t draw from "
-                  "an external identification body"),
-      'message': ("Using external identifiers (e.g. a charity number or a company number) "
-                  "helps people using your data to match it up against other data - for "
-                  "example to see who else has given grants to the same recipient, even "
-                  "if they’re known by a different name. If the data describes lots of "
-                  "grants to organisations that don’t have such identifiers or individuals "
+     [{'sheet': 'grants', 'letter': 'J', 'row_number': 3, 'header': 'Recipient Org:Identifier'}]),
+    ({'heading': ("1 grant has a Funding Org:Identifier that does not draw from "
+                  "a recognised register."),
+      'message': ("Using external identifiers (such as a charity or company number) helps "
+                  "people using your data to match it up against other data - for example "
+                  "to see who else has given grants to the same recipient, even if they’re "
+                  "known by a different name. If the data describes lots of grants to "
+                  "organisations that don’t have such identifiers, or grants to individuals, "
                   "then you can ignore this notice.")},
      ['grants/0/fundingOrganization/0/id'],
-     [['grants', 'V', 2, 'Funding Org:Identifier']]),
+     [{'sheet': 'grants', 'letter': 'V', 'row_number': 2, 'header': 'Funding Org:Identifier'}]),
     ({'heading': ("1 grant has a value provided in the Recipient Org: Charity Number column "
                  "that doesn’t look like a charity number"),
       'message': ("Common causes of this are missing leading digits, typos or incorrect "
                   "values being entered into this field.")},
      ['grants/0/recipientOrganization/0/charityNumber'],
-     [['grants', 'M', 2, 'Recipient Org:Charity Number']]),
+     [{'sheet': 'grants', 'letter': 'M', 'row_number': 2, 'header': 'Recipient Org:Charity Number'}]),
     ({'heading': ("1 grant has a value provided in the Recipient Org: Company Number column "
                   "that doesn’t look like a company number"),
       'message': ("Common causes of this are missing leading digits, typos or incorrect "
                   "values being entered into this field.")},
      ['grants/0/recipientOrganization/0/companyNumber'],
-     [['grants', 'L', 2, 'Recipient Org:Company Number']]),
+     [{'sheet': 'grants', 'letter': 'L', 'row_number': 2, 'header': 'Recipient Org:Company Number'}]),
     ({'heading': "1 grant does not have either a Recipient Org:Company Number or a Recipient Org:Charity Number",
-      'message': ("Providing one or both of these, if possible, makes it easier for users of "
-                  "your data to join up the data with other data sources to provide better "
-                  "insight into grant-making. You don’t need to do anything if your grants are "
-                  "to organisations that don’t have UK Company or UK Charity numbers.")},
+      'message': ("Providing one or both of these, if possible, makes it easier for users "
+                  "to join up your data with other data sources to provide better insight "
+                  "into grantmaking. If your grants are to organisations that don’t have UK "
+                  "Company or UK Charity numbers, then you can ignore this notice.")},
      ['grants/2/recipientOrganization/0/id'],
-     [['grants', 'J', 4, 'Recipient Org:Identifier']]),
-    ({'heading': "3 grants have incomplete recipient organisation information",
-      'message': ("Your data is missing Recipient Org: Postal Code, Recipient Org: Location:Geographic "
-                  "Code or Recipient Org: Location: Geographic Code Type. Knowing the geographic location "
-                  "of recipient organisations allows users of your data to understand your data and combine "
-                  "it with other data sets to form a broader picture of grant-making.")},
-     ['grants/0/recipientOrganization/0/id', 'grants/1/recipientOrganization/0/id', 'grants/2/recipientOrganization/0/id'],
-     [['grants', 'J', 2, 'Recipient Org:Identifier'], ['grants', 'J', 3, 'Recipient Org:Identifier'],
-      ['grants', 'J', 4, 'Recipient Org:Identifier']]),
+     [{'sheet': 'grants', 'letter': 'J', 'row_number': 4, 'header': 'Recipient Org:Identifier'}]),
+    ({'heading': "1 grant does not have recipient organisation location information",
+      'message': ("Your data is missing information about the geographic location of recipient "
+                  "organisations; either Recipient Org:Postal Code or Recipient Org:Location:Geographic Code "
+                  "combined with Recipient Org:Location:Geographic Code Type. Knowing the geographic "
+                  "location of recipient organisations helps users to understand your data and allows "
+                  "it to be used in tools that visualise grants geographically.")},
+     ['grants/0/recipientOrganization/0/id'],
+     [{'sheet': 'grants', 'letter': 'J', 'row_number': 2, 'header': 'Recipient Org:Identifier'}]),
     ({'heading': "There are 3 different funding organisation IDs listed",
       'message': ("If you are expecting to be publishing data for multiple funders then "
-                  "this notice can be ignored, however if you are only publishing for a "
-                  "single funder then you should review your Funder ID column to see where "
-                  "multiple IDs have occurred.")},
+                  "you can ignore this notice. If you are only publishing for a "
+                  "single funder then you should review your Funding Organisation identifier "
+                  "column to see where multiple IDs have occurred.")},
      ['grants/0/fundingOrganization/0/id', 'grants/1/fundingOrganization/0/id', 'grants/2/fundingOrganization/0/id'],
-     [['grants', 'V', 2, 'Funding Org:Identifier'],
-      ['grants', 'V', 3, 'Funding Org:Identifier'],
-      ['grants', 'V', 4, 'Funding Org:Identifier']]),
+     [{'sheet': 'grants', 'letter': 'V', 'row_number': 2, 'header': 'Funding Org:Identifier'},
+      {'sheet': 'grants', 'letter': 'V', 'row_number': 3, 'header': 'Funding Org:Identifier'},
+      {'sheet': 'grants', 'letter': 'V', 'row_number': 4, 'header': 'Funding Org:Identifier'}]),
     ({'heading': "2 grants contain text that looks like an email address",
-      'message': ("This may indicate that the data contains personal data, use and "
-                  "distribution of which is restricted by the Data Protection Act. You "
-                  "should ensure that any personal data is included with the knowledge "
-                  "and consent of the person to whom it refers.")},
+      'message': ("Your data may contain an email address (or something that looks like one), "
+                  "which can constitute personal data. The use and distribution of personal data "
+                  "is restricted by the Data Protection Act. You should ensure that any personal "
+                  "data is only included with the knowledge and consent of the person to whom it refers.")},
      ['grants/0/Grant type', 'grants/0/title'],
-     [['grants', 'G', 2, 'Grant type'], ['grants', 'O', 2, 'Title']]),
+     [{'sheet': 'grants', 'letter': 'G', 'row_number': 2, 'header': 'Grant type'},
+      {'sheet': 'grants', 'letter': 'O', 'row_number': 2, 'header': 'Title'}]),
     ({'heading': "1 grant does not contain any Grant Programme fields",
-     'message': ("Although not required by the 360Giving Standard, providing Grant "
-                 "Programme data if available helps users to better understand your data.")},
+     'message': ("Providing Grant Programme data, if available, helps users "
+                 "to better understand your data.")},
      ['grants/0/id'],
-     [['grants', 'A', 2, 'Identifier']]),
+     [{'sheet': 'grants', 'letter': 'A', 'row_number': 2, 'header': 'Identifier'}]),
     ({'heading': "1 grant does not contain any beneficiary location fields",
-      'message': ("Although not required by the 360Giving Standard, providing beneficiary "
-                  "data if available helps users to understand your data and allows it to be "
-                  "used in tools that visualise grants geographically.")},
+      'message': ("Providing beneficiary data, if available, helps users to "
+                  "understand which areas ultimately benefitted from the grant.")},
      ['grants/1/id'],
-     [['grants', 'A', 3, 'Identifier']]),
-    ({'heading': "1 grant has incomplete beneficiary location information",
-      'message': ("Your data is missing Beneficiary Location: Name, Beneficiary Location: "
-                  "Geographical Code and/or Beneficiary Location: Geographical Code Type. "
-                  "Beneficiary location information allows users of the data to understand who "
-                  "ultimately benefitted from the grant, not just the location of the organisation "
-                  "that provided the service. If your beneficiaries are in the same place as the "
-                  "organisation that the money went to, stating this is useful for anyone using your "
-                  "data as it cannot be inferred.")},
-     ['grants/0/beneficiaryLocation'],
-     [['grants', 'AA', 2, 'Beneficiary Location']]),
+     [{'sheet': 'grants', 'letter': 'A', 'row_number': 3, 'header': 'Identifier'}]),
+    # ({'heading': "1 grant has incomplete beneficiary location information",
+    #   'message': ("Your data is missing Beneficiary Location: Name, Beneficiary Location: "
+    #               "Geographical Code and/or Beneficiary Location: Geographical Code Type. "
+    #               "Beneficiary location information allows users of the data to understand who "
+    #               "ultimately benefitted from the grant, not just the location of the organisation "
+    #               "that provided the service. If your beneficiaries are in the same place as the "
+    #               "organisation that the money went to, stating this is useful for anyone using your "
+    #               "data as it cannot be inferred.")},
+    #  ['grants/0/beneficiaryLocation'],
+    #  [{'sheet': 'grants', 'letter': 'AA', 'row_number': 2, 'header': 'Beneficiary Location'}]),
     ({'heading': "1 grant has a title and a description that are the same",
       'message': ("Users may find that the data is less useful as they are unable to "
                   "discover more about the grants. Consider including a more detailed "
                   "description if you have one.")},
      ['grants/2/description'],
-     [['grants', 'Z', 4, 'Description']]),
+     [{'sheet': 'grants', 'letter': 'Z', 'row_number': 4, 'header': 'Description'}]),
     ({'heading': "1 grant has a title longer than recommended",
       'message': "Titles for grant activities should be under 140 characters long."},
      ['grants/1/title'],
-     [['grants', 'O', 3, 'Title']]),
+     [{'sheet': 'grants', 'letter': 'O', 'row_number': 3, 'header': 'Title'}]),
     ({'heading': "2 grants have funder or recipient organisation IDs that might not be valid",
       'message': ("The IDs might not be valid for the registration agency that they refer to "
                   "- for example, a 'GB-CHC' ID that contains an invalid charity number. Common "
                   "causes of this are missing leading digits, typos or incorrect values being "
                   "entered into this field.")},
      ['grants/2/fundingOrganization/0/id', 'grants/2/recipientOrganization/0/id'],
-     [['grants', 'V', 4, 'Funding Org:Identifier'],
-      ['grants', 'J', 4, 'Recipient Org:Identifier']]),
-    ({'heading': "1 grant does not have a Last Modified date",
-      'message': "Last Modified allows data users to reconcile discrepancies between versions of your data."},
+     [{'sheet': 'grants', 'letter': 'V', 'row_number': 4, 'header': 'Funding Org:Identifier'},
+      {'sheet': 'grants', 'letter': 'J', 'row_number': 4, 'header': 'Recipient Org:Identifier'}]),
+    ({'heading': "1 grant does not have Last Modified information",
+      'message': "Last Modified shows the date and time when information about a grant was "
+                 "last updated in your file. Including this information allows data users to "
+                 "see when changes have been made and reconcile differences between versions "
+                 "of your data. Please note: this is the date when the data was modified in "
+                 "your 360Giving file, rather than in any of your internal systems."},
      ['grants/1/id'],
-     [['grants', 'A', 3, 'Identifier']]),
-    ({'heading': "2 grants do not have a Data Source field",
-      'message': "Knowing where information came from is an important part of establishing trust in your data."},
+     [{'sheet': 'grants', 'letter': 'A', 'row_number': 3, 'header': 'Identifier'}]),
+    ({'heading': "2 grants do not have Data Source information",
+      'message': "Data Source informs users about where information came from and is an "
+                 "important part of establishing trust in your data. This information should "
+                 "be a web link pointing to the source of this data, which may be an original "
+                 "360Giving data file, a file from which the data was converted, or your "
+                 "organisation’s website."},
      ['grants/0/id', 'grants/2/id'],
-     [['grants', 'A', 2, 'Identifier'], ['grants', 'A', 4, 'Identifier']]),
-    ({'heading': "3 grants do not have a Classification: Title field",
-      'message': ("This field allows you to describe how you classify the grant or have tagged it internally. "
-                  "Examples include classifying by sector (eg Healthcare) or target group (eg NEET).")},
-     ['grants/0/id', 'grants/1/id', 'grants/2/id'],
-     [['grants', 'A', 2, 'Identifier'], ['grants', 'A', 3, 'Identifier'], ['grants', 'A', 4, 'Identifier']])
+     [{'sheet': 'grants', 'letter': 'A', 'row_number': 2, 'header': 'Identifier'},
+      {'sheet': 'grants', 'letter': 'A', 'row_number': 4, 'header': 'Identifier'}])
 ]
 
 
+@pytest.mark.parametrize('json_data', [
+    # A selection of JSON strings we expect to give a 200 status code, even
+    # though some of them aren't valid OCDS
+    'true',
+    'null',
+    '1',
+    '{}',
+    '[]',
+    '[[]]',
+    '{"grants": {}}',
+    '{"grants" : 1.0}',
+    '{"grants" : 2}',
+    '{"grants" : true}',
+    '{"grants" : "test"}',
+    '{"grants" : null}',
+    '{"grants" : {"a":"b"}}',
+    '{"grants" : [["test"]]}',
+])
 @pytest.mark.django_db
-def test_explore_page(client):
+def test_explore_page(client, json_data):
+    data = SuppliedData.objects.create()
+    data.original_file.save('test.json', ContentFile(json_data))
+    data.current_app = 'cove_360'
+    resp = client.get(data.get_absolute_url())
+    assert resp.status_code == 200
+
+
+@pytest.mark.django_db
+def test_explore_page_convert(client):
     data = SuppliedData.objects.create()
     data.original_file.save('test.json', ContentFile('{}'))
     data.current_app = 'cove_360'
@@ -452,7 +499,7 @@ def test_explore_page_csv(client):
 @pytest.mark.django_db
 def test_explore_not_json(client):
     data = SuppliedData.objects.create()
-    with open(os.path.join('cove_360', 'fixtures', 'WellcomeTrust-grants_malformed.json')) as fp:
+    with open(os.path.join('cove_360', 'fixtures', 'fundingproviders-grants_malformed.json')) as fp:
         data.original_file.save('test.json', UploadedFile(fp))
     resp = client.get(data.get_absolute_url())
     assert resp.status_code == 200
@@ -466,13 +513,13 @@ def test_explore_unconvertable_spreadsheet(client):
         data.original_file.save('basic.xlsx', UploadedFile(fp))
     resp = client.get(data.get_absolute_url())
     assert resp.status_code == 200
-    assert b'We think you tried to supply a spreadsheet, but we failed to convert it to JSON.' in resp.content
+    assert b'We think you tried to supply a spreadsheet, but we failed to convert it.' in resp.content
 
 
 @pytest.mark.django_db
 def test_explore_unconvertable_json(client):
     data = SuppliedData.objects.create()
-    with open(os.path.join('cove', 'fixtures', 'unconvertable_json.json')) as fp:
+    with open(os.path.join('cove_360', 'fixtures', 'unconvertable_json.json')) as fp:
         data.original_file.save('unconvertable_json.json', UploadedFile(fp))
     resp = client.post(data.get_absolute_url(), {'flatten': 'true'})
     assert resp.status_code == 200

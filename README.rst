@@ -39,9 +39,9 @@ Supported formats
 CoVE currently supports conversion from:
 
 * JSON to multi-tabbed Excel files
-* Excel to JSON (it uses the `flatten-tool <(https://github.com/OpenDataServices/flatten-tool>`_ for conversion)
+* Excel to JSON (it uses the `flatten-tool <https://github.com/OpenDataServices/flatten-tool>`_ for conversion)
 
-If a JSON schema is supplied, CoVE can use either field names, or user-friendly column titles.
+If a JSON schema is supplied, CoVE can use either field names or user-friendly column titles.
 
 User Flows
 ==========
@@ -67,7 +67,7 @@ Serious Bug fixes and 'priority' features, that need to make it into a release a
 
 Requirements
 ============
-This application is built using Django and Python 3
+This application is built using Django and Python 3.5
 
 Installation
 ============
@@ -95,6 +95,7 @@ Steps to installation:
 Then, for 360Giving run:
 
 .. code:: bash
+
     DJANGO_SETTINGS_MODULE=cove_360.settings python manage.py runserver
 
 Or for OCDS run:
@@ -125,7 +126,7 @@ Then run the development server:
 Deployment
 ==========
 
-See https://github.com/OpenDataServices/cove/blob/master/DEPLOYMENT.md
+See https://cove.readthedocs.io/en/latest/deployment/
 
 Run tests
 =========
@@ -158,7 +159,7 @@ We also use flake8 to test code quality, see https://github.com/OpenDataServices
 
 The development requirements include xdist to allow running tests in parallel:
 
-..code:: bash
+.. code:: bash
 
     py.test -n2
 
@@ -174,11 +175,16 @@ Translators can provide translations for this application by becomming a collabo
 
 Translations for Developers
 +++++++++++++++++++++++++++
+
 For more information about Django's translation framework, see https://docs.djangoproject.com/en/1.8/topics/i18n/translation/
 
 If you add new text to the interface, ensure to wrap it in the relevant gettext blocks/functions.
 
 In order to generate messages and post them on Transifex:
+
+First check the `Transifex lock <https://opendataservices.plan.io/projects/co-op/wiki/CoVE_Transifex_lock>`_, because only one branch can be translated on Transifex at a time.
+
+Then:
 
 .. code:: bash
 
@@ -197,11 +203,7 @@ In order to compile them:
 
     python manage.py compilemessages
 
-Do not do this process on every text change so as not to pollute the commit diffs.
-
 Keep the makemessages and pull messages steps in thier own commits seperate from the text changes.
-
-The aim is to run this process each month, but it can be done more regularly if needed.
 
 To check that all new text is written so that it is able to be translated you could install and run `django-template-i18n-lint`
 
@@ -221,3 +223,56 @@ Then, run ``./update_requirements --new-only`` this will populate ``requirements
 WARNING: The ``./update_requirements`` script will delete and recreate your current ``.ve`` directory.
 
 ``./update_requirements`` without any flags will update all pinned requirements to the latest version. Generally we don't want to do this at the same time as adding a new dependency, to make testing any problems easier.
+
+
+Command Line Interface
+======================
+CoVE for OCDS and IATI can be run from the command line. To get a JSON file with validation errors plus other key information, use the following command:
+
+**OCDS**
+
+.. code:: bash
+
+    ./ocds-cli --options file-name
+
+``file-name`` can be a JSON or an Excel file.
+
+Options:
+
+``--output-dir -o``  Directory where the output will be created, defaults to the name of the file.
+
+``--exclude-file -e``  Do not include the file in the output directory.
+
+``--delete -d`` Delete the output directory if it already exists.
+
+``--schema-version -s``  Version of the schema to validate the data.
+
+``--convert -c``  Convert data from nested (JSON) to flat format (Excel and CSV). This option is redundant for spreadsheets as they are always converted to JSON format.
+
+
+**IATI**
+
+.. code:: bash
+
+    ./iati-cli --options file-name
+
+``file-name`` can be a XML or an Excel/CSV file.
+
+Options:
+
+``--output-dir -o``  Directory where the output will be created, defaults to the name of the file.
+
+``--exclude-file -e``  Do not include the file in the output directory.
+
+``--delete -d`` Delete the output directory if it already exists.
+
+``--orgids -i`` Run org-ids rule check for IATI identifier prefixes.
+
+``--openag -a`` Run ruleset checks for IATI OpenAg data.
+
+
+If the file is in spreadsheet format, the output directory will contain a *unflattened.xml* file converted from Excel or CSV to XML format
+
+**OpenaAg** rulesets check that the data contains the XML elements ``<opeang:tag>`` and ``<location>``, and that they include the right attributes expected for OpenAg data. Please read `OpenAg ruleset feature files <cove_iati/rulesets/iati_openag_ruleset/>`_ (written in `Gerkhin <https://github.com/cucumber/cucumber/wiki/Gherkin/>`_ style) for more information.
+
+**Org-ids** rulesets check that all organisation identifiers are prefixed with a registered `org-ids <http://org-id.guide>`_ prefix. Please read `Org-ids ruleset feature file <cove_iati/rulesets/iati_orgids_ruleset/>`_ for more information

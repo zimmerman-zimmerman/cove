@@ -20,10 +20,19 @@ class CoveInputDataError(Exception):
 
 class UnrecognisedFileType(CoveInputDataError):
     context = {
-        'sub_title': _("Sorry we can't process that data"),
+        'sub_title': _("Sorry, we can't process that data"),
         'link': 'index',
         'link_text': _('Try Again'),
         'msg': _('We did not recognise the file type.\n\nWe can only process json, csv and xlsx files.')
+    }
+
+
+class UnrecognisedFileTypeXML(CoveInputDataError):
+    context = {
+        'sub_title': _("Sorry, we can't process that data"),
+        'link': 'index',
+        'link_text': _('Try Again'),
+        'msg': _('We did not recognise the file type.\n\nWe can only process xml, csv and xlsx files.')
     }
 
 
@@ -47,10 +56,10 @@ def cove_spreadsheet_conversion_error(func):
                 'request': request,
                 })
             raise CoveInputDataError({
-                'sub_title': _("Sorry we can't process that data"),
+                'sub_title': _("Sorry, we can't process that data"),
                 'link': 'index',
                 'link_text': _('Try Again'),
-                'msg': _('We think you tried to supply a spreadsheet, but we failed to convert it to JSON.'
+                'msg': _('We think you tried to supply a spreadsheet, but we failed to convert it.'
                          '\n\nError message: {}'.format(repr(err)))
             })
     return wrapper
