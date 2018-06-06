@@ -12,7 +12,11 @@ def common_checks_fireproofbox(context, upload_dir, json_data, schema_obj):
     common_checks = common_checks_context(upload_dir, json_data, schema_obj, schema_name, context)
 
     context.update(common_checks['context'])
-
+    context['count'] = count_box_items(json_data)
     return context
 
 
+def count_box_items(json_data):
+    if not isinstance(json_data, dict):
+        return 0
+    return len(json_data.get("items", []))
