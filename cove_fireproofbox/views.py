@@ -6,8 +6,7 @@ from django.shortcuts import render
 from django.utils.translation import ugettext_lazy as _
 
 from . lib.schema import Schema360
-from . lib.threesixtygiving import common_checks_360
-from . lib.threesixtygiving import TEST_CLASSES
+from . lib.fireproofbox import common_checks_fireproofbox
 from cove.lib.converters import convert_spreadsheet, convert_json
 from cove.lib.exceptions import CoveInputDataError, cove_web_input_error
 from cove.views import explore_data_context
@@ -58,7 +57,7 @@ def explore_360(request, pk, template='cove_fireproofbox/explore.html'):
         with open(context['converted_path'], encoding='utf-8') as fp:
             json_data = json.load(fp, parse_float=Decimal)
 
-    context = common_checks_360(context, upload_dir, json_data, schema_360)
+    context = common_checks_fireproofbox(context, upload_dir, json_data, schema_360)
 
     if hasattr(json_data, 'get') and hasattr(json_data.get('grants'), '__iter__'):
         context['grants'] = json_data['grants']
@@ -79,5 +78,5 @@ def common_errors(request):
 
 def additional_checks(request):
     context = {}
-    context["checks"] = [{**check.check_text, 'desc': check.__doc__} for check in TEST_CLASSES]
+    context["checks"] = [ ]
     return render(request, 'cove_360/additional_checks.html', context)
