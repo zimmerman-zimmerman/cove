@@ -69,6 +69,19 @@ Requirements
 ============
 This application is built using Django and Python 3.5
 
+It requires gettext to be installed to compile the translations: 
+
+```
+apt-get install gettext
+```
+
+on Ubuntu, or for Mac:
+
+```
+brew install gettext
+brew link gettext --force
+```
+
 Installation
 ============
 Steps to installation:
