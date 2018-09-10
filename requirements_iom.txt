@@ -1,1 +1,1 @@
--e git+https://github.com/zimmerman-zimmerman/flatten-tool.git#egg=iom-org-file-multiline-support
+-e git+https://github.com/zimmerman-zimmerman/flatten-tool.git@iom-org-file-multiline-support#egg=flattentool
