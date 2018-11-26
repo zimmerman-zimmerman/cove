@@ -1,0 +1,12 @@
+#!/Users/zimmerman/Documents/Projects/Temps/cove/env/bin/python3
+# EASY-INSTALL-ENTRY-SCRIPT: 'libcoveocds','console_scripts','libcoveocds'
+__requires__ = 'libcoveocds'
+import re
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
+    sys.exit(
+        load_entry_point('libcoveocds', 'console_scripts', 'libcoveocds')()
+    )

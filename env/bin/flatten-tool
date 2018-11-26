@@ -1,0 +1,7 @@
+#!/Users/zimmerman/Documents/Projects/Temps/cove/env/bin/python3
+# EASY-INSTALL-DEV-SCRIPT: 'flattentool==0.5.0','flatten-tool'
+__requires__ = 'flattentool==0.5.0'
+__import__('pkg_resources').require('flattentool==0.5.0')
+__file__ = '/Users/zimmerman/Documents/Projects/Temps/cove/env/src/flattentool/flatten-tool'
+with open(__file__) as f:
+    exec(compile(f.read(), __file__, 'exec'))

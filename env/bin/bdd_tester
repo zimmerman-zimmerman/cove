@@ -1,0 +1,7 @@
+#!/Users/zimmerman/Documents/Projects/Temps/cove/env/bin/python3
+# EASY-INSTALL-DEV-SCRIPT: 'bdd-tester==0.0.0','bdd_tester'
+__requires__ = 'bdd-tester==0.0.0'
+__import__('pkg_resources').require('bdd-tester==0.0.0')
+__file__ = '/Users/zimmerman/Documents/Projects/Temps/cove/env/src/bdd-tester/bin/bdd_tester'
+with open(__file__) as f:
+    exec(compile(f.read(), __file__, 'exec'))
