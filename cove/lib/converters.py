@@ -74,10 +74,16 @@ def convert_spreadsheet(upload_dir, upload_url, file_name, file_type, schema_url
         'metatab_vertical_orientation': True
     }
 
+    if config.get('hashcomments'):
+        flattentool_options['default_configuration'] += ',hashcomments'
+
     if xml:
         flattentool_options['xml'] = True
         flattentool_options['default_configuration'] += ',IDName {}'.format(config.get('id_name', 'id'))
         flattentool_options['xml_schemas'] = xml_schemas
+        if config.get('xml_comment'):
+            flattentool_options['xml_comment'] = config.get('xml_comment')
+
     else:
         flattentool_options.update({
             'schema': schema_url,
@@ -122,7 +128,8 @@ def convert_json(upload_dir, upload_url, file_name, schema_url=None, replace=Fal
         main_sheet_name=config['root_list_path'],
         root_list_path=config['root_list_path'],
         root_id=config['root_id'],
-        schema=schema_url
+        schema=schema_url,
+        remove_empty_schema_columns=True
     )
 
     if xml:
