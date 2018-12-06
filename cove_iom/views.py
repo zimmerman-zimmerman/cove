@@ -2,13 +2,16 @@ import logging
 import json
 import tempfile
 import os
+import requests
+from shutil import copyfile
 
 from django.shortcuts import render
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpResponse, HttpResponseBadRequest
+from django.http import HttpResponse, HttpResponseBadRequest, JsonResponse
+from django.conf import settings
 
 from cove.lib.converters import convert_spreadsheet, convert_json
 from cove.lib.exceptions import cove_web_input_error
@@ -62,7 +65,8 @@ iati_form_classes = {
 
 
 def data_input_iati(request):
-    return data_input(request, form_classes=iati_form_classes, text_file_name='text.xml')
+    return data_input(
+        request, form_classes=iati_form_classes, text_file_name='text.xml')
 
 
 @cove_web_input_error
@@ -80,7 +84,10 @@ def explore_iati(request, pk):
                 output_file=db_data.original_file.file.name)
 
         schema_iati = SchemaIATI()
-        context.update(convert_spreadsheet(db_data.upload_dir(), db_data.upload_url(), db_data.original_file.file.name,
+        context.update(convert_spreadsheet(
+            db_data.upload_dir(),
+            db_data.upload_url(),
+            db_data.original_file.file.name,
             file_type, xml=True, xml_schemas=[
                 schema_iati.activity_schema,
                 schema_iati.organisation_schema,
@@ -96,10 +103,16 @@ def explore_iati(request, pk):
 
     else:
         data_file = db_data.original_file.file.name
-        context.update(convert_json(db_data.upload_dir(), db_data.upload_url(), db_data.original_file.file.name,
-                       request=request, flatten=request.POST.get('flatten'), xml=True))
+        context.update(
+            convert_json(db_data.upload_dir(),
+                         db_data.upload_url(),
+                         db_data.original_file.file.name,
+                         request=request,
+                         flatten=request.POST.get('flatten'),
+                         xml=True))
 
-    context = common_checks_context_iati(context, db_data.upload_dir(), data_file, file_type)
+    context = common_checks_context_iati(
+        context, db_data.upload_dir(), data_file, file_type)
     context['first_render'] = not db_data.rendered
 
     if not db_data.rendered:
@@ -118,7 +131,71 @@ def api_test(request):
             with open(file_path, 'wb+') as destination:
                 for chunk in request.FILES['file'].chunks():
                     destination.write(chunk)
-            result = iati_json_output(tmpdirname, file_path, form.cleaned_data['openag'], form.cleaned_data['orgids'])
-            return HttpResponse(json.dumps(result), content_type='application/json')
+            result = iati_json_output(tmpdirname,
+                                      file_path, form.cleaned_data['openag'],
+                                      form.cleaned_data['orgids'])
+            return HttpResponse(json.dumps(result),
+                                content_type='application/json')
     else:
-        return HttpResponseBadRequest(json.dumps(form.errors), content_type='application/json')
+        return HttpResponseBadRequest(json.dumps(form.errors),
+                                      content_type='application/json')
+
+
+@require_POST
+@csrf_exempt
+def upload(request):
+    """
+    To upload file using is needed fields:
+    - original_file
+    - type_data
+
+    type_data should be:
+    - activity
+    - organisation
+
+    The requirement, we should make two folder manually
+    with the name 'activity' & 'organisation' in the media folder
+    """
+    form_classes = iati_form_classes
+
+    request_data = None
+    if request.POST:
+        request_data = request.POST
+
+    if request_data:
+        form_name = 'upload_form'
+        form = form_classes[form_name](request_data, request.FILES)
+
+        if form.is_valid():
+            data = form.save(commit=False)
+            data.current_app = request.current_app
+            data.form_name = form_name
+            data.save()
+
+            # The process to make the IATI XML file
+            path = data.get_absolute_url()
+            url = '{protocol}://{host}{path}'.format(
+                protocol='https' if request.is_secure() else 'http',
+                host=request.get_host(), path=path)
+
+            response = requests.get(url)
+
+            # Save the result xml file to specific folder
+            # related to the type of file
+            if response.status_code == 200:
+                type_data = request.POST.get(
+                    'type_data', 'activity')
+
+                root = settings.MEDIA_ROOT
+                src = '{root}{path}/unflattened.xml'.format(
+                    root=root, path=path.replace('/data', ''))
+                dst = '{root}/{type_data}/unflattened.xml'.format(
+                    root=root, type_data=type_data)
+                copyfile(src, dst)
+
+            return JsonResponse(
+                status=response.status_code, data={
+                    'url': '{url}/unflattened.xml'.format(
+                        url=url.replace('/data', '/media'))})
+
+        return JsonResponse(status=400, data={'message': 'Bad Request'})
