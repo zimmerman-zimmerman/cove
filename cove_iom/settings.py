@@ -70,3 +70,6 @@ PROJECT_TYPE_MAPPING = {
     'IM': 15136, 'MI': 91010, 'MJ': 91010, 'MK': 91010, 'ML': 91010,
     'OS': 91010, 'DM': 91010, 'AD': 91010
 }
+
+# Multi line support for budget line & expense line
+MULTI_LINE_SUPPORT = True

@@ -15,5 +15,6 @@ geckodriver.log
 ghostdriver.log
 cove/lib/org-ids.json
 cove/lib/org-ids.json.lock
-env
 .idea
+env
+.DS_Store
