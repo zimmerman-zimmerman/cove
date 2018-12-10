@@ -17,3 +17,4 @@ cove/lib/org-ids.json
 cove/lib/org-ids.json.lock
 .idea
 env
+.DS_Store
