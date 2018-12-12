@@ -80,8 +80,12 @@ def explore_iati(request, pk):
 
         if file_type == 'csv':
             # the process clean up of the IOM CSV data data format
-            CleanFile(file_location=db_data.original_file.file.name).execute(
-                output_file=db_data.original_file.file.name)
+            try:
+                CleanFile(
+                    file_location=db_data.original_file.file.name).execute(
+                    output_file=db_data.original_file.file.name)
+            except KeyError:
+                pass
 
         schema_iati = SchemaIATI()
         context.update(convert_spreadsheet(
