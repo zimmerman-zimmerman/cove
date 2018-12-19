@@ -73,3 +73,8 @@ PROJECT_TYPE_MAPPING = {
 
 # Multi line support for budget line & expense line
 MULTI_LINE_SUPPORT = True
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
