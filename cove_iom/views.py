@@ -177,10 +177,11 @@ def upload(request):
             data.save()
 
             # The process to make the IATI XML file
-            path = data.get_absolute_url()
-            url = '{protocol}://{host}{path}'.format(
+            host_url = '{protocol}://{host}'.format(
                 protocol='https' if request.is_secure() else 'http',
-                host=request.get_host(), path=path)
+                host=request.get_host())
+            path = data.get_absolute_url()
+            url = '{host_url}{path}'.format(host_url=host_url, path=path)
 
             response = requests.get(url)
 
@@ -193,13 +194,13 @@ def upload(request):
                 root = settings.MEDIA_ROOT
                 src = '{root}{path}/unflattened.xml'.format(
                     root=root, path=path.replace('/data', ''))
-                dst = '{root}/{type_data}/unflattened.xml'.format(
+                dst = '{root}/{type_data}/iom-{type_data}.xml'.format(
                     root=root, type_data=type_data)
                 copyfile(src, dst)
 
-            return JsonResponse(
-                status=response.status_code, data={
-                    'url': '{url}/unflattened.xml'.format(
-                        url=url.replace('/data', '/media'))})
+                return JsonResponse(
+                    status=response.status_code,
+                    data={'url': '{host_url}/media/{type_data}/iom-{type_data}.xml'.format(  # NOQA: E501
+                        host_url=host_url, type_data=type_data)})
 
         return JsonResponse(status=400, data={'message': 'Bad Request'})
