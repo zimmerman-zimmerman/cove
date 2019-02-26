@@ -196,6 +196,12 @@ def upload(request):
                     root=root, path=path.replace('/data', ''))
                 dst = '{root}/{type_data}/iom-{type_data}.xml'.format(
                     root=root, type_data=type_data)
+
+                return JsonResponse(
+                    status=400,
+                    data={'source': src, 'destination': dst}
+                )
+
                 copyfile(src, dst)
 
                 return JsonResponse(
