@@ -205,7 +205,7 @@ def upload(request):
             else:
                 return JsonResponse(status=response.status_code, data={
                     'message': 'Access to media with status {}'.format(
-                        response.status_code
+                        url
                     )
                 })
         else:
