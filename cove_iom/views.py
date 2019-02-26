@@ -183,9 +183,10 @@ def upload(request):
             path = data.get_absolute_url()
             url = '{host_url}{path}'.format(host_url=host_url, path=path)
 
-            return JsonResponse(status=400, data={'message': url})
-
             response = requests.get(url)
+            return JsonResponse(status=400, data={
+                'message': response.status_code
+            })
 
             # Save the result xml file to specific folder
             # related to the type of file
