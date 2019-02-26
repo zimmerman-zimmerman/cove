@@ -203,8 +203,12 @@ def upload(request):
                     data={'url': '{host_url}/media/{type_data}/iom-{type_data}.xml'.format(  # NOQA: E501
                         host_url=host_url, type_data=type_data)})
             else:
-                return JsonResponse(status=response.status_code, data={'message': 'Why'})
+                return JsonResponse(status=response.status_code, data={
+                    'message': 'Access to media with status {}'.format(
+                        response.status_code
+                    )
+                })
         else:
             return JsonResponse(status=400, data={'message': form.errors})
 
-        return JsonResponse(status=400, data={'message': 'Bad Request'})
+    return JsonResponse(status=400, data={'message': 'Bad Request'})
