@@ -199,7 +199,7 @@ def upload(request):
 
                 return JsonResponse(
                     status=400,
-                    data={'source': src, 'destination': dst}
+                    data={'source': src, 'destination': dst, 'url': url}
                 )
 
                 copyfile(src, dst)
