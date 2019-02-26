@@ -167,6 +167,8 @@ def upload(request):
         request_data = request.POST
 
     if request_data:
+        return JsonResponse(status=400, data={'message': 'test'})
+
         form_name = 'upload_form'
         form = form_classes[form_name](request_data, request.FILES)
 
