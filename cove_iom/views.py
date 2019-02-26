@@ -167,8 +167,6 @@ def upload(request):
         request_data = request.POST
 
     if request_data:
-        return JsonResponse(status=400, data={'message': 'test'})
-
         form_name = 'upload_form'
         form = form_classes[form_name](request_data, request.FILES)
 
@@ -205,6 +203,6 @@ def upload(request):
                     data={'url': '{host_url}/media/{type_data}/iom-{type_data}.xml'.format(  # NOQA: E501
                         host_url=host_url, type_data=type_data)})
         else:
-            return JsonResponse(status=400, data={'message': form.errors})
+            return JsonResponse(status=400, data={'message': 'Very bad'})
 
         return JsonResponse(status=400, data={'message': 'Bad Request'})
