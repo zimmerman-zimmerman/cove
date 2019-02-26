@@ -185,11 +185,6 @@ def upload(request):
 
             response = requests.get(url)
 
-            return JsonResponse(
-                status=400,
-                data={'url': url}
-            )
-
             # Save the result xml file to specific folder
             # related to the type of file
             if response.status_code == 200:
