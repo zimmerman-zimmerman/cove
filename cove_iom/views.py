@@ -196,11 +196,20 @@ def upload(request):
                     root=root, path=path.replace('/data', ''))
                 dst = '{root}/{type_data}/iom-{type_data}.xml'.format(
                     root=root, type_data=type_data)
+
                 copyfile(src, dst)
 
                 return JsonResponse(
                     status=response.status_code,
                     data={'url': '{host_url}/media/{type_data}/iom-{type_data}.xml'.format(  # NOQA: E501
                         host_url=host_url, type_data=type_data)})
+            else:
+                return JsonResponse(status=response.status_code, data={
+                    'message': 'Access to media with status {}'.format(
+                        url
+                    )
+                })
+        else:
+            return JsonResponse(status=400, data={'message': form.errors})
 
-        return JsonResponse(status=400, data={'message': 'Bad Request'})
+    return JsonResponse(status=400, data={'message': 'Bad Request'})
