@@ -41,7 +41,7 @@ class CleanFile:
             self.work = self.clean_xlsx(pandas.read_excel(
                 self.file_location, sheet_name=sheet_name, header=None))
         else:
-            self.work = pandas.read_csv(self.file_location)
+            self.work = pandas.read_csv(self.file_location, na_filter=False)
 
     @staticmethod
     def clean_xlsx(work):
