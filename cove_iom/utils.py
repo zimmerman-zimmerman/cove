@@ -22,7 +22,7 @@ class CleanXML:
             self.log.error('No such file!')
             self.xml = False
 
-    def add_iati_activities_attr(self, version='2.03'):
+    def add_iati_activities_attr(self, version='2.02'):
         iso_date_time_now_utc = datetime.now(pytz.utc).isoformat()
         if self.xml:
             self.xml.update_head({'version': version})
@@ -57,6 +57,12 @@ class CleanFile:
 
     def mapping(self):
         # Convert some field to string data type
+        self.work['activity-date/0/@type'] = self.work[
+            'activity-date/0/@type'].astype(str)
+        self.work['activity-date/1/@type'] = self.work[
+            'activity-date/1/@type'].astype(str)
+        self.work['activity-date/2/@type'] = self.work[
+            'activity-date/2/@type'].astype(str)
         self.work['activity-date/3/@type'] = self.work[
             'activity-date/3/@type'].astype(str)
         self.work['sector/1/@code'] = self.work['sector/1/@code'].astype(str)
