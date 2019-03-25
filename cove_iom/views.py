@@ -162,11 +162,9 @@ def upload(request):
     """
     form_classes = iati_form_classes
 
-    request_data = None
-    if request.POST:
+    if request.FILES:
         request_data = request.POST
 
-    if request_data:
         form_name = 'upload_form'
         form = form_classes[form_name](request_data, request.FILES)
 
