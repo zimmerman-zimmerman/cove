@@ -58,6 +58,8 @@ COVE_CONFIG = {
     'hashcomments': True
 }
 
+"""
+# The IOM asked to turn off the sector code to the DAC code
 PROJECT_TYPE_MAPPING = {
     'RE': 72010, 'OP': 72010, 'RX': 72010, 'RA': 93010, 'DP': 72010,
     'EP': 74020, 'CC': 72050, 'DX': 72050, 'SN': 72010, 'CS': 16050,
@@ -70,6 +72,9 @@ PROJECT_TYPE_MAPPING = {
     'IM': 15190, 'MI': 91010, 'MJ': 91010, 'MK': 91010, 'ML': 91010,
     'OS': 91010, 'DM': 91010, 'AD': 91010
 }
+"""
+# Auto Mapping the sector code to the DAC code is disable
+PROJECT_TYPE_MAPPING = {}
 
 # Multi line support for budget line & expense line
 MULTI_LINE_SUPPORT = True
