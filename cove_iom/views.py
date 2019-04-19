@@ -186,21 +186,47 @@ def upload(request):
             # Save the result xml file to specific folder
             # related to the type of file
             if response.status_code == 200:
-                type_data = request.POST.get(
-                    'type_data', 'activity')
 
                 root = settings.MEDIA_ROOT
-                src = '{root}{path}/unflattened.xml'.format(
-                    root=root, path=path.replace('/data', ''))
-                dst = '{root}/{type_data}/iom-{type_data}.xml'.format(
-                    root=root, type_data=type_data)
 
-                copyfile(src, dst)
+                is_valid = True
+                f_validation = '{root}{path}/validation_errors-3.json'.format(
+                        root=root,
+                        path=path.replace('/data', '')
+                )
+                with open(f_validation) as j_file:
+                    j_validation = json.load(j_file)
+                    if j_validation:
+                        is_valid = False
 
-                return JsonResponse(
-                    status=response.status_code,
-                    data={'url': '{host_url}/media/{type_data}/iom-{type_data}.xml'.format(  # NOQA: E501
-                        host_url=host_url, type_data=type_data)})
+                if is_valid:
+                    type_data = request.POST.get(
+                        'type_data', 'activity')
+
+                    src = '{root}{path}/unflattened.xml'.format(
+                        root=root, path=path.replace('/data', ''))
+                    dst = '{root}/{type_data}/iom-{type_data}.xml'.format(
+                        root=root, type_data=type_data)
+
+                    copyfile(src, dst)
+
+                    return JsonResponse(
+                        status=response.status_code,
+                        data={'url': '{host_url}/media/{type_data}/iom-{type_data}.xml'.format(  # NOQA: E501
+                            host_url=host_url, type_data=type_data)})
+                else:
+                    return JsonResponse(
+                        status=400,
+                        data={
+                            'valid': False,
+                            'message': 'Invalid against Schema',
+                            'validation_url': '{host_url}{path}/validation_errors-3.json'.format(  # NOQA: E501
+                                host_url=host_url, path=path.replace(
+                                    '/data', '/media'
+                                )
+                            )
+                        }
+                    )
             else:
                 return JsonResponse(status=response.status_code, data={
                     'message': 'Access to media with status {}'.format(
