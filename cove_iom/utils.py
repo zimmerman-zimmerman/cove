@@ -22,7 +22,7 @@ class CleanXML:
             self.log.error('No such file!')
             self.xml = False
 
-    def add_iati_activities_attr(self, version='2.02'):
+    def add_iati_activities_attr(self, version='2.03'):
         iso_date_time_now_utc = datetime.now(pytz.utc).isoformat()
         if self.xml:
             self.xml.update_head({'version': version})
